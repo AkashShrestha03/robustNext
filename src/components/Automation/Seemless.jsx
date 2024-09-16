@@ -10,7 +10,7 @@ const Seemless = () => {
         <p>
           Take the manual work out of sending gifts with our custom API that
           automates robust distribution to your audience. Never miss another
-          birthday, lead follow-up or thank you gift again. Together we're
+          birthday, lead follow-up or thank you gift again. Together we are
           making robust smart.
         </p>
       </div>
