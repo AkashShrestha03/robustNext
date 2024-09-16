@@ -1,152 +1,56 @@
+import axios from "axios";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const Grid = () => {
+const Grid = ({ filtered }) => {
+  const [products, setProducts] = useState([]);
+
+  console.log(filtered);
+  
+
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const res = await axios.get(
+          "https://spice-19.onrender.com/api/product/All"
+        );
+        setProducts(res?.data?.data); // Axios automatically parses JSON
+        console.log(res?.data?.data); // Logs the fetched product data
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    getProduct();
+  }, []);
+
   return (
     <>
-      <div class="products-card">
-        <figure class="snip1423">
-          <img src="/Assests/pimg-1.jpg" alt="sample57" />
-          <figcaption>
-            <h3>tshirt print</h3>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id..
-            </p>
-            <div class="price">
-              <s>₹240.00</s>₹190.00
-            </div>
-          </figcaption>
-          <i class="fa fa-cart-plus"></i>
-          <Link href="/productedit"></Link>
-        </figure>
-
-        <figure class="snip1423">
-          <img src="Assests/pimg-2.jpg" alt="sample57" />
-          <figcaption>
-            <h3>Bags</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Est.\
-            </p>
-            <div class="price">
-              <s>₹240.00</s>₹190.00
-            </div>
-          </figcaption>
-          <i class="fa fa-cart-plus"></i>
-          <a href="#"></a>
-        </figure>
-
-        <figure class="snip1423">
-          <img src="/Assests/pimg-1.jpg" alt="sample57" />
-          <figcaption>
-            <h3>Bottle</h3>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id..
-            </p>
-            <div class="price">
-              <s>₹240.00</s>₹190.00
-            </div>
-          </figcaption>
-          <i class="fa fa-cart-plus"></i>
-          <a href="#"></a>
-        </figure>
-        <figure class="snip1423">
-          <img src="/Assests/pimg-2.jpg" alt="sample57" />
-          <figcaption>
-            <h3>Bags</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Est.\
-            </p>
-            <div class="price">
-              <s>₹240.00</s>₹190.00
-            </div>
-          </figcaption>
-          <i class="fa fa-cart-plus"></i>
-          <a href="#"></a>
-        </figure>
-        <figure class="snip1423">
-          <img src="/Assests/pimg-1.jpg" alt="sample57" />
-          <figcaption>
-            <h3>Bottle</h3>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id..
-            </p>
-            <div class="price">
-              <s>₹240.00</s>₹190.00
-            </div>
-          </figcaption>
-          <i class="fa fa-cart-plus"></i>
-          <a href="#"></a>
-        </figure>
-        <figure class="snip1423">
-          <img src="/Assests/pimg-2.jpg" alt="sample57" />
-          <figcaption>
-            <h3>Bags</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Est.\
-            </p>
-            <div class="price">
-              <s>₹240.00</s>₹190.00
-            </div>
-          </figcaption>
-          <i class="fa fa-cart-plus"></i>
-          <a href="#"></a>
-        </figure>
-        <figure class="snip1423">
-          <img src="Assests/pimg-1.jpg" alt="sample57" />
-          <figcaption>
-            <h3>Bottle</h3>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id..
-            </p>
-            <div class="price">
-              <s>₹240.00</s>₹190.00
-            </div>
-          </figcaption>
-          <i class="fa fa-cart-plus"></i>
-          <a href="#"></a>
-        </figure>
-        <figure class="snip1423">
-          <img src="Assests/pimg-2.jpg" alt="sample57" />
-          <figcaption>
-            <h3>Bags</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Est.\
-            </p>
-            <div class="price">
-              <s>₹240.00</s>₹190.00
-            </div>
-          </figcaption>
-          <i class="fa fa-cart-plus"></i>
-          <a href="#"></a>
-        </figure>
-        <figure class="snip1423">
-          <img src="Assests/pimg-1.jpg" alt="sample57" />
-          <figcaption>
-            <h3>Bottle</h3>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id..
-            </p>
-            <div class="price">
-              <s>₹240.00</s>₹190.00
-            </div>
-          </figcaption>
-          <i class="fa fa-cart-plus"></i>
-          <a href="#"></a>
-        </figure>
-        <figure class="snip1423">
-          <img src="Assests/pimg-2.jpg" alt="sample57" />
-          <figcaption>
-            <h3>Bags</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Est.\
-            </p>
-            <div class="price">
-              <s>₹240.00</s>₹190.00
-            </div>
-          </figcaption>
-          <i class="fa fa-cart-plus"></i>
-          <a href="#"></a>
-        </figure>
+      <div className="products-card">
+        {" "}
+        {/* Changed class to className */}
+        {(filtered?.length > 0 ? filtered : products)?.map((product, index) => (
+          <figure className="snip1423" key={index}>
+            {" "}
+            {/* Changed class to className */}
+            <img
+              src={product?.productPicture[0] || "/Assests/mokup1.png"}
+              alt="sample57"
+            />
+            <figcaption>
+              <h3>{product?.productName}</h3>
+              <p>{product?.productDescription}</p>
+              <div className="price d-flex ">
+                {" "}
+                {/* Changed class to className */}
+                <s>₹{product?.productMRP}</s>₹{product?.productPrice}
+              </div>
+            </figcaption>
+            <i className="fa fa-cart-plus"></i>{" "}
+            {/* Changed class to className */}
+            <Link href="/productedit"></Link>
+          </figure>
+        ))}
       </div>
     </>
   );

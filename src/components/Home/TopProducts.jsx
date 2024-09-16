@@ -9,7 +9,7 @@ const TopProducts = () => {
       <div className="d-flex justify-content-center align-items-center">
         <section className="hexagon-gallery">
           <div className="hex">
-            <img src="./Assets/pimg-1.jpg" alt="Drink Ware" />
+            <img src="./Assests/pimg-1.jpg" alt="Drink Ware" />
             <div
               className="item-name-hex"
               style={{ backgroundColor: "#ff2c5c" }}
@@ -19,7 +19,7 @@ const TopProducts = () => {
             </div>
           </div>
           <div className="hex">
-            <img src="/Assets/pimg-2.jpg" alt="Bags" />
+            <img src="/Assests/pimg-2.jpg" alt="Bags" />
             <div
               className="item-name-hex"
               style={{ backgroundColor: "#00b9f8" }}
@@ -29,7 +29,7 @@ const TopProducts = () => {
             </div>
           </div>
           <div className="hex">
-            <img src="/Assets/pimg-3.jpg" alt="Stationery" />
+            <img src="/Assests/pimg-3.jpg" alt="Stationery" />
             <div
               className="item-name-hex"
               style={{ backgroundColor: "#9844ff" }}
@@ -39,7 +39,7 @@ const TopProducts = () => {
             </div>
           </div>
           <div className="hex">
-            <img src="/Assets/pimg-4.jpg" alt="Accessories" />
+            <img src="/Assests/pimg-4.jpg" alt="Accessories" />
             <div
               className="item-name-hex"
               style={{ backgroundColor: "#f35000" }}
@@ -49,7 +49,7 @@ const TopProducts = () => {
             </div>
           </div>
           <div className="hex">
-            <img src="/Assets/pimg-5.jpg" alt="Clothing" />
+            <img src="/Assests/pimg-5.jpg" alt="Clothing" />
             <div
               className="item-name-hex"
               style={{ backgroundColor: "#31814f" }}
@@ -59,7 +59,7 @@ const TopProducts = () => {
             </div>
           </div>
           <div className="hex">
-            <img src="/Assets/pimg-1.jpg" alt="Drink Ware" />
+            <img src="/Assests/pimg-1.jpg" alt="Drink Ware" />
             <div
               className="item-name-hex"
               style={{ backgroundColor: "#ff2c5c" }}
@@ -69,7 +69,7 @@ const TopProducts = () => {
             </div>
           </div>
           <div className="hex">
-            <img src="/Assets/pimg-3.jpg" alt="Stationery" />
+            <img src="/Assests/pimg-3.jpg" alt="Stationery" />
             <div
               className="item-name-hex"
               style={{ backgroundColor: "#9844ff" }}
@@ -79,7 +79,7 @@ const TopProducts = () => {
             </div>
           </div>
           <div className="hex">
-            <img src="/Assets/pimg-1.jpg" alt="Drink Ware" />
+            <img src="/Assests/pimg-1.jpg" alt="Drink Ware" />
             <div
               className="item-name-hex"
               style={{ backgroundColor: "#ff2c5c" }}
@@ -89,7 +89,7 @@ const TopProducts = () => {
             </div>
           </div>
           <div className="hex">
-            <img src="/Assets/pimg-2.jpg" alt="Bags" />
+            <img src="/Assests/pimg-2.jpg" alt="Bags" />
             <div
               className="item-name-hex"
               style={{ backgroundColor: "#00b9f8" }}
@@ -99,7 +99,7 @@ const TopProducts = () => {
             </div>
           </div>
           <div className="hex">
-            <img src="/Assets/pimg-3.jpg" alt="Stationery" />
+            <img src="/Assests/pimg-3.jpg" alt="Stationery" />
             <div
               className="item-name-hex"
               style={{ backgroundColor: "#9844ff" }}

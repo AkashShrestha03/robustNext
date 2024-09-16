@@ -864,9 +864,9 @@ i.fa.fa-cart-plus {
     width: 29%;
 }
 
-.accordion {
+.accordion-header button {
   background-color: #eee;
-  color: #444;
+  color: #5f5e5e;
   cursor: pointer;
   padding: 18px;
   width: 100%;
@@ -878,12 +878,12 @@ i.fa.fa-cart-plus {
 }
 
 .active, .accordion:hover {
-  background-color: #ccc; 
+ box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .panel {
   padding: 0 18px;
-  display: none;
+
   background-color: white;
   overflow: hidden;
 }
@@ -907,6 +907,7 @@ label.container {
 .filter-main-container button {
   border: 0.5px solid rgb(162, 162, 162);
   background: none;
+  width: 100%;
   margin: 3px 0px;
 }
 
