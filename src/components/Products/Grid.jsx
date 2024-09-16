@@ -48,7 +48,7 @@ const Grid = ({ filtered }) => {
             </figcaption>
             <i className="fa fa-cart-plus"></i>{" "}
             {/* Changed class to className */}
-            <Link href="/productedit"></Link>
+            <Link href=""></Link>
           </figure>
         ))}
       </div>
