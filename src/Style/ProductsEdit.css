@@ -1,0 +1,353 @@
+/* 
+.btttn {
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background: transparent;
+    color: #000000;
+}
+
+
+nav .links ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.links ul li {
+    padding-right: 20px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    list-style: none;
+}
+ */
+
+/*  */
+
+.row{
+    width: caLc( 100% - 10%);
+    margin: auto;
+    justify-content: center;
+}
+.container {
+    position: relative;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+    width: 680px;
+    height: 400px;
+}
+  .mySlides .myslide-inner-img {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+  }
+
+  .myslide-inner-img img {
+    width: 100% !important;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  /* Add a pointer when hovering over the thumbnail images */
+  .cursor {
+    cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* Container for image text */
+  .caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Six columns side by side */
+  .column {
+    float: left;
+    width: 12.66%;
+  }
+  .column:hover{
+    border: 2px solid red;
+    border-radius: 5px;
+  }
+  
+  /* Add a transparency effect for thumnbail images */
+  .demo {
+    opacity: 0.6;
+  }
+  
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }
+
+
+
+  .p-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 100px;
+  }
+  .circle-border {
+    border: 1px solid transparent;
+    width: fit-content;
+    padding: 2;
+    padding: 5px;
+    border-radius: 100px;
+ 
+  }
+  button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .circle-border:hover{
+    border: 1px solid #ce5939;
+  }
+  .active-circle{
+    border: 1px solid #ce5939;
+  }
+  .circle-border:active{
+    border: 1px solid #ce5939;
+  }
+
+  .btttn-pop {
+    padding: 10px 20px;
+    border: none;
+    background: #ce5939;
+    height: fit-content;
+    color: #ffffff;
+}
+
+.btttn-pop-1 {
+  padding: 12px 20px;
+  border: none;
+  background: #ce5939;
+  height: fit-content;
+  color: #ffffff;
+}
+
+
+
+/* modal */
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 200000000; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+#myDIV {
+  display: block;
+  position: fixed;
+  background: #ffffff;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+  top: 86px;
+  width: 470px;
+  height: 100%;
+  right: 0px;
+  padding: 50px;
+  z-index: 200000;
+}
+.pop-up-btn{
+  position: absolute;
+  top: -9px;
+  left: -10px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  background-color: #ce5939;
+}
+hr{
+  background-color: rgb(182 182 182);
+}
+
+
+.prev:hover, .next:hover {
+  background-color: rgb(206 89 57);
+  color: white;
+}
+
+
+.btn-ex{
+  border: 1px solid transparent;
+    font-family: avertaregular,San Francisco,Roboto,Segoe UI,Helvetica Neue,Lucida Grande,Arial,sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: .5px;
+    line-height: 26px;
+    margin: 3px 3px 10px;
+    color: white;
+    background-color: #ce5939;
+    min-width: 157px;
+    padding: 6px;
+    text-align: center;
+    text-transform: none;
+    transition: all .2s ease-in-out;
+}
+.btn-ex:hover{
+  border: 1px solid #ce5939;
+    font-family: avertaregular,San Francisco,Roboto,Segoe UI,Helvetica Neue,Lucida Grande,Arial,sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: .5px;
+    line-height: 26px;
+    margin: 3px 3px 10px;
+    color: #ce5939;
+    background-color: #ffffff;
+    min-width: 157px;
+    padding: 6px;
+    text-align: center;
+    text-transform: none;
+    transition: all .2s ease-in-out;
+}
+
+.btn-ex-1{
+  border: 1px solid black;
+    font-family: avertaregular,San Francisco,Roboto,Segoe UI,Helvetica Neue,Lucida Grande,Arial,sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: .5px;
+    line-height: 26px;
+    margin: 3px 3px 10px;
+    color: rgb(0, 0, 0);
+    background-color: #ffffff;
+    min-width: 157px;
+    padding: 6px;
+    text-align: center;
+    text-transform: none;
+    transition: all .2s ease-in-out;
+}
+.btn-ex-1:hover{
+  border: 1px solid #ce5939;
+    font-family: avertaregular,San Francisco,Roboto,Segoe UI,Helvetica Neue,Lucida Grande,Arial,sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: .5px;
+    line-height: 26px;
+    margin: 3px 3px 10px;
+    color: #ce5939;
+    background-color: #ffffff;
+    min-width: 157px;
+    padding: 6px;
+    text-align: center;
+    text-transform: none;
+    transition: all .2s ease-in-out;
+}
+
+
+/*  */
+button.circle-border {
+  margin-right: 25px;
+}
+
+
+.cart-details-heading {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 28px;
+    color: rgb(52 52 86);
+}
+
+.cart-details-text {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: #a2a2a2;
+}
+
+.product-step {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: #454545;
+}
+
+.product-caption{
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: #2c2c2c;
+}
+
+.offer-card ul li {
+  font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #383851;
+    font-size: 12px;
+    list-style-type: none;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+
+.cart-details-main-container {
+  max-width: 1440px;
+  margin: auto;
+  margin-top: 180px;
+}
