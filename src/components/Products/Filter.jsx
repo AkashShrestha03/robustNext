@@ -5,7 +5,8 @@ const Filter = () => {
     <div class="filter-main-container">
       <h2>Sort by Filter</h2>
 
-      <button class="accordion">Categary</button>
+
+      <button class="accordion">Category</button>
       <div class="panel">
         <label class="container">
           One
