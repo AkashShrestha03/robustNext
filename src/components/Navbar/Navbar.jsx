@@ -70,6 +70,13 @@ const Navbar = () => {
                       </Link>
                     </div>
 
+                    <div class="signup">
+                      <Link style={{ color: "white" }} href="/brochure">
+                        <button className="p-2 btn-light text-secondary shadow">
+                          Brochure
+                        </button>
+                      </Link>
+                    </div>
                     <div class="cart f24">
                       <Link style={{ color: "white" }} href="/cart">
                         <i class="fa fa-shopping-cart"></i>
@@ -99,51 +106,49 @@ const Navbar = () => {
                             aria-haspopup="true"
                             aria-expanded="false"
                           >
-                            Brands
-                          </p>
-                          <div
-                            class="dropdown-menu "
-                            aria-labelledby="dropdownMenuButton"
-                          >
-                            <div class="d-flex" style={{ fontSize: "13px" }}>
-                              <a class="dropdown-item" href="#">
-                                Action
-                              </a>
-                              <a class="dropdown-item" href="#">
-                                Another action
-                              </a>
-                              <a class="dropdown-item" href="#">
-                                Something else here
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="dropdown">
-                          <p
-                            class=" dropdown-toggle mb-0"
-                            id="dropdownMenuButton"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                          >
                             Apparel
                           </p>
                           <div
-                            class="dropdown-menu "
+                            class="dropdown-menu"
                             aria-labelledby="dropdownMenuButton"
                           >
                             <div class="d-flex" style={{ fontSize: "13px" }}>
-                              <a class="dropdown-item" href="#">
-                                Action
-                              </a>
-                              <a class="dropdown-item" href="#">
-                                Another action
-                              </a>
-                              <a class="dropdown-item" href="#">
-                                Something else here
-                              </a>
+                              <Link
+                                class="dropdown-item"
+                                href="/products/apparels/allapparels"
+                              >
+                                All Apparels
+                              </Link>
+                              <Link
+                                class="dropdown-item"
+                                href="/products/apparels/tshirts"
+                              >
+                                T Shirts
+                              </Link>
+                              <Link
+                                class="dropdown-item"
+                                href="/products/apparels/hats"
+                              >
+                                Hats
+                              </Link>
+                              <Link
+                                class="dropdown-item"
+                                href="/products/apparels/footwears"
+                              >
+                                Footwear
+                              </Link>
+                              <Link
+                                class="dropdown-item"
+                                href="/products/apparels/sweatshirts"
+                              >
+                                Sweatshirts
+                              </Link>
+                              <Link
+                                class="dropdown-item"
+                                href="/products/apparels/outerwear"
+                              >
+                                Outwear
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -164,15 +169,24 @@ const Navbar = () => {
                             aria-labelledby="dropdownMenuButton"
                           >
                             <div class="d-flex" style={{ fontSize: "13px" }}>
-                              <a class="dropdown-item" href="#">
-                                Action
-                              </a>
-                              <a class="dropdown-item" href="#">
-                                Another action
-                              </a>
-                              <a class="dropdown-item" href="#">
-                                Something else here
-                              </a>
+                              <Link
+                                class="dropdown-item"
+                                href="/products/office/desk_accessories"
+                              >
+                                Desk Accessories
+                              </Link>
+                              <Link
+                                class="dropdown-item"
+                                href="/products/office/notebooks"
+                              >
+                                Notebooks
+                              </Link>
+                              <Link
+                                class="dropdown-item"
+                                href="/products/office/pens"
+                              >
+                                Pens
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -193,15 +207,24 @@ const Navbar = () => {
                             aria-labelledby="dropdownMenuButton"
                           >
                             <div class="d-flex" style={{ fontSize: "13px" }}>
-                              <a class="dropdown-item" href="#">
-                                Action
-                              </a>
-                              <a class="dropdown-item" href="#">
-                                Another action
-                              </a>
-                              <a class="dropdown-item" href="#">
-                                Something else here
-                              </a>
+                              <Link
+                                class="dropdown-item"
+                                href="/products/drinkware/waterbottles"
+                              >
+                                Water bottles
+                              </Link>
+                              <Link
+                                class="dropdown-item"
+                                href="/products/drinkware/mugs"
+                              >
+                                Mugs
+                              </Link>
+                              <Link
+                                class="dropdown-item"
+                                href="/products/drinkware/tumblers"
+                              >
+                                Tumblers
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -222,15 +245,24 @@ const Navbar = () => {
                             aria-labelledby="dropdownMenuButton"
                           >
                             <div class="d-flex" style={{ fontSize: "13px" }}>
-                              <a class="dropdown-item" href="#">
-                                Action
-                              </a>
-                              <a class="dropdown-item" href="#">
-                                Another action
-                              </a>
-                              <a class="dropdown-item" href="#">
-                                Something else here
-                              </a>
+                              <Link
+                                class="dropdown-item"
+                                href="/products/bags/totes"
+                              >
+                                Totes
+                              </Link>
+                              <Link
+                                class="dropdown-item"
+                                href="/products/bags/backpacks"
+                              >
+                                Backpacks
+                              </Link>
+                              <Link
+                                class="dropdown-item"
+                                href="/products/bags/pouches"
+                              >
+                                Pouches
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -251,19 +283,81 @@ const Navbar = () => {
                             aria-labelledby="dropdownMenuButton"
                           >
                             <div class="d-flex" style={{ fontSize: "13px" }}>
-                              <a class="dropdown-item" href="#">
-                                Action
-                              </a>
-                              <a class="dropdown-item" href="#">
-                                Another action
-                              </a>
-                              <a class="dropdown-item" href="#">
-                                Something else here
-                              </a>
+                              <Link
+                                class="dropdown-item"
+                                href="/products/tech/tech_accessories"
+                              >
+                                Tech Accessories
+                              </Link>
+                              <Link
+                                class="dropdown-item"
+                                href="/products/tech/chargers"
+                              >
+                                Chargers
+                              </Link>
+                              <Link
+                                class="dropdown-item"
+                                href="/products/tech/audio"
+                              >
+                                Audio
+                              </Link>
                             </div>
                           </div>
                         </div>
                       </li>
+                      <li>
+                        <div class="dropdown">
+                          <p
+                            class=" dropdown-toggle mb-0"
+                            id="dropdownMenuButton"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                          >
+                            Wellness
+                          </p>
+                          <div
+                            class="dropdown-menu "
+                            aria-labelledby="dropdownMenuButton"
+                          >
+                            <div class="d-flex" style={{ fontSize: "13px" }}>
+                              <Link
+                                class="dropdown-item"
+                                href="/products/wellness/self_care"
+                              >
+                                Self Care
+                              </Link>
+                              <Link
+                                class="dropdown-item"
+                                href="/products/wellness/fitness"
+                              >
+                                Fitness & Recreation
+                              </Link>
+                              <Link
+                                class="dropdown-item"
+                                href="/products/wellness/outdoors"
+                              >
+                                Camping & Outdoors
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <Link href="/products/ecofriendly">
+                        <li>
+                          <div class="dropdown">
+                            <p
+                              class=" mb-0"
+                              id="dropdownMenuButton"
+                              data-toggle="dropdown"
+                              aria-haspopup="true"
+                              aria-expanded="false"
+                            >
+                              Eco Friendly
+                            </p>
+                          </div>
+                        </li>
+                      </Link>
                     </ul>
                   </div>
                   <div></div>
@@ -352,6 +446,14 @@ const Navbar = () => {
                   </Link>
                 </div>
 
+                <div class="signup">
+                  <Link style={{ color: "white" }} href="/brochure">
+                    <button className="p-2 btn-light text-secondary shadow">
+                      Brochure
+                    </button>
+                  </Link>
+                </div>
+
                 <div class="cart f24">
                   <Link style={{ color: "white" }} href="/cart">
                     <i class="fa fa-shopping-cart"></i>
@@ -364,7 +466,7 @@ const Navbar = () => {
             <nav>
               <div class="logo">
                 <Link href="/">
-                  <img src="../../Assests/logo2.png" alt="" />
+                  <img src="/Assests/logo2.png" alt="" />
                 </Link>
               </div>
               <div class="links">
@@ -381,51 +483,49 @@ const Navbar = () => {
                         aria-haspopup="true"
                         aria-expanded="false"
                       >
-                        Brands
-                      </p>
-                      <div
-                        class="dropdown-menu "
-                        aria-labelledby="dropdownMenuButton"
-                      >
-                        <div class="d-flex" style={{ fontSize: "13px" }}>
-                          <a class="dropdown-item" href="#">
-                            Action
-                          </a>
-                          <a class="dropdown-item" href="#">
-                            Another action
-                          </a>
-                          <a class="dropdown-item" href="#">
-                            Something else here
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="dropdown">
-                      <p
-                        class=" dropdown-toggle mb-0"
-                        id="dropdownMenuButton"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
                         Apparel
                       </p>
                       <div
-                        class="dropdown-menu "
+                        class="dropdown-menu"
                         aria-labelledby="dropdownMenuButton"
                       >
                         <div class="d-flex" style={{ fontSize: "13px" }}>
-                          <a class="dropdown-item" href="#">
-                            Action
-                          </a>
-                          <a class="dropdown-item" href="#">
-                            Another action
-                          </a>
-                          <a class="dropdown-item" href="#">
-                            Something else here
-                          </a>
+                          <Link
+                            class="dropdown-item"
+                            href="/products/apparels/allapparels"
+                          >
+                            All Apparels
+                          </Link>
+                          <Link
+                            class="dropdown-item"
+                            href="/products/apparels/tshirts"
+                          >
+                            T Shirts
+                          </Link>
+                          <Link
+                            class="dropdown-item"
+                            href="/products/apparels/hats"
+                          >
+                            Hats
+                          </Link>
+                          <Link
+                            class="dropdown-item"
+                            href="/products/apparels/footwears"
+                          >
+                            Footwear
+                          </Link>
+                          <Link
+                            class="dropdown-item"
+                            href="/products/apparels/sweatshirts"
+                          >
+                            Sweatshirts
+                          </Link>
+                          <Link
+                            class="dropdown-item"
+                            href="/products/apparels/outerwear"
+                          >
+                            Outwear
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -446,15 +546,24 @@ const Navbar = () => {
                         aria-labelledby="dropdownMenuButton"
                       >
                         <div class="d-flex" style={{ fontSize: "13px" }}>
-                          <a class="dropdown-item" href="#">
-                            Action
-                          </a>
-                          <a class="dropdown-item" href="#">
-                            Another action
-                          </a>
-                          <a class="dropdown-item" href="#">
-                            Something else here
-                          </a>
+                          <Link
+                            class="dropdown-item"
+                            href="/products/office/desk_accessories"
+                          >
+                            Desk Accessories
+                          </Link>
+                          <Link
+                            class="dropdown-item"
+                            href="/products/office/notebooks"
+                          >
+                            Notebooks
+                          </Link>
+                          <Link
+                            class="dropdown-item"
+                            href="/products/office/pens"
+                          >
+                            Pens
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -470,20 +579,30 @@ const Navbar = () => {
                       >
                         Drinkware
                       </p>
+
                       <div
                         class="dropdown-menu "
                         aria-labelledby="dropdownMenuButton"
                       >
                         <div class="d-flex" style={{ fontSize: "13px" }}>
-                          <a class="dropdown-item" href="#">
-                            Action
-                          </a>
-                          <a class="dropdown-item" href="#">
-                            Another action
-                          </a>
-                          <a class="dropdown-item" href="#">
-                            Something else here
-                          </a>
+                          <Link
+                            class="dropdown-item"
+                            href="/products/drinkware/waterbottles"
+                          >
+                            Water bottles
+                          </Link>
+                          <Link
+                            class="dropdown-item"
+                            href="/products/drinkware/mugs"
+                          >
+                            Mugs
+                          </Link>
+                          <Link
+                            class="dropdown-item"
+                            href="/products/drinkware/tumblers"
+                          >
+                            Tumblers
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -504,15 +623,24 @@ const Navbar = () => {
                         aria-labelledby="dropdownMenuButton"
                       >
                         <div class="d-flex" style={{ fontSize: "13px" }}>
-                          <a class="dropdown-item" href="#">
-                            Action
-                          </a>
-                          <a class="dropdown-item" href="#">
-                            Another action
-                          </a>
-                          <a class="dropdown-item" href="#">
-                            Something else here
-                          </a>
+                          <Link
+                            class="dropdown-item"
+                            href="/products/bags/totes"
+                          >
+                            Totes
+                          </Link>
+                          <Link
+                            class="dropdown-item"
+                            href="/products/bags/backpacks"
+                          >
+                            Backpacks
+                          </Link>
+                          <Link
+                            class="dropdown-item"
+                            href="/products/bags/pouches"
+                          >
+                            Pouches
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -533,24 +661,84 @@ const Navbar = () => {
                         aria-labelledby="dropdownMenuButton"
                       >
                         <div class="d-flex" style={{ fontSize: "13px" }}>
-                          <a class="dropdown-item" href="#">
-                            Action
-                          </a>
-                          <a class="dropdown-item" href="#">
-                            Another action
-                          </a>
-                          <a class="dropdown-item" href="#">
-                            Something else here
-                          </a>
+                          <Link
+                            class="dropdown-item"
+                            href="/products/tech/tech_accessories"
+                          >
+                            Tech Accessories
+                          </Link>
+                          <Link
+                            class="dropdown-item"
+                            href="/products/tech/chargers"
+                          >
+                            Chargers
+                          </Link>
+                          <Link
+                            class="dropdown-item"
+                            href="/products/tech/audio"
+                          >
+                            Audio
+                          </Link>
                         </div>
                       </div>
                     </div>
                   </li>
+                  <li>
+                    <div class="dropdown">
+                      <p
+                        class=" dropdown-toggle mb-0"
+                        id="dropdownMenuButton"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        Wellness
+                      </p>
+                      <div
+                        class="dropdown-menu "
+                        aria-labelledby="dropdownMenuButton"
+                      >
+                        <div class="d-flex" style={{ fontSize: "13px" }}>
+                          <Link
+                            class="dropdown-item"
+                            href="/products/wellness/self_care"
+                          >
+                            Self Care
+                          </Link>
+                          <Link
+                            class="dropdown-item"
+                            href="/products/wellness/fitness"
+                          >
+                            Fitness & Recreation
+                          </Link>
+                          <Link
+                            class="dropdown-item"
+                            href="/products/wellness/outdoors"
+                          >
+                            Camping & Outdoors
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <Link href="/products/ecofriendly">
+                    <li>
+                      <div class="dropdown">
+                        <p
+                          class=" mb-0"
+                          id="dropdownMenuButton"
+                          data-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                        >
+                          Eco Friendly
+                        </p>
+                      </div>
+                    </li>
+                  </Link>
                 </ul>
               </div>
-              <div>
-
-              </div>
+              <div></div>
             </nav>
           </div>
         </div>

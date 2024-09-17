@@ -11,7 +11,7 @@ import React, { useRef, useState } from "react";
 // // import required modules
 // import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 
-const ImageSlide = () => {
+const ImageSlide = ({images}) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
@@ -23,24 +23,14 @@ const ImageSlide = () => {
           data-bs-ride="carousel"
         >
           <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="/Assests/mokup.png" class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="/Assests/mokup.png" class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="/Assests/mokup.png" class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="/Assests/mokup.png" class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="/Assests/mokup.png" class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="/Assests/mokup.png" class="d-block w-100" alt="..." />
-            </div>
+            {images?.map((image, index) => (
+              <div
+                class={`carousel-item ${index === 0 && "active"}`}
+                key={index}
+              >
+                <img src={image} class="d-block w-100" alt="..." />
+              </div>
+            ))}
           </div>
           <button
             class="carousel-control-prev"

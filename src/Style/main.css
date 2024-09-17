@@ -166,6 +166,28 @@ button :focus {
   font-size: xxx-large;
 }
 
+  .dropdown-menu {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.3s ease;
+    position: absolute;
+  }
+
+  .dropdown:hover{
+    border-bottom: 1px solid #6f42c1 ;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    
+  }
+
+  .links li{
+    cursor: pointer;
+  }
+
 /*  */
 
 .swiper-wrapper {

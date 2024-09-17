@@ -1,0 +1,104 @@
+/* General Styling */
+/* body {
+  background-color: #f3f0ff;
+  font-family: 'Poppins', sans-serif;
+} */
+
+.brochure-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 200px auto;
+  padding: 40px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  border: 2px solid #d1c4e9;
+}
+
+/* Header Section */
+.brochure-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.brochure-header h1 {
+  font-size: 3em;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.brochure-header p {
+  font-size: 1.2em;
+}
+
+.product-price {
+  font-size: 2.5em;
+
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+/* Image Section */
+.brochure-images {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.brochure-images img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  border: 2px solid #b39ddb; /* Subtle border */
+  box-shadow: 0px 5px 15px rgba(106, 27, 154, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.brochure-images img:hover {
+ 
+  box-shadow: 0px 8px 20px rgba(106, 27, 154, 0.3);
+}
+
+/* Description Section */
+.brochure-description {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.brochure-description h2 {
+  font-size: 2em;
+ 
+  margin-bottom: 15px;
+}
+
+.brochure-description p {
+  font-size: 1.1em;
+ color: gray;
+ font-weight: 500;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Footer Section */
+.brochure-footer {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.brochure-footer a {
+  color: #7e57c2; /* Soft purple */
+  font-size: 1.2em;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.brochure-footer a:hover {
+  color: #512da8; /* Darker purple */
+}
+
+.btn-download{
+  padding: 10px;
+  background: rgb(189, 102, 189);
+}

@@ -1,22 +1,29 @@
-
-import "../Style/Auth.css"
-import "../Style/cart.css"
-import "../Style/main.css"
-import "../Style/mokeup.css"
-import "../Style/Products.css"
-import "../Style/ProductsEdit.css"
-import "../Style/style.css"
+import { Provider } from "react-redux";
+import "../Style/Auth.css";
+import "../Style/brochure.css";
+import "../Style/cart.css";
+import "../Style/main.css";
+import "../Style/mokeup.css";
+import "../Style/Products.css";
+import "../Style/ProductsEdit.css";
+import "../Style/style.css";
 import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/Navbar/Navbar";
 import "@/styles/globals.css";
 import Script from "next/script";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistor, store } from "@/store/store";
 
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <Navbar />
-      <Component {...pageProps} />
-      <Footer />
+      <Provider store={store}>
+        <PersistGate persistor={persistor}>
+          <Navbar />
+          <Component {...pageProps} />
+          <Footer />
+        </PersistGate>
+      </Provider>
 
       <Script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
