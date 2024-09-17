@@ -5,19 +5,22 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const BrochureList = () => {
-  const router = useRouter()
+  const router = useRouter();
   const { brochure } = useSelector((state) => state.product);
   console.log(brochure);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   return (
     <>
       <main class="cart-details-inner">
         <div class="basket">
           <div class="basket-module">
-            <label for="promo-code">Download shortlisted items</label>
-
-            <button class="btn bg-sky-blue" onClick={()=>router.push("/downloadbrochure")}>Download Brochure</button>
+            <button
+              class="btn bg-sky-blue"
+              onClick={() => router.push("/downloadbrochure")}
+            >
+              Brochure
+            </button>
           </div>
           <div class="basket-labels">
             <ul>
