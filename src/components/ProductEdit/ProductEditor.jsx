@@ -1,12 +1,18 @@
 import { shortlist } from "@/store/productSlice";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-const ProductEditor = ({product}) => {
-  const router = useRouter()
-  const dispatch = useDispatch()
+const ProductEditor = ({ product }) => {
+  const [isShortlisted, setIsShortlisted] = useState(false);
+  const router = useRouter();
+  const dispatch = useDispatch();
+
+  const handleShortlist = () => {
+    setIsShortlisted(true);
+    dispatch(shortlist(product))
+  };
   return (
     <div class=" Product-editor p-3 ">
       <div class=" edit-container-info-section d-flex justify-content-between align-items-center">
@@ -15,12 +21,13 @@ const ProductEditor = ({product}) => {
           <p class="cart-details-text">{product?.productDescription}</p>
           <div className="price mt-2 ">
             {" "}
-            {/* Changed class to className */}
             <s>₹{product?.productMRP}</s>₹{product?.productPrice}
           </div>
         </div>
         <div class="btn-sep-cart-details">
-          <button class="btn bg-pink" onClick={()=> dispatch(shortlist(product))}>Shortlist</button>
+          <button class="btn bg-pink" onClick={handleShortlist}>
+            {isShortlisted ? "Shortlisted" : "Shortlist"}
+          </button>
 
           {/* <Link href="/cart">
             <button class="btn bg-sky-blue">Add To Cart</button>
@@ -28,12 +35,9 @@ const ProductEditor = ({product}) => {
         </div>
       </div>
 
-     
-
       <hr />
       <div class="choose-color-container  m-4">
         <h5 class="">
-          {/* <span class="product-step">1</span>&nbsp; */}
           <span class="product-caption">
             <b>Choose your colors</b>
           </span>
@@ -65,16 +69,15 @@ const ProductEditor = ({product}) => {
       <hr />
       <div class=" offer-card uplaod-img-section m-4">
         <h5 class="">
-          {/* <span class="product-step">
-            <b>2</b>
-          </span> */}
           &nbsp;
           <span class="product-caption">
             <b>Descriptions</b>
           </span>
         </h5>
+
         <ul>
-          <li>
+          <li> {product?.productDescription}</li>
+          {/* <li>
             Bank Offer: Get ₹50 instant discount on first UPI txn on order of
             ₹200 and aboveT&C{" "}
           </li>
@@ -91,7 +94,7 @@ const ProductEditor = ({product}) => {
             {" "}
             Special Price: Get extra 10% off (price inclusive of
             cashback/coupon)T&C
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>

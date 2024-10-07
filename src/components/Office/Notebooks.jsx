@@ -30,7 +30,6 @@ const Notebooks = () => {
 
   return (
     <>
-      {" "}
       <div class="filter-main-product-cards-main container">
         <div className="row">
           <div className="col-md-3">
@@ -42,13 +41,11 @@ const Notebooks = () => {
           <div className="col-md-8">
             {" "}
             <h2 className="text-center">Notebooks</h2>{" "}
-            {/* Changed class to className */}
             <div className="products-card">
               {(filtered?.length > 0 ? filtered : products)?.map(
                 (product, index) => (
                   <figure className="snip1423" key={index}>
                     {" "}
-                    {/* Changed class to className */}
                     <img
                       src={product?.productPicture[0] || "/Assests/mokup1.png"}
                       alt="sample57"
@@ -58,12 +55,10 @@ const Notebooks = () => {
                       <p>{product?.productDescription}</p>
                       <div className="price">
                         {" "}
-                        {/* Changed class to className */}
                         <s>₹{product?.productMRP}</s>₹{product?.productPrice}
                       </div>
                     </figcaption>
                     <i className="fa fa-cart-plus"></i>{" "}
-                    {/* Changed class to className */}
                     <Link
                       href="/productedit"
                       onClick={() => dispatch(productDetails(product))}
