@@ -4,9 +4,12 @@ import React, { useEffect, useState } from "react";
 import Filter from "../Products/Filter";
 import { useDispatch } from "react-redux";
 import { productDetails, removeProduct } from "@/store/productSlice";
+import FilterDrink from "./FilterDrink";
+import API from "@/Config";
 
-const Tumblers = ({ filtered }) => {
+const Tumblers = () => {
   const [products, setProducts] = useState([]);
+  const [filtered, setFiltered] = useState([]);
   const dispatch = useDispatch();
 
   console.log(filtered);
@@ -15,7 +18,7 @@ const Tumblers = ({ filtered }) => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          `https://spice-19.onrender.com/api/product/Sub/Category/Product/List?SubCategoryID=66e95147e4a0682d9adf69b7`
+          `${API}/api/product/Sub/Category/Product/List?SubCategoryID=66e95147e4a0682d9adf69b7`
         );
         setProducts(res?.data?.data); // Axios automatically parses JSON
         console.log(res?.data?.data); // Logs the fetched product data
@@ -23,7 +26,7 @@ const Tumblers = ({ filtered }) => {
         console.error("Error fetching products:", error);
       }
     };
-dispatch(removeProduct());
+    dispatch(removeProduct());
     getProduct();
   }, []);
 
@@ -32,8 +35,13 @@ dispatch(removeProduct());
       {" "}
       <div class="filter-main-product-cards-main container">
         <div className="row">
-          <div className="col-md-3">{/* <Filter /> */}</div>
-          <div className="col-md-12">
+          <div className="col-md-3">
+            <FilterDrink
+              filteredProducts={(filtered) => setFiltered(filtered)}
+            />
+            {/* <Filter /> */}
+          </div>
+          <div className="col-md-8">
             {" "}
             <h2 className="text-center">Tumblers</h2>{" "}
             {/* Changed class to className */}
@@ -50,7 +58,7 @@ dispatch(removeProduct());
                     <figcaption>
                       <h3>{product?.productName}</h3>
                       <p>{product?.productDescription}</p>
-                      <div className="price d-flex ">
+                      <div className="price">
                         {" "}
                         {/* Changed class to className */}
                         <s>₹{product?.productMRP}</s>₹{product?.productPrice}

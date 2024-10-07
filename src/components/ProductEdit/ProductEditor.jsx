@@ -22,9 +22,9 @@ const ProductEditor = ({product}) => {
         <div class="btn-sep-cart-details">
           <button class="btn bg-pink" onClick={()=> dispatch(shortlist(product))}>Shortlist</button>
 
-          <Link href="/cart">
+          {/* <Link href="/cart">
             <button class="btn bg-sky-blue">Add To Cart</button>
-          </Link>
+          </Link> */}
         </div>
       </div>
 
@@ -33,7 +33,7 @@ const ProductEditor = ({product}) => {
       <hr />
       <div class="choose-color-container  m-4">
         <h5 class="">
-          <span class="product-step">1</span>&nbsp;
+          {/* <span class="product-step">1</span>&nbsp; */}
           <span class="product-caption">
             <b>Choose your colors</b>
           </span>
@@ -65,12 +65,12 @@ const ProductEditor = ({product}) => {
       <hr />
       <div class=" offer-card uplaod-img-section m-4">
         <h5 class="">
-          <span class="product-step">
+          {/* <span class="product-step">
             <b>2</b>
-          </span>
+          </span> */}
           &nbsp;
           <span class="product-caption">
-            <b>Available offers</b>
+            <b>Descriptions</b>
           </span>
         </h5>
         <ul>

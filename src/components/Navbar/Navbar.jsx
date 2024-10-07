@@ -54,14 +54,14 @@ const Navbar = () => {
                     </div>
                   </div>
                   <div class="top-nav-right-container">
-                    <div class="serach-top">
+                    {/* <div class="serach-top">
                       <i class="fa fa-search">
                         <input
                           type="search"
                           placeholder="Search by product name or type"
                         />
                       </i>
-                    </div>
+                    </div> */}
 
                     <div class="signup">
                       <Link href="/auth/signin">
@@ -77,11 +77,11 @@ const Navbar = () => {
                         </button>
                       </Link>
                     </div>
-                    <div class="cart f24">
+                    {/* <div class="cart f24">
                       <Link style={{ color: "white" }} href="/cart">
                         <i class="fa fa-shopping-cart"></i>
                       </Link>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -113,12 +113,12 @@ const Navbar = () => {
                             aria-labelledby="dropdownMenuButton"
                           >
                             <div class="d-flex" style={{ fontSize: "13px" }}>
-                              <Link
+                              {/* <Link
                                 class="dropdown-item"
                                 href="/products/apparels/allapparels"
                               >
                                 All Apparels
-                              </Link>
+                              </Link> */}
                               <Link
                                 class="dropdown-item"
                                 href="/products/apparels/tshirts"
@@ -430,14 +430,14 @@ const Navbar = () => {
                 </div>
               </div>
               <div class="top-nav-right-container">
-                <div class="serach-top">
+                {/* <div class="serach-top">
                   <i class="fa fa-search">
                     <input
                       type="search"
                       placeholder="Search by product name or type"
                     />
                   </i>
-                </div>
+                </div> */}
 
                 <div class="signup">
                   <Link href="/auth/signin">
@@ -454,11 +454,11 @@ const Navbar = () => {
                   </Link>
                 </div>
 
-                <div class="cart f24">
+                {/* <div class="cart f24">
                   <Link style={{ color: "white" }} href="/cart">
                     <i class="fa fa-shopping-cart"></i>
                   </Link>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -490,12 +490,12 @@ const Navbar = () => {
                         aria-labelledby="dropdownMenuButton"
                       >
                         <div class="d-flex" style={{ fontSize: "13px" }}>
-                          <Link
+                          {/* <Link
                             class="dropdown-item"
                             href="/products/apparels/allapparels"
                           >
                             All Apparels
-                          </Link>
+                          </Link> */}
                           <Link
                             class="dropdown-item"
                             href="/products/apparels/tshirts"

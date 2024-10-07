@@ -50,7 +50,7 @@ dispatch(removeProduct());
                     <figcaption>
                       <h3>{product?.productName}</h3>
                       <p>{product?.productDescription}</p>
-                      <div className="price d-flex ">
+                      <div className="price">
                         {" "}
                         {/* Changed class to className */}
                         <s>₹{product?.productMRP}</s>₹{product?.productPrice}

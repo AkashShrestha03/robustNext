@@ -53,7 +53,7 @@ button:focus {
 .basket-module,
 .basket-labels,
 .item,
-.price,
+.cart-price,
 .quantity,
 .subtotal,
 .basket-product,
@@ -146,7 +146,7 @@ li {
   padding: 0.625rem 0;
 }
 
-li.price:before,
+li.cart-price:before,
 li.subtotal:before {
   content: "";
 }
@@ -155,7 +155,7 @@ li.subtotal:before {
   width: 55%;
 }
 
-.price,
+.cart-price,
 .quantity,
 .subtotal {
   width: 15%;
@@ -350,7 +350,7 @@ aside {
   .product-details {
     width: 60%;
   }
-  .price,
+  .cart-price,
   .subtotal {
     width: 33%;
   }

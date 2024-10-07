@@ -1,13 +1,15 @@
 import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import Filter from "../Products/Filter";
 import { useDispatch } from "react-redux";
 import { productDetails, removeProduct } from "@/store/productSlice";
+import API from "@/Config";
+import FilterOffice from "./FilterOffice";
 
-const Pens = ({ filtered }) => {
+const Pens = () => {
   const [products, setProducts] = useState([]);
-   const dispatch = useDispatch();
+  const [filtered, setFiltered] = useState([]);
+  const dispatch = useDispatch();
 
   console.log(filtered);
 
@@ -15,7 +17,7 @@ const Pens = ({ filtered }) => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          `https://spice-19.onrender.com/api/product/Sub/Category/Product/List?SubCategoryID=66e94ffbe4a0682d9adf697d`
+          `${API}/api/product/Sub/Category/Product/List?SubCategoryID=66e94ffbe4a0682d9adf697d`
         );
         setProducts(res?.data?.data); // Axios automatically parses JSON
         console.log(res?.data?.data); // Logs the fetched product data
@@ -23,7 +25,7 @@ const Pens = ({ filtered }) => {
         console.error("Error fetching products:", error);
       }
     };
- dispatch(removeProduct());
+    dispatch(removeProduct());
     getProduct();
   }, []);
 
@@ -32,8 +34,13 @@ const Pens = ({ filtered }) => {
       {" "}
       <div class="filter-main-product-cards-main container">
         <div className="row">
-          <div className="col-md-3">{/* <Filter /> */}</div>
-          <div className="col-md-12">
+          <div className="col-md-3">
+            <FilterOffice
+              filteredProducts={(filtered) => setFiltered(filtered)}
+            />
+            {/* <Filter /> */}
+          </div>
+          <div className="col-md-8">
             {" "}
             <h2 className="text-center">Pens</h2>{" "}
             {/* Changed class to className */}
@@ -50,7 +57,7 @@ const Pens = ({ filtered }) => {
                     <figcaption>
                       <h3>{product?.productName}</h3>
                       <p>{product?.productDescription}</p>
-                      <div className="price d-flex ">
+                      <div className="price">
                         {" "}
                         {/* Changed class to className */}
                         <s>₹{product?.productMRP}</s>₹{product?.productPrice}

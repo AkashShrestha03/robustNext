@@ -1,3 +1,5 @@
+
+import API from "@/Config";
 import { productDetails, removeProduct } from "@/store/productSlice";
 import axios from "axios";
 import Link from "next/link";
@@ -14,7 +16,7 @@ const Grid = ({ filtered }) => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          `https://spice-19.onrender.com/api/product/All`
+          `${API}/api/product/All`
         );
         setProducts(res?.data?.data); // Axios automatically parses JSON
         console.log(res?.data?.data); // Logs the fetched product data
@@ -30,26 +32,26 @@ const Grid = ({ filtered }) => {
     <>
       <div className="products-card">
         {" "}
-        {/* Changed class to className */}
+      
         {(filtered?.length > 0 ? filtered : products)?.map((product, index) => (
           <figure className="snip1423" key={index}>
             {" "}
-            {/* Changed class to className */}
+           
             <img
               src={product?.productPicture[0] || "/Assests/mokup1.png"}
               alt="sample57"
             />
-            <figcaption>
+            <figcaption className="d-flex flex-column align-items-center">
               <h3>{product?.productName}</h3>
               <p>{product?.productDescription}</p>
-              <div className="price d-flex ">
+              <div className="price">
                 {" "}
-                {/* Changed class to className */}
+            
                 <s>₹{product?.productMRP}</s>₹{product?.productPrice}
               </div>
             </figcaption>
             <i className="fa fa-cart-plus"></i>{" "}
-            {/* Changed class to className */}
+          
             <Link
               href="/productedit"
               onClick={() => dispatch(productDetails(product))}

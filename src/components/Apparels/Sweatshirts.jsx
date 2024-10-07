@@ -5,8 +5,12 @@ import Filter from "../Products/Filter";
 import { productDetails, removeProduct } from "@/store/productSlice";
 import { useDispatch } from "react-redux";
 
-const Sweatshirts = ({ filtered }) => {
+import FilterApparel from "./FilterApparel";
+import API from "@/Config";
+
+const Sweatshirts = () => {
   const [products, setProducts] = useState([]);
+  const [filtered, setFiltered] = useState([]);
   const dispatch = useDispatch();
 
   console.log(filtered);
@@ -15,7 +19,7 @@ const Sweatshirts = ({ filtered }) => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          `https://spice-19.onrender.com/api/product/Sub/Category/Product/List?SubCategoryID=66e94e63e4a0682d9adf68d7`
+          `${API}/api/product/Sub/Category/Product/List?SubCategoryID=66e94e63e4a0682d9adf68d7`
         );
         setProducts(res?.data?.data); // Axios automatically parses JSON
         console.log(res?.data?.data); // Logs the fetched product data
@@ -32,8 +36,13 @@ const Sweatshirts = ({ filtered }) => {
       {" "}
       <div class="filter-main-product-cards-main container">
         <div className="row">
-          <div className="col-md-3">{/* <Filter /> */}</div>
-          <div className="col-md-12">
+          <div className="col-md-3">
+            <FilterApparel
+              filteredProducts={(filtered) => setFiltered(filtered)}
+            />
+            {/* <Filter /> */}
+          </div>
+          <div className="col-md-8">
             {" "}
             <h2 className="text-center">Sweatshirts</h2>{" "}
             {/* Changed class to className */}
@@ -50,7 +59,7 @@ const Sweatshirts = ({ filtered }) => {
                     <figcaption>
                       <h3>{product?.productName}</h3>
                       <p>{product?.productDescription}</p>
-                      <div className="price d-flex ">
+                      <div className="price">
                         {" "}
                         {/* Changed class to className */}
                         <s>₹{product?.productMRP}</s>₹{product?.productPrice}

@@ -18,7 +18,7 @@ const Basket = () => {
         <div class="basket-labels">
           <ul>
             <li class="item item-heading">Item</li>
-            <li class="price">Price</li>
+            <li class="cart-price">Price</li>
             <li class="quantity">Quantity</li>
             <li class="subtotal">Subtotal</li>
           </ul>
@@ -46,7 +46,7 @@ const Basket = () => {
               <p>Product Code - 232321939</p>
             </div>
           </div>
-          <div class="price">26.00</div>
+          <div class="cart-price">26.00</div>
           <div class="quantity">
             <input type="number" value="4" min="1" class="quantity-field" />
           </div>
@@ -77,7 +77,7 @@ const Basket = () => {
               <p>Product Code - 232321939</p>
             </div>
           </div>
-          <div class="price">26.00</div>
+          <div class="cart-price">26.00</div>
           <div class="quantity">
             <input type="number" value="1" min="1" class="quantity-field" />
           </div>
@@ -108,7 +108,7 @@ const Basket = () => {
               <p>Product Code - 232321939</p>
             </div>
           </div>
-          <div class="price">26.00</div>
+          <div class="cart-price">26.00</div>
           <div class="quantity">
             <input type="number" value="1" min="1" class="quantity-field" />
           </div>
@@ -139,7 +139,7 @@ const Basket = () => {
               <p>Product Code - 232321939</p>
             </div>
           </div>
-          <div class="price">26.00</div>
+          <div class="cart-price">26.00</div>
           <div class="quantity">
             <input type="number" value="1" min="1" class="quantity-field" />
           </div>

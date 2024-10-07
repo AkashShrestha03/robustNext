@@ -4,9 +4,11 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 // import Filter from "../Products/Filter";
 import { useDispatch } from "react-redux";
+import FilterApparel from "./FilterApparel";
 
-const Hats = ({ filtered }) => {
+const Hats = () => {
   const [products, setProducts] = useState([]);
+  const [filtered, setFiltered] = useState([]);
   const dispatch = useDispatch();
 
   console.log(filtered);
@@ -32,8 +34,13 @@ const Hats = ({ filtered }) => {
       {" "}
       <div class="filter-main-product-cards-main container">
         <div className="row">
-          <div className="col-md-3">{/* <Filter /> */}</div>
-          <div className="col-md-12">
+          <div className="col-md-3">
+            <FilterApparel
+              filteredProducts={(filtered) => setFiltered(filtered)}
+            />
+            {/* <Filter /> */}
+          </div>
+          <div className="col-md-8">
             {" "}
             <h2 className="text-center">Hats</h2>{" "}
             {/* Changed class to className */}
@@ -50,7 +57,7 @@ const Hats = ({ filtered }) => {
                     <figcaption>
                       <h3>{product?.productName}</h3>
                       <p>{product?.productDescription}</p>
-                      <div className="price d-flex ">
+                      <div className="price">
                         {" "}
                         {/* Changed class to className */}
                         <s>₹{product?.productMRP}</s>₹{product?.productPrice}
