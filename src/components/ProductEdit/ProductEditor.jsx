@@ -16,8 +16,7 @@ const ProductEditor = ({ product }) => {
 
   // Parse the color array from the stringified format
 
-  
-  const colors = product?.colour ? JSON.parse(product.colour) : [];
+  const colors = product?.colour;
 
   return (
     <div className="Product-editor p-3">
