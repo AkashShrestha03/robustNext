@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import { productDetails, removeProduct } from "@/store/productSlice";
 import { useDispatch } from "react-redux";
 import FilterWellness from "./FilterWellness";
-import API from "@/Config";
 
 const Fitness = () => {
   const [products, setProducts] = useState([]);

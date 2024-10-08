@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { productDetails, removeProduct } from "@/store/productSlice";
 import FilterWellness from "./FilterWellness";
-import API from "@/Config";
+
 
 const SelfCare = () => {
   const [products, setProducts] = useState([]);

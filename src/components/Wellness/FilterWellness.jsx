@@ -1,4 +1,4 @@
-import API from "@/Config";
+
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
@@ -25,7 +25,7 @@ const FilterWellness = ({ filteredProducts }) => {
   const getProductsBySubCategory = async (subCategoryId) => {
     try {
       const res = await axios.get(
-        `${API}/api/product/Sub/Category/Product/List?SubCategoryID=${subCategoryId}`
+        `https://spice-19.onrender.com/api/product/Sub/Category/Product/List?SubCategoryID=${subCategoryId}`
       );
       setProducts(res?.data?.data);
       filteredProducts(res?.data?.data); // Store fetched products
