@@ -19,14 +19,14 @@ const Pouches = () => {
           `${API}/api/product/Sub/Category/Product/List?SubCategoryID=66e9523be4a0682d9adf69d8`
         );
         setProducts(res?.data?.data);
-        console.log(res?.data?.data); 
+        console.log(res?.data?.data);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
     };
     dispatch(removeProduct());
     getProduct();
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

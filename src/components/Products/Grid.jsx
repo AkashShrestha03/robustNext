@@ -15,9 +15,7 @@ const Grid = ({ filtered }) => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await axios.get(
-          `${API}/api/product/All`
-        );
+        const res = await axios.get(`${API}/api/product/All`);
         setProducts(res?.data?.data); // Axios automatically parses JSON
         console.log(res?.data?.data); // Logs the fetched product data
       } catch (error) {
@@ -26,7 +24,7 @@ const Grid = ({ filtered }) => {
     };
     dispatch(removeProduct());
     getProduct();
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

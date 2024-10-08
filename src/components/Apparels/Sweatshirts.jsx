@@ -29,7 +29,7 @@ const Sweatshirts = () => {
     };
     dispatch(removeProduct());
     getProduct();
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

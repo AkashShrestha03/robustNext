@@ -28,7 +28,7 @@ const Outerwear = () => {
     };
     dispatch(removeProduct());
     getProduct();
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

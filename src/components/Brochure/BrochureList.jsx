@@ -28,8 +28,8 @@ const BrochureList = () => {
               <li class="price">Price</li>
             </ul>
           </div>
-          {brochure?.map((product) => (
-            <div class="basket-product">
+          {brochure?.map((product, index) => (
+            <div class="basket-product" key={index}>
               <div class="item">
                 <div class="product-image">
                   <img

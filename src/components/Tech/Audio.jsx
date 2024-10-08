@@ -26,7 +26,7 @@ const Audio = () => {
     };
     dispatch(removeProduct());
     getProduct();
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

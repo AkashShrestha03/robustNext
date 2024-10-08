@@ -23,9 +23,9 @@ const Eco = ({ filtered }) => {
         console.error("Error fetching products:", error);
       }
     };
-dispatch(removeProduct());
+    dispatch(removeProduct());
     getProduct();
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

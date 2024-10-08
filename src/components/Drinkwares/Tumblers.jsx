@@ -28,7 +28,7 @@ const Tumblers = () => {
     };
     dispatch(removeProduct());
     getProduct();
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

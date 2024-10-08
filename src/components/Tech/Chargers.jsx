@@ -26,7 +26,7 @@ const Chargers = () => {
     };
     dispatch(removeProduct());
     getProduct();
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

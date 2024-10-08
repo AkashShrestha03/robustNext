@@ -27,7 +27,7 @@ const Footwears = () => {
 
     getProduct();
     dispatch(removeProduct());
-  }, []);
+  }, [dispatch]);
 
   
 
