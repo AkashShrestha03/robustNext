@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { productDetails, removeProduct } from "@/store/productSlice";
-import API from "@/Config";
+
 import FilterTech from "./FilterTech";
 
 const Chargers = () => {
@@ -15,7 +15,7 @@ const Chargers = () => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          `${API}/api/product/Sub/Category/Product/List?SubCategoryID=66e95302e4a0682d9adf69f5`
+          `https://spice-19.onrender.com/api/product/Sub/Category/Product/List?SubCategoryID=66e95302e4a0682d9adf69f5`
         );
         setProducts(res?.data?.data); // Axios automatically parses JSON
         console.log(res?.data?.data); // Logs the fetched product data

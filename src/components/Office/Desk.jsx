@@ -3,7 +3,6 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { productDetails, removeProduct } from "@/store/productSlice";
-import API from "@/Config";
 import FilterOffice from "./FilterOffice";
 
 const Desk = () => {
@@ -15,7 +14,7 @@ const Desk = () => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          `${API}/api/product/Sub/Category/Product/List?SubCategoryID=66e94f09e4a0682d9adf68fa`
+          `https://spice-19.onrender.com/api/product/Sub/Category/Product/List?SubCategoryID=66e94f09e4a0682d9adf68fa`
         );
         setProducts(res?.data?.data);
       } catch (error) {

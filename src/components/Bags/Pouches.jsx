@@ -3,8 +3,6 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { productDetails, removeProduct } from "@/store/productSlice";
-
-import API from "@/Config";
 import FilterBags from "./FilterBags";
 
 const Pouches = () => {
@@ -16,7 +14,7 @@ const Pouches = () => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          `${API}/api/product/Sub/Category/Product/List?SubCategoryID=66e9523be4a0682d9adf69d8`
+          `https://spice-19.onrender.com/api/product/Sub/Category/Product/List?SubCategoryID=66e9523be4a0682d9adf69d8`
         );
         setProducts(res?.data?.data);
         console.log(res?.data?.data);

@@ -1,4 +1,4 @@
-import API from "@/Config";
+
 import { productDetails, removeProduct } from "@/store/productSlice";
 import axios from "axios";
 import Link from "next/link";
@@ -14,7 +14,9 @@ const Grid = ({ filtered }) => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await axios.get(`${API}/api/product/All`);
+        const res = await axios.get(
+          `https://spice-19.onrender.com/api/product/All`
+        );
         setProducts(res?.data?.data); // Axios automatically parses JSON
         console.log(res?.data?.data); // Logs the fetched product data
       } catch (error) {
