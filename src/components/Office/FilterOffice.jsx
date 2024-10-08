@@ -3,7 +3,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
-const FilterOffice = ({filteredProducts}) => {
+const FilterOffice = ({ filteredProducts }) => {
   const router = useRouter();
   const [subCategories, setSubCategories] = useState([]); // Store subcategories
   const [selectedSubCategory, setSelectedSubCategory] = useState(null);

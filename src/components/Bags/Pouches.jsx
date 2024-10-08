@@ -9,7 +9,7 @@ import FilterBags from "./FilterBags";
 
 const Pouches = () => {
   const [products, setProducts] = useState([]);
-  const [filtered, setFiltered] = useState([])
+  const [filtered, setFiltered] = useState([]);
   const dispatch = useDispatch();
 
   useEffect(() => {

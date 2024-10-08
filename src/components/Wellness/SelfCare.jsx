@@ -1,7 +1,6 @@
 import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-
 import { useDispatch } from "react-redux";
 import { productDetails, removeProduct } from "@/store/productSlice";
 import FilterWellness from "./FilterWellness";
@@ -12,7 +11,6 @@ const SelfCare = () => {
   const [filtered, setFiltered] = useState([]);
   const dispatch = useDispatch();
 
-  console.log(filtered);
 
   useEffect(() => {
     const getProduct = async () => {

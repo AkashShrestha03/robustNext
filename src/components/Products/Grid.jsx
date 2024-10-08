@@ -1,4 +1,3 @@
-
 import API from "@/Config";
 import { productDetails, removeProduct } from "@/store/productSlice";
 import axios from "axios";
@@ -30,11 +29,9 @@ const Grid = ({ filtered }) => {
     <>
       <div className="products-card">
         {" "}
-      
         {(filtered?.length > 0 ? filtered : products)?.map((product, index) => (
           <figure className="snip1423" key={index}>
             {" "}
-           
             <img
               src={product?.productPicture[0] || "/Assests/mokup1.png"}
               alt="sample57"
@@ -44,12 +41,10 @@ const Grid = ({ filtered }) => {
               <p>{product?.productDescription}</p>
               <div className="price">
                 {" "}
-            
                 <s>₹{product?.productMRP}</s>₹{product?.productPrice}
               </div>
             </figcaption>
             <i className="fa fa-cart-plus"></i>{" "}
-          
             <Link
               href="/productedit"
               onClick={() => dispatch(productDetails(product))}

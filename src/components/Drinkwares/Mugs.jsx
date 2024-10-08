@@ -1,7 +1,6 @@
 import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import Filter from "../Products/Filter";
 import { productDetails, removeProduct } from "@/store/productSlice";
 import { useDispatch } from "react-redux";
 import FilterDrink from "./FilterDrink";
@@ -11,8 +10,6 @@ const Mugs = () => {
   const [products, setProducts] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const dispatch = useDispatch();
-
-
 
   useEffect(() => {
     const getProduct = async () => {

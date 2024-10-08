@@ -1,7 +1,6 @@
 import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import Filter from "../Products/Filter";
 import { useDispatch } from "react-redux";
 import { productDetails, removeProduct } from "@/store/productSlice";
 import FilterDrink from "./FilterDrink";

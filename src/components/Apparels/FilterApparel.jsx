@@ -1,11 +1,10 @@
-
 import API from "@/Config";
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
 const FilterApparel = ({ filteredProducts }) => {
-  const router = useRouter()
+  const router = useRouter();
   const [subCategories, setSubCategories] = useState([]); // Store subcategories
   const [selectedSubCategory, setSelectedSubCategory] = useState(null);
   const [products, setProducts] = useState([]); // Store products
@@ -67,7 +66,6 @@ const FilterApparel = ({ filteredProducts }) => {
         >
           <div className="accordion-body panel">
             {/* Display 'All Products' option */}
-            
 
             {/* Map subcategories */}
             {subCategories?.map((subCat, index) => (

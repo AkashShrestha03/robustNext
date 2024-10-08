@@ -6,7 +6,6 @@ import { productDetails, removeProduct } from "@/store/productSlice";
 import API from "@/Config";
 import FilterOffice from "./FilterOffice";
 
-
 const Desk = () => {
   const [products, setProducts] = useState([]);
   const [filtered, setFiltered] = useState([]);
@@ -29,7 +28,6 @@ const Desk = () => {
 
   return (
     <>
-     
       <div class="filter-main-product-cards-main container">
         <div className="row">
           <div className="col-md-3">
@@ -40,13 +38,11 @@ const Desk = () => {
           <div className="col-md-8">
             {" "}
             <h2 className="text-center">Desk</h2>{" "}
-          
             <div className="products-card">
               {(filtered?.length > 0 ? filtered : products)?.map(
                 (product, index) => (
                   <figure className="snip1423" key={index}>
                     {" "}
-                   
                     <img
                       src={product?.productPicture[0] || "/Assests/mokup1.png"}
                       alt="sample57"
@@ -56,12 +52,10 @@ const Desk = () => {
                       <p>{product?.productDescription}</p>
                       <div className="price">
                         {" "}
-                     
                         <s>₹{product?.productMRP}</s>₹{product?.productPrice}
                       </div>
                     </figcaption>
                     <i className="fa fa-cart-plus"></i>{" "}
-                  
                     <Link
                       href="/productedit"
                       onClick={() => dispatch(productDetails(product))}

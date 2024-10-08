@@ -1,10 +1,8 @@
 import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import Filter from "../Products/Filter";
 import { useDispatch } from "react-redux";
 import { productDetails, removeProduct } from "@/store/productSlice";
-import API from "@/Config";
 import FilterWellness from "./FilterWellness";
 
 const Camping = () => {
@@ -18,7 +16,7 @@ const Camping = () => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          `${API}/api/product/Sub/Category/Product/List?SubCategoryID=66e95446e4a0682d9adf6a2a`
+          `https://spice-19.onrender.com/api/product/Sub/Category/Product/List?SubCategoryID=66e95446e4a0682d9adf6a2a`
         );
         setProducts(res?.data?.data); // Axios automatically parses JSON
         console.log(res?.data?.data); // Logs the fetched product data
@@ -36,7 +34,9 @@ const Camping = () => {
       <div class="filter-main-product-cards-main container">
         <div className="row">
           <div className="col-md-3">
-            <FilterWellness filteredProducts={(filtered)=>setFiltered(filtered)}/>
+            <FilterWellness
+              filteredProducts={(filtered) => setFiltered(filtered)}
+            />
             {/* <Filter /> */}
           </div>
           <div className="col-md-8">
