@@ -14,7 +14,7 @@ const Desk = () => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          `https://spice-19.onrender.com/api/product/Sub/Category/Product/List?SubCategoryID=66e94f09e4a0682d9adf68fa`
+          `https://spice-19.onrender.com/api/product/Sub/Category/Product/List?SubCategoryID=66e94ffbe4a0682d9adf697d`
         );
         setProducts(res?.data?.data);
       } catch (error) {

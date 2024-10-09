@@ -13,7 +13,7 @@ const FilterWellness = ({ filteredProducts }) => {
   const getSubCategories = async () => {
     try {
       const res = await axios.get(
-        `https://spice-19.onrender.com/api/product/Sub/Category/List?categoryID=66e94f09e4a0682d9adf68f8`
+        `https://spice-19.onrender.com/api/product/Sub/Category/List?categoryID=66e95381e4a0682d9adf6a0c`
       );
       setSubCategories(res?.data?.data);
     } catch (error) {
