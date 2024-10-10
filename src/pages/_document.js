@@ -4,11 +4,9 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <link
-          rel="icon"
-          href="../Assests/favicon.png"
-          type="image/x-icon"
-        ></link>
+        <title>Robust</title>
+        <link rel="icon" href="/Assests/logo2.png" />
+
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
