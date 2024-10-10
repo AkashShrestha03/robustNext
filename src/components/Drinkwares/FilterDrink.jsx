@@ -1,4 +1,3 @@
-
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
@@ -22,26 +21,26 @@ const FilterDrink = ({ filteredProducts }) => {
   };
 
   // Fetch products by subcategory
-  const getProductsBySubCategory = async (subCategoryId) => {
+  const getProductsBySubCategory = async (subCategoryId, subCategoryName) => {
     try {
       const res = await axios.get(
         `https://spice-19.onrender.com/api/product/Sub/Category/Product/List?SubCategoryID=${subCategoryId}`
       );
       setProducts(res?.data?.data);
-      filteredProducts(res?.data?.data); // Store fetched products
+      filteredProducts(res?.data?.data, subCategoryName);
     } catch (error) {
       console.error("Error fetching products:", error);
     }
   };
 
   // Handle radio button change
-  const handleRadioChange = (subCategoryId) => {
+  const handleRadioChange = (subCategoryId, subCategoryName) => {
     setSelectedSubCategory(subCategoryId);
-    getProductsBySubCategory(subCategoryId); // Fetch products when subcategory is selected
+    getProductsBySubCategory(subCategoryId, subCategoryName);  
   };
 
   useEffect(() => {
-    getSubCategories(); // Fetch subcategories on component mount
+    getSubCategories(); 
   }, []);
 
   return (
@@ -65,15 +64,15 @@ const FilterDrink = ({ filteredProducts }) => {
           aria-labelledby="panelsStayOpen-headingOne"
         >
           <div className="accordion-body panel">
-            {/* Display 'All Products' option */}
-
-            {/* Map subcategories */}
+           
             {subCategories?.map((subCat, index) => (
               <label className="container" key={index}>
                 {subCat?.SubCategoryName}
                 <input
                   type="radio"
-                  onChange={() => handleRadioChange(subCat?._id)}
+                  onChange={() =>
+                    handleRadioChange(subCat?._id, subCat?.SubCategoryName)
+                  }
                   checked={selectedSubCategory === subCat?._id}
                 />
               </label>

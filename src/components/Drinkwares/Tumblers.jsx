@@ -8,6 +8,7 @@ import FilterDrink from "./FilterDrink";
 const Tumblers = () => {
   const [products, setProducts] = useState([]);
   const [filtered, setFiltered] = useState([]);
+  const [subcategoryName, setSubcategoryName] = useState("Tumblers");
   const dispatch = useDispatch();
 
   console.log(filtered);
@@ -28,6 +29,11 @@ const Tumblers = () => {
     getProduct();
   }, [dispatch]);
 
+  const handleFilteredProducts = (filtered, subCategoryName) => {
+    setFiltered(filtered); // Update filtered products
+    setSubcategoryName(subCategoryName); // Update the heading to the selected subcategory name
+  };
+
   return (
     <>
       {" "}
@@ -35,13 +41,15 @@ const Tumblers = () => {
         <div className="row">
           <div className="col-md-3">
             <FilterDrink
-              filteredProducts={(filtered) => setFiltered(filtered)}
+              filteredProducts={(filtered, subCategoryName) =>
+                handleFilteredProducts(filtered, subCategoryName)
+              }
             />
             {/* <Filter /> */}
           </div>
           <div className="col-md-8">
             {" "}
-            <h2 className="text-center">Tumblers</h2>{" "}
+            <h2 className="text-center">{subcategoryName}</h2>
             {/* Changed class to className */}
             <div className="products-card">
               {(filtered?.length > 0 ? filtered : products)?.map(
@@ -53,15 +61,24 @@ const Tumblers = () => {
                       src={product?.productPicture[0] || "/Assests/mokup1.png"}
                       alt="sample57"
                     />
-                    <figcaption>
-                      <h3>{product?.productName}</h3>
+                    <figcaption className="d-flex flex-column align-items-center">
+                      <h3 className="card-heading">
+                        {product?.productName}{" "}
+                        {product?.madeInIndia && (
+                          <div className="made-in-india-flag">
+                            <img src="/image.png" alt="Made in India" />
+                          </div>
+                        )}
+                      </h3>
                       <p>{product?.productDescription}</p>
-                      {product?.madeInIndia && (
-                        <div className="made-in-india-flag">
-                          <img src="/image.png" alt="" />
-                          Make in India
-                        </div>
-                      )}
+
+                      {/* {product?.madeInIndia && (
+                <div className="made-in-india-flag">
+                  <img src="/image.png" alt="Made in India" />
+                  Make in India
+                </div>
+              )} */}
+
                       {product?.sustainable && (
                         <div className="sustainable-icon">
                           <i class="fa fa-leaf" aria-hidden="true"></i>
@@ -69,12 +86,9 @@ const Tumblers = () => {
                       )}
 
                       <div className="price">
-                        {" "}
-                        {/* Changed class to className */}
                         <s>₹{product?.productMRP}</s>₹{product?.productPrice}
                       </div>
                     </figcaption>
-                    <i className="fa fa-cart-plus"></i>{" "}
                     {/* Changed class to className */}
                     <Link
                       href="/productedit"

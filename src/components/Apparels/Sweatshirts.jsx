@@ -8,6 +8,7 @@ import FilterApparel from "./FilterApparel";
 const Sweatshirts = () => {
   const [products, setProducts] = useState([]);
   const [filtered, setFiltered] = useState([]);
+  const [subcategoryName, setSubcategoryName] = useState("Sweatshirts");
   const dispatch = useDispatch();
 
   console.log(filtered);
@@ -28,54 +29,54 @@ const Sweatshirts = () => {
     getProduct();
   }, [dispatch]);
 
+  const handleFilteredProducts = (filtered, subCategoryName) => {
+    setFiltered(filtered); // Update filtered products
+    setSubcategoryName(subCategoryName); // Update the heading to the selected subcategory name
+  };
+
   return (
     <>
-      {" "}
-      <div class="filter-main-product-cards-main container">
+      <div className="filter-main-product-cards-main container">
         <div className="row">
           <div className="col-md-3">
             <FilterApparel
-              filteredProducts={(filtered) => setFiltered(filtered)}
+              filteredProducts={(filtered, subCategoryName) =>
+                handleFilteredProducts(filtered, subCategoryName)
+              }
             />
-            {/* <Filter /> */}
           </div>
           <div className="col-md-8">
-            {" "}
-            <h2 className="text-center">Sweatshirts</h2>{" "}
-            {/* Changed class to className */}
+            <h2 className="text-center">{subcategoryName}</h2>
             <div className="products-card">
               {(filtered?.length > 0 ? filtered : products)?.map(
                 (product, index) => (
                   <figure className="snip1423" key={index}>
-                    {" "}
-                    {/* Changed class to className */}
                     <img
                       src={product?.productPicture[0] || "/Assests/mokup1.png"}
                       alt="sample57"
                     />
-                    <figcaption>
-                      <h3>{product?.productName}</h3>
+                    <figcaption className="d-flex flex-column align-items-center">
+                      <h3 className="card-heading">
+                        {product?.productName}
+                        {product?.madeInIndia && (
+                          <div className="made-in-india-flag">
+                            <img src="/image.png" alt="Made in India" />
+                          </div>
+                        )}
+                      </h3>
                       <p>{product?.productDescription}</p>
-                      {product?.madeInIndia && (
-                        <div className="made-in-india-flag">
-                          <img src="/image.png" alt="" />
-                          Make in India
-                        </div>
-                      )}
+
                       {product?.sustainable && (
                         <div className="sustainable-icon">
-                          <i class="fa fa-leaf" aria-hidden="true"></i>
+                          <i className="fa fa-leaf" aria-hidden="true"></i>
                         </div>
                       )}
 
                       <div className="price">
-                        {" "}
-                        {/* Changed class to className */}
                         <s>₹{product?.productMRP}</s>₹{product?.productPrice}
                       </div>
                     </figcaption>
-                    <i className="fa fa-cart-plus"></i>{" "}
-                    {/* Changed class to className */}
+
                     <Link
                       href="/productedit"
                       onClick={() => dispatch(productDetails(product))}

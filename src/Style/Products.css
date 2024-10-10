@@ -15,9 +15,15 @@
   margin-bottom: 10px;
 }
 
+.card-heading{
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
 .made-in-india-flag img{
-  height: 20px !important;
-  width: 45px;
+  height: 15px !important;
+  width: 35px;
 }
 .made-in-india img{
   display: inline;
