@@ -10,6 +10,7 @@ import FilterTech from "./FilterTech";
 const Audio = () => {
   const [products, setProducts] = useState([]);
   const [filtered, setFiltered] = useState([]);
+  const [subcategoryName, setSubcategoryName] = useState("Audio");
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,6 +29,11 @@ const Audio = () => {
     getProduct();
   }, [dispatch]);
 
+  const handleFilteredProducts = (filtered, subCategoryName) => {
+    setFiltered(filtered); 
+    setSubcategoryName(subCategoryName); 
+  };
+
   return (
     <>
       {" "}
@@ -35,20 +41,19 @@ const Audio = () => {
         <div className="row">
           <div className="col-md-3">
             <FilterTech
-              filteredProducts={(filtered) => setFiltered(filtered)}
+              filteredProducts={(filtered, subCategoryName) =>
+                handleFilteredProducts(filtered, subCategoryName)
+              }
             />
-            {/* <Filter /> */}
           </div>
           <div className="col-md-8">
             {" "}
-            <h2 className="text-center">Audio</h2>{" "}
-            {/* Changed class to className */}
+            <h2 className="text-center">{subcategoryName}</h2>
             <div className="products-card">
               {(filtered?.length > 0 ? filtered : products)?.map(
                 (product, index) => (
                   <figure className="snip1423" key={index}>
                     {" "}
-                    {/* Changed class to className */}
                     <img
                       src={product?.productPicture[0] || "/Assests/mokup1.png"}
                       alt="sample57"

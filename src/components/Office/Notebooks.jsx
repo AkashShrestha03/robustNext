@@ -9,6 +9,7 @@ import FilterOffice from "./FilterOffice";
 const Notebooks = () => {
   const [products, setProducts] = useState([]);
   const [filtered, setFiltered] = useState([]);
+   const [subcategoryName, setSubcategoryName] = useState("Notebooks");
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,19 +28,25 @@ const Notebooks = () => {
     getProduct();
   }, [dispatch]);
 
+   const handleFilteredProducts = (filtered, subCategoryName) => {
+     setFiltered(filtered); 
+     setSubcategoryName(subCategoryName); 
+   };
+
   return (
     <>
       <div class="filter-main-product-cards-main container">
         <div className="row">
           <div className="col-md-3">
             <FilterOffice
-              filteredProducts={(filtered) => setFiltered(filtered)}
+              filteredProducts={(filtered, subCategoryName) =>
+                handleFilteredProducts(filtered, subCategoryName)
+              }
             />
-            {/* <Filter /> */}
           </div>
           <div className="col-md-8">
             {" "}
-            <h2 className="text-center">Notebooks</h2>{" "}
+            <h2 className="text-center">{subcategoryName}</h2>
             <div className="products-card">
               {(filtered?.length > 0 ? filtered : products)?.map(
                 (product, index) => (

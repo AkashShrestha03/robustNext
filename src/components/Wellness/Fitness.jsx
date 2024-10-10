@@ -8,6 +8,7 @@ import FilterWellness from "./FilterWellness";
 const Fitness = () => {
   const [products, setProducts] = useState([]);
   const [filtered, setFiltered] = useState([]);
+  const [subcategoryName, setSubcategoryName] = useState("Fitness & Re Creation");
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,6 +27,11 @@ const Fitness = () => {
     getProduct();
   }, []);
 
+  const handleFilteredProducts = (filtered, subCategoryName) => {
+    setFiltered(filtered); // Update filtered products
+    setSubcategoryName(subCategoryName); // Update the heading to the selected subcategory name
+  };
+
   return (
     <>
       {" "}
@@ -33,13 +39,15 @@ const Fitness = () => {
         <div className="row">
           <div className="col-md-3">
             <FilterWellness
-              filteredProducts={(filtered) => setFiltered(filtered)}
+              filteredProducts={(filtered, subCategoryName) =>
+                handleFilteredProducts(filtered, subCategoryName)
+              }
             />
             {/* <Filter /> */}
           </div>
           <div className="col-md-8">
             {" "}
-            <h2 className="text-center">Fitness & Recreation</h2>{" "}
+            <h2 className="text-center">{subcategoryName}</h2>
             {/* Changed class to className */}
             <div className="products-card">
               {(filtered?.length > 0 ? filtered : products)?.map(
