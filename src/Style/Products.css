@@ -5,6 +5,33 @@
   flex-wrap: wrap;
 }
 
+.made-in-india-flag {
+  display: flex;
+  margin-top: 8px;
+  justify-content: center;
+  gap: 3px;
+  color: #ff9933;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.made-in-india-flag img{
+  height: 20px !important;
+  width: 45px;
+}
+
+.sustainable-icon {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  font-size: 14px;
+  color: green;
+}
+
+.sustainable-icon i {
+  margin-right: 5px;
+}
+
 /* products card ui */
 
 .snip1423 {
@@ -45,6 +72,8 @@
 }
 .snip1423 figcaption {
   padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
 }
 .snip1423 h3,
 .snip1423 p {
@@ -62,13 +91,12 @@
   font-weight: 500;
 }
 .snip1423 .price {
-  
   font-weight: 500;
   font-size: 18px;
+  display: block;
 }
 
 .price {
- 
   align-items: center;
   font-weight: 500;
   font-size: 18px;

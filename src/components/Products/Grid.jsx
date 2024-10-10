@@ -1,15 +1,14 @@
-
 import { productDetails, removeProduct } from "@/store/productSlice";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import LeafIcon from "./LeafIcon";
 
 const Grid = ({ filtered }) => {
   const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
-
-  console.log(filtered);
 
   useEffect(() => {
     const getProduct = async () => {
@@ -17,8 +16,7 @@ const Grid = ({ filtered }) => {
         const res = await axios.get(
           `https://spice-19.onrender.com/api/product/All`
         );
-        setProducts(res?.data?.data); // Axios automatically parses JSON
-        console.log(res?.data?.data); // Logs the fetched product data
+        setProducts(res?.data?.data);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -30,10 +28,8 @@ const Grid = ({ filtered }) => {
   return (
     <>
       <div className="products-card">
-        {" "}
         {(filtered?.length > 0 ? filtered : products)?.map((product, index) => (
           <figure className="snip1423" key={index}>
-            {" "}
             <img
               src={product?.productPicture[0] || "/Assests/mokup1.png"}
               alt="sample57"
@@ -41,12 +37,28 @@ const Grid = ({ filtered }) => {
             <figcaption className="d-flex flex-column align-items-center">
               <h3>{product?.productName}</h3>
               <p>{product?.productDescription}</p>
+
+           
+              {product?.madeInIndia && (
+                <div className="made-in-india-flag">
+                  <img src="/image.png" alt="Made in India" />
+                  Make in India
+                </div>
+              )}
+
+             
+              {product?.sustainable && (
+                <div className="sustainable-icon">
+              
+                  Sustainable Product
+                </div>
+              )}
+
               <div className="price">
-                {" "}
                 <s>₹{product?.productMRP}</s>₹{product?.productPrice}
               </div>
             </figcaption>
-            <i className="fa fa-cart-plus"></i>{" "}
+
             <Link
               href="/productedit"
               onClick={() => dispatch(productDetails(product))}

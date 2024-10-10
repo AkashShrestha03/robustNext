@@ -42,13 +42,11 @@ const Hats = () => {
           <div className="col-md-8">
             {" "}
             <h2 className="text-center">Hats</h2>{" "}
-            {/* Changed class to className */}
             <div className="products-card">
               {(filtered?.length > 0 ? filtered : products)?.map(
                 (product, index) => (
                   <figure className="snip1423" key={index}>
                     {" "}
-                    {/* Changed class to className */}
                     <img
                       src={product?.productPicture[0] || "/Assests/mokup1.png"}
                       alt="sample57"
@@ -56,14 +54,24 @@ const Hats = () => {
                     <figcaption>
                       <h3>{product?.productName}</h3>
                       <p>{product?.productDescription}</p>
+                      {product?.madeInIndia && (
+                        <div className="made-in-india-flag">
+                          <img src="/image.png" alt="" />
+                          Make in India
+                        </div>
+                      )}
+                      {product?.sustainable && (
+                        <div className="sustainable-icon">
+                          Sustainable Product
+                        </div>
+                      )}
+
                       <div className="price">
                         {" "}
-                        {/* Changed class to className */}
                         <s>₹{product?.productMRP}</s>₹{product?.productPrice}
                       </div>
                     </figcaption>
                     <i className="fa fa-cart-plus"></i>{" "}
-                    {/* Changed class to className */}
                     <Link
                       href="/productedit"
                       onClick={() => dispatch(productDetails(product))}

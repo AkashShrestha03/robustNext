@@ -51,6 +51,18 @@ const Pouches = () => {
                     <figcaption>
                       <h3>{product?.productName}</h3>
                       <p>{product?.productDescription}</p>
+                      {product?.madeInIndia && (
+                        <div className="made-in-india-flag">
+                          <img src="/image.png" alt="" />
+                          Make in India
+                        </div>
+                      )}
+                      {product?.sustainable && (
+                        <div className="sustainable-icon">
+                          Sustainable Product
+                        </div>
+                      )}
+
                       <div className="price">
                         {" "}
                         <s>₹{product?.productMRP}</s>₹{product?.productPrice}

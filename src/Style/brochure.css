@@ -1,9 +1,4 @@
 /* General Styling */
-/* body {
-  background-color: #f3f0ff;
-  font-family: 'Poppins', sans-serif;
-} */
-
 .brochure-container {
   width: 100%;
   max-width: 1000px;
@@ -33,7 +28,6 @@
 
 .product-price {
   font-size: 2.5em;
-
   margin-top: 10px;
   font-weight: 700;
 }
@@ -41,21 +35,28 @@
 /* Image Section */
 .brochure-images {
   display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 30px;
 }
 
 .brochure-images img {
+  width: 49%;
   max-width: 100%;
-  height: auto;
+  height: 400px;
+  object-fit: cover;
   border-radius: 15px;
-  border: 2px solid #b39ddb; /* Subtle border */
+  border: 2px solid #b39ddb;
   box-shadow: 0px 5px 15px rgba(106, 27, 154, 0.2);
   transition: transform 0.3s ease-in-out;
 }
 
+.brochure-images.single-image img {
+  width: 100%;
+}
+
 .brochure-images img:hover {
- 
   box-shadow: 0px 8px 20px rgba(106, 27, 154, 0.3);
 }
 
@@ -67,14 +68,13 @@
 
 .brochure-description h2 {
   font-size: 2em;
- 
   margin-bottom: 15px;
 }
 
 .brochure-description p {
   font-size: 1.1em;
- color: gray;
- font-weight: 500;
+  color: gray;
+  font-weight: 500;
   line-height: 1.8;
   max-width: 800px;
   margin: 0 auto;
@@ -87,7 +87,7 @@
 }
 
 .brochure-footer a {
-  color: #7e57c2; /* Soft purple */
+  color: #7e57c2;
   font-size: 1.2em;
   text-decoration: none;
   font-weight: 600;
@@ -95,10 +95,10 @@
 }
 
 .brochure-footer a:hover {
-  color: #512da8; /* Darker purple */
+  color: #512da8;
 }
 
-.btn-download{
+.btn-download {
   padding: 10px;
   background: rgb(189, 102, 189);
 }

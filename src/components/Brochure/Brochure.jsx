@@ -98,8 +98,16 @@ const ProductBrochure = () => {
             <p className="product-price">₹{product?.productPrice}</p>
           </div>
 
-          <div className="brochure-images">
-            <img src={product?.productPicture[0]} alt={`Product Image`} />
+          <div
+            className={`brochure-images ${
+              product?.productPicture?.length === 1
+                ? "single-image"
+                : "multiple-images"
+            }`}
+          >
+            {product?.productPicture?.map((picture, index) => (
+              <img src={picture} key={index} alt={`Product Image`} />
+            ))}
           </div>
 
           <div className="brochure-description">

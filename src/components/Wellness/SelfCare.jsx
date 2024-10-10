@@ -5,12 +5,10 @@ import { useDispatch } from "react-redux";
 import { productDetails, removeProduct } from "@/store/productSlice";
 import FilterWellness from "./FilterWellness";
 
-
 const SelfCare = () => {
   const [products, setProducts] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const dispatch = useDispatch();
-
 
   useEffect(() => {
     const getProduct = async () => {
@@ -56,6 +54,18 @@ const SelfCare = () => {
                     <figcaption>
                       <h3>{product?.productName}</h3>
                       <p>{product?.productDescription}</p>
+                      {product?.madeInIndia && (
+                        <div className="made-in-india-flag">
+                          <img src="/image.png" alt="Made in India" />
+                          Make in India
+                        </div>
+                      )}
+                      {product?.sustainable && (
+                        <div className="sustainable-icon">
+                          Sustainable Product
+                        </div>
+                      )}
+
                       <div className="price">
                         {" "}
                         {/* Changed class to className */}
