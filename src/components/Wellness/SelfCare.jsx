@@ -62,7 +62,7 @@ const SelfCare = () => {
                       )}
                       {product?.sustainable && (
                         <div className="sustainable-icon">
-                          Sustainable Product
+                          <i class="fa fa-leaf" aria-hidden="true"></i>
                         </div>
                       )}
 

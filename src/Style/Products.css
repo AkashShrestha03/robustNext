@@ -19,18 +19,32 @@
   height: 20px !important;
   width: 45px;
 }
+.made-in-india img{
+  display: inline;
+  height: 20px !important;
+  width: 45px;
+}
+
+.cart-details-heading{
+  display: flex;
+  gap: 5px;
+}
 
 .sustainable-icon {
-  display: flex;
-  align-items: center;
-  margin-top: 5px;
-  font-size: 14px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  height: 10px;
+  width: 10px;
+  font-size: 10px;
   color: green;
+  background-color: green;
 }
 
-.sustainable-icon i {
-  margin-right: 5px;
+.sustainable-icon i{
+  background-color: green !important;
 }
+
 
 /* products card ui */
 
@@ -122,7 +136,6 @@
   line-height: 56px;
   text-align: center;
   border-radius: 50%;
-  background-color: #666666;
   color: #ffffff;
   font-size: 1.6em;
   border: 4px solid #ffffff;
@@ -141,7 +154,4 @@
   -webkit-transform: translateY(-5px);
   transform: translateY(-5px);
 }
-.snip1423:hover i,
-.snip1423.hover i {
-  background-color: #ce5939;
-}
+

@@ -22,8 +22,18 @@ const ProductEditor = ({ product }) => {
     <div className="Product-editor p-3">
       <div className="edit-container-info-section d-flex justify-content-between align-items-center">
         <div className="m-4" style={{ width: "80%" }}>
-          <h2 className="cart-details-heading">{product?.productName}</h2>
-          <p className="cart-details-text">{product?.productDescription}</p>
+          <h2 className="cart-details-heading">
+            {product?.productName}{" "}
+            {product?.madeInIndia && (
+              <div className="made-in-india">
+                <img src="/image.png" alt="Made in India" />
+              </div>
+            )}
+            {product?.sustainable && (
+              <i class="fa fa-leaf text-success" aria-hidden="true"></i>
+            )}
+          </h2>{" "}
+          {/* <p className="cart-details-text">{product?.productDescription}</p> */}
           <div className="price mt-2">
             <s>₹{product?.productMRP}</s>₹{product?.productPrice}
           </div>

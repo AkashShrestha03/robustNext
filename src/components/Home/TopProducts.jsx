@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const TopProducts = () => {
@@ -15,7 +16,9 @@ const TopProducts = () => {
               style={{ backgroundColor: "#ff2c5c" }}
             >
               <p>Office</p>
-              <button className="text-dark">Shop Now</button>
+              <button className="text-dark">
+                <Link href={"/products/office/desk_accessories"}>Shop Now</Link>
+              </button>
             </div>
           </div>
           <div className="hex">
@@ -25,7 +28,10 @@ const TopProducts = () => {
               style={{ backgroundColor: "#00b9f8" }}
             >
               <p>Apparel</p>
-              <button className="text-dark">Shop Now</button>
+              <button className="text-dark">
+                {" "}
+                <Link href={"/products/apparels/tshirts"}>Shop Now</Link>
+              </button>
             </div>
           </div>
           <div className="hex">
@@ -34,8 +40,10 @@ const TopProducts = () => {
               className="item-name-hex"
               style={{ backgroundColor: "#9844ff" }}
             >
-              <p>Electronics</p>
-              <button className="text-dark">Shop Now</button>
+              <p>Tech</p>
+              <button className="text-dark">
+                <Link href={"/products/tech/tech_accessories"}>Shop Now</Link>
+              </button>
             </div>
           </div>
           <div className="hex">
@@ -45,7 +53,10 @@ const TopProducts = () => {
               style={{ backgroundColor: "#f35000" }}
             >
               <p>Home & Living</p>
-              <button className="text-dark">Shop Now</button>
+              <button className="text-dark">
+                {" "}
+                <Link href={"/products/wellness/self_care"}>Shop Now</Link>
+              </button>
             </div>
           </div>
           <div className="hex">
@@ -55,7 +66,9 @@ const TopProducts = () => {
               style={{ backgroundColor: "#31814f" }}
             >
               <p>Drinkware</p>
-              <button className="text-dark">Shop Now</button>
+              <button className="text-dark">
+                <Link href={"/products/drinkware/waterbottles"}>Shop Now</Link>
+              </button>
             </div>
           </div>
           <div className="hex">
@@ -65,7 +78,9 @@ const TopProducts = () => {
               style={{ backgroundColor: "#ff2c5c" }}
             >
               <p>Bags</p>
-              <button className="text-dark">Shop Now</button>
+              <button className="text-dark">
+                <Link href={"/products/bags/totes"}>Shop Now</Link>
+              </button>
             </div>
           </div>
           <div className="hex">
@@ -75,7 +90,9 @@ const TopProducts = () => {
               style={{ backgroundColor: "#9844ff" }}
             >
               <p>Eco Friendly</p>
-              <button className="text-dark">Shop Now</button>
+              <button className="text-dark">
+                <Link href={"/products/ecofriendly"}>Shop Now</Link>
+              </button>
             </div>
           </div>
           <div className="hex">
@@ -84,8 +101,10 @@ const TopProducts = () => {
               className="item-name-hex"
               style={{ backgroundColor: "#ff2c5c" }}
             >
-              <p>Tech</p>
-              <button className="text-dark">Shop Now</button>
+              <p>Fitness & Recreation</p>
+              <button className="text-dark">
+                <Link href={"/products/wellness/fitness"}>Shop Now</Link>
+              </button>
             </div>
           </div>
           <div className="hex">
@@ -95,7 +114,9 @@ const TopProducts = () => {
               style={{ backgroundColor: "#00b9f8" }}
             >
               <p>Bags</p>
-              <button className="text-dark">Shop Now</button>
+              <button className="text-dark">
+                <Link href={"/products/bags/totes"}>Shop Now</Link>
+              </button>
             </div>
           </div>
           <div className="hex">
@@ -105,7 +126,9 @@ const TopProducts = () => {
               style={{ backgroundColor: "#9844ff" }}
             >
               <p>Stationery</p>
-              <button className="text-dark">Shop Now</button>
+              <button className="text-dark">
+                <Link href={"/products/office/pens"}>Shop Now</Link>
+              </button>
             </div>
           </div>
         </section>
