@@ -1,6 +1,6 @@
 .cart-details-inner {
-  position: relative;
-  margin-top: 140px;
+  
+ 
 }
 
 a {
@@ -60,6 +60,15 @@ button:focus {
 .product-image,
 .product-details {
   float: left;
+}
+
+@media (max-width: 768px) {
+
+  .basket{
+   
+    width: 100% !important;
+    float: none;
+  }
 }
 
 /* .price:before, */

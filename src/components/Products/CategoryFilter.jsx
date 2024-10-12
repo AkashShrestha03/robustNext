@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const Filter = ({ onProductsFetched }) => {
+const CategoryFilter = ({ onProductsFetched }) => {
   const [category, setCategory] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
@@ -55,14 +55,6 @@ const Filter = ({ onProductsFetched }) => {
           aria-labelledby="panelsStayOpen-headingOne"
         >
           <div className="accordion-body panel">
-            <label className="container">
-              All Products
-              <input
-                type="radio"
-                checked={selectedCategory === null}
-                onChange={() => handleCheckboxChange(null)}
-              />
-            </label>
             {category?.map((cat, index) => (
               <label className="container" key={index}>
                 {cat?.name}
@@ -80,4 +72,4 @@ const Filter = ({ onProductsFetched }) => {
   );
 };
 
-export default Filter;
+export default CategoryFilter;

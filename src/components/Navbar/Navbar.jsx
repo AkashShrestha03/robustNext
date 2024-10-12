@@ -17,7 +17,11 @@ const Navbar = () => {
           <header>
             <div class="div-main">
               <div class="top-nav-main-container">
-                <div class="top-nav f13 poppins-medium">
+                <div
+                  class="top-nav d-flex justify-content-center 
+                align-items-center
+                 f13 poppins-medium"
+                >
                   <div class="d-flex align-items-center">
                     <i class="d-flex g5 fa fa-phone pr-3">
                       <p class="poppins-medium">+91 9090909090</p>
@@ -92,7 +96,12 @@ const Navbar = () => {
                       <img src="/Assests/logo2.png" alt="" />
                     </Link>
                   </div>
-                  <div class="links">
+                  <div className="navbar-toggle">
+                    <span type="button">
+                      <i class="bi bi-list"></i>
+                    </span>
+                  </div>
+                  <div class="navbar links">
                     <ul class="d-flex align-items-center f13 poppins-semibold ">
                       <Link href="/products">
                         <li>All Robust</li>
@@ -119,6 +128,12 @@ const Navbar = () => {
                               >
                                 All Apparels
                               </Link> */}
+                              <Link
+                                class="dropdown-item"
+                                href="/products/apparels/allapparels"
+                              >
+                                All Apparels
+                              </Link>
                               <Link
                                 class="dropdown-item"
                                 href="/products/apparels/tshirts"
@@ -171,6 +186,12 @@ const Navbar = () => {
                             <div class="d-flex" style={{ fontSize: "13px" }}>
                               <Link
                                 class="dropdown-item"
+                                href="/products/office/alloffice"
+                              >
+                                All Office Accessories
+                              </Link>
+                              <Link
+                                class="dropdown-item"
                                 href="/products/office/desk_accessories"
                               >
                                 Desk Accessories
@@ -207,6 +228,12 @@ const Navbar = () => {
                             aria-labelledby="dropdownMenuButton"
                           >
                             <div class="d-flex" style={{ fontSize: "13px" }}>
+                              <Link
+                                class="dropdown-item"
+                                href="/products/drinkware/alldrinkware"
+                              >
+                                All Drinkware
+                              </Link>
                               <Link
                                 class="dropdown-item"
                                 href="/products/drinkware/waterbottles"
@@ -323,6 +350,12 @@ const Navbar = () => {
                             <div class="d-flex" style={{ fontSize: "13px" }}>
                               <Link
                                 class="dropdown-item"
+                                href="/products/wellness/allwellness"
+                              >
+                                All Wellness
+                              </Link>
+                              <Link
+                                class="dropdown-item"
                                 href="/products/wellness/self_care"
                               >
                                 Self Care
@@ -366,8 +399,8 @@ const Navbar = () => {
             </div>
 
             {isHomePage && (
-              <div class="header-body">
-                <div class="left-section">
+              <div class="header-body row">
+                <div class="left-section col">
                   <h1 class="poppins-black">ROBUST</h1>
                   <p class="poppins-bold f14 mb-5">
                     {" "}
@@ -383,7 +416,7 @@ const Navbar = () => {
                   </Link>
                 </div>
 
-                <div class="right-section">
+                <div class="right-section col">
                   <CardSwiper />
                 </div>
               </div>
@@ -393,7 +426,11 @@ const Navbar = () => {
       ) : (
         <div class="div-main">
           <div class="top-nav-main-container">
-            <div class="top-nav f13 poppins-medium">
+            <div
+              class="top-nav d-flex justify-content-center 
+                align-items-center
+                 f13 poppins-medium"
+            >
               <div class="d-flex align-items-center">
                 <i class="d-flex g5 fa fa-phone pr-3">
                   <p class="poppins-medium">+91 9090909090</p>
@@ -469,7 +506,13 @@ const Navbar = () => {
                   <img src="/Assests/logo2.png" alt="" />
                 </Link>
               </div>
-              <div class="links">
+
+              <div className="navbar-toggle">
+                <span type="button">
+                  <i class="bi bi-list"></i>
+                </span>
+              </div>
+              <div class="navbar links">
                 <ul class="d-flex align-items-center f13 poppins-semibold ">
                   <Link href="/products">
                     <li>All Robust</li>
@@ -496,6 +539,12 @@ const Navbar = () => {
                           >
                             All Apparels
                           </Link> */}
+                          <Link
+                            class="dropdown-item"
+                            href="/products/apparels/allapparels"
+                          >
+                            All Apparels
+                          </Link>
                           <Link
                             class="dropdown-item"
                             href="/products/apparels/tshirts"
@@ -548,6 +597,12 @@ const Navbar = () => {
                         <div class="d-flex" style={{ fontSize: "13px" }}>
                           <Link
                             class="dropdown-item"
+                            href="/products/office/alloffice"
+                          >
+                            All Office Accessories
+                          </Link>
+                          <Link
+                            class="dropdown-item"
                             href="/products/office/desk_accessories"
                           >
                             Desk Accessories
@@ -585,6 +640,12 @@ const Navbar = () => {
                         aria-labelledby="dropdownMenuButton"
                       >
                         <div class="d-flex" style={{ fontSize: "13px" }}>
+                          <Link
+                            class="dropdown-item"
+                            href="/products/drinkware/alldrinkware"
+                          >
+                            All Drinkware
+                          </Link>
                           <Link
                             class="dropdown-item"
                             href="/products/drinkware/waterbottles"
@@ -625,6 +686,12 @@ const Navbar = () => {
                         <div class="d-flex" style={{ fontSize: "13px" }}>
                           <Link
                             class="dropdown-item"
+                            href="/products/bags/allbags"
+                          >
+                            All Bags
+                          </Link>
+                          <Link
+                            class="dropdown-item"
                             href="/products/bags/totes"
                           >
                             Totes
@@ -663,6 +730,12 @@ const Navbar = () => {
                         <div class="d-flex" style={{ fontSize: "13px" }}>
                           <Link
                             class="dropdown-item"
+                            href="/products/tech/alltech"
+                          >
+                            All Tech Accessories
+                          </Link>
+                          <Link
+                            class="dropdown-item"
                             href="/products/tech/tech_accessories"
                           >
                             Tech Accessories
@@ -699,6 +772,12 @@ const Navbar = () => {
                         aria-labelledby="dropdownMenuButton"
                       >
                         <div class="d-flex" style={{ fontSize: "13px" }}>
+                          <Link
+                            class="dropdown-item"
+                            href="/products/wellness/allwellness"
+                          >
+                            All Wellness
+                          </Link>
                           <Link
                             class="dropdown-item"
                             href="/products/wellness/self_care"

@@ -37,6 +37,9 @@ const ProductEditor = ({ product }) => {
           <div className="price mt-2">
             <s>₹{product?.productMRP}</s>₹{product?.productPrice}
           </div>
+          <div className="price d-flex g-3">
+            <p className="text-secondary">Minimum Order Quantity:</p> <p className="mx-2"> {product?.minProduct}</p>
+          </div>
         </div>
         <div className="btn-sep-cart-details">
           <button className="btn bg-pink" onClick={handleShortlist}>

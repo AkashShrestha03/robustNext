@@ -2,8 +2,6 @@ a {
   text-decoration: none;
 }
 
-
-
 section {
   max-width: 1440px;
   margin: auto;
@@ -86,17 +84,23 @@ button :focus {
 .header-body {
   display: flex;
   justify-content: space-between;
-  max-width: 1170px;
+  width: 100vw;
   margin: 0px auto;
   padding-top: 270px;
 }
 
-.header-body .left-section {
+/* .header-body .left-section {
   width: 50%;
-}
+} */
 
-.header-body .right-section {
-  /* width: 50%; */
+/* .header-body .right-section {
+  width: 50%;
+} */
+
+@media (max-width: 425px) {
+  .right-section {
+    display: none;
+  }
 }
 
 .left-section input {
@@ -166,27 +170,26 @@ button :focus {
   font-size: xxx-large;
 }
 
-  .dropdown-menu {
-    display: block;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.3s ease;
-    position: absolute;
-  }
+.dropdown-menu {
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.3s ease;
+  position: absolute;
+}
 
-  .dropdown:hover{
-    border-bottom: 1px solid #6f42c1 ;
-  }
+.dropdown:hover {
+  border-bottom: 1px solid #6f42c1;
+}
 
-  .dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    
-  }
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
 
-  .links li{
-    cursor: pointer;
-  }
+.links li {
+  cursor: pointer;
+}
 
 /*  */
 
@@ -746,32 +749,6 @@ button :focus {
   transition: opacity 200ms linear 120ms, transform 200ms ease-in 120ms;
 }
 
-/* .card :nth-child(2n) {
-    background-color: rgb(0, 140, 255);
-}
-.card :nth-child(3n) {
-    background-color: rgb(130, 190, 100);
-}
-.card :nth-child(4n) {
-    background-color: rgb(145, 85, 160);
-}
-.card :nth-child(5n) {
-    background-color: rgb(0, 140, 255);
-}
-.card :nth-child(6n) {
-    background-color: rgb(0, 140, 255);
-}
-.card :nth-child(7n) {
-    background-color: rgb(0, 140, 255);
-}
-.card :nth-child(8n) {
-    background-color: rgb(0, 140, 255);
-} .card :nth-child(9n) {
-    background-color: rgb(0, 140, 255);
-}
-.card :nth-child(10n) {
-    background-color: rgb(0, 140, 255); */
-
 .heading-section {
   text-align: center;
   margin: 70px;
@@ -794,9 +771,8 @@ img {
 }
 
 .hexagon-gallery {
-  /* margin-left: 111px; */
-  /* margin-top: 107px; */
-  width: 1042px;
+  max-width: 1042px;
+  width: 100vw;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-auto-rows: 200px;
@@ -908,6 +884,124 @@ img {
   grid-column: 6 / span 2;
 }
 
+/* Hex Gallary @ 768px Tablet */
+
+@media (max-width: 768px) {
+  .hex:first-child {
+    grid-row-start: 1;
+    grid-column: 2 / span 2;
+  }
+
+  .hex:nth-child(2) {
+    grid-row-start: 1;
+    grid-column: 4 / span 2;
+  }
+
+  .hex:nth-child(3) {
+    grid-row-start: 2;
+    grid-column: 1 / span 2;
+  }
+
+  .hex:nth-child(4) {
+    grid-row-start: 2;
+    grid-column: 3 / span 2;
+  }
+
+  .hex:nth-child(5) {
+    grid-row-start: 2;
+    grid-column: 5 / span 2;
+  }
+
+  .hex:nth-child(6) {
+    grid-row-start: 3;
+    grid-column: 2 / span 2;
+  }
+
+  .hex:nth-child(7) {
+    grid-row-start: 3;
+    grid-column: 4 / span 2;
+  }
+
+  .hex:nth-child(8) {
+    grid-row-start: 4;
+    grid-column: 1 / span 2;
+  }
+
+  .hex:nth-child(9) {
+    grid-row-start: 4;
+    grid-column: 3 / span 2;
+  }
+
+  .hex:nth-child(10) {
+    grid-row-start: 4;
+    grid-column: 5 / span 2;
+  }
+}
+
+/* Hex Gallary @768px tablet End */
+
+/* Hex Gallary @425px Mobile */
+
+@media (max-width: 425px) {
+  .hexagon-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .hex:first-child {
+    grid-row-start: 1;
+    grid-column: 2 / span 2;
+  }
+
+  .hex:nth-child(2) {
+    grid-row-start: 2;
+    grid-column: 2 / span 2;
+  }
+
+  .hex:nth-child(3) {
+    grid-row-start: 3;
+    grid-column: 2 / span 2;
+  }
+
+  .hex:nth-child(4) {
+    grid-row-start: 4;
+    grid-column: 2 / span 2;
+  }
+
+  .hex:nth-child(5) {
+    grid-row-start: 5;
+    grid-column: 2 / span 2;
+  }
+
+  .hex:nth-child(6) {
+    grid-row-start: 6;
+    grid-column: 2 / span 2;
+  }
+
+  .hex:nth-child(7) {
+    grid-row-start: 7;
+    grid-column: 2 / span 2;
+  }
+
+  .hex:nth-child(8) {
+    grid-row-start: 8;
+    grid-column: 2 / span 2;
+  }
+
+  .hex:nth-child(9) {
+    grid-row-start: 9;
+    grid-column: 2 / span 2;
+  }
+
+  .hex:nth-child(10) {
+    grid-row-start: 10;
+    grid-column: 2 / span 2;
+  }
+}
+
+/* Hex Gallary @425px Mobile */
+
 #loader {
   justify-content: center;
   align-items: center;
@@ -1003,4 +1097,15 @@ img {
   border: none;
   padding: 15px;
   margin-top: 30px;
+}
+
+@media (max-width: 425px) {
+  .bg-d {
+    justify-content: center;
+  }
+
+  .Automation div {
+    margin-left: 0;
+    padding: 50px;
+  }
 }

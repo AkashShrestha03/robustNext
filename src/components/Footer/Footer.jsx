@@ -41,7 +41,7 @@ const Footer = () => {
       </div>
       <div class="footer-bottom">
         <p style={{ textAlign: "center" }}>
-          Copyright &copy <span id="year"></span> <Link href="/">@Robust</Link>{" "}
+          Copyright &copy; {new Date().getFullYear()} <Link href="/">Robust</Link>{" "}
         </p>
       </div>
     </footer>

@@ -4,12 +4,12 @@ const Distribution = () => {
   return (
     <div class="bg-c">
       <div
-        class="we-do-main-container justify-content-around mb-0"
+        class="we-do-main-container row"
         style={{ padding: "40px", gap: 0 }}
       >
-        <div class="d-flex justift-content-around sep-logo">
-          <div style={{ textAlign: "right", width: "80%" }}>
-            <h4 class="disstribution">Robust Distribution</h4>
+        <div class="sep-logo col">
+          <div >
+            <h4 class="disstribution text-center">Robust Distribution</h4>
             <p class="distribution-text">
               {" "}
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -19,7 +19,7 @@ const Distribution = () => {
         </div>
 
         <div
-          class="animated animate__animate__fadeInUp___zVJAI"
+          class="distribution-box animated animate__animate__fadeInUp___zVJAI col"
           style={{animationDuration: "0.75s"}}
         >
           <div>
