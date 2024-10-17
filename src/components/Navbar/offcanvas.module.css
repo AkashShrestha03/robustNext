@@ -14,8 +14,8 @@
   background-color: #00bfff;
 }
 .dropdown-menu {
-  padding: 10px;
-  line-height: 40px;
+  padding-left: 10px;
+  line-height: 35px;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease;

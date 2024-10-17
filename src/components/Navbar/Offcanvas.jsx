@@ -120,6 +120,7 @@ const OffcanvasNav = ({ show, onClose }) => {
                         {category.links.map((link, linkIndex) => (
                           <Link
                             key={linkIndex}
+                            style={{textDecoration: "none"}}
                             className="dropdown-item"
                             href={link.href}
                             onClick={() => onClose(false)}
