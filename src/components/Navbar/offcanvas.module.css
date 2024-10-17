@@ -1,0 +1,28 @@
+.header {
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  left: -37px;
+  border: 1px solid #00bfff;
+}
+
+.close-btn button {
+  height: 40px;
+  width: 40px;
+  background-color: #00bfff;
+}
+.dropdown-menu {
+  padding: 10px;
+  line-height: 40px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  /* display: none; */
+  /* opacity: 0; */
+}
+
+.show {
+  max-height: 200px;
+}

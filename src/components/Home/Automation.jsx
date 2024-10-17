@@ -3,9 +3,9 @@ import React from 'react'
 
 const Automation = () => {
   return (
-    <div class="bg-d Automation">
+    <div class="bg-d mt-5 Automation">
       <div>
-        <h4>Robust Automation</h4>
+        <h4 className='display-2'>Robust Automation</h4>
         <p class="distribution-text">
           {" "}
           Lorem ipsum, dolor sit amet consectetur adipisicing elit.

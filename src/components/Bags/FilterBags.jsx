@@ -6,7 +6,8 @@ const FilterBags = ({ filteredProducts }) => {
   const router = useRouter();
   const [subCategories, setSubCategories] = useState([]); // Store subcategories
   const [selectedSubCategory, setSelectedSubCategory] = useState(null);
-  const [products, setProducts] = useState([]); // Store products
+  const [name, setName] = useState(null);
+  const [products, setProducts] = useState([]);
 
   // Fetch subcategories
   const getSubCategories = async () => {
@@ -22,9 +23,16 @@ const FilterBags = ({ filteredProducts }) => {
 
   // Fetch products by subcategory
   const getProductsBySubCategory = async (subCategoryId, subCategoryName) => {
+    setName(subCategoryName);
     try {
       const res = await axios.get(
-        `https://spice-19.onrender.com/api/product/Sub/Category/Product/List?SubCategoryID=${subCategoryId}`
+        `https://spice-19.onrender.com/api/product/Sub/Category/Product/List`,
+        {
+          params: {
+            SubCategoryID: subCategoryId,
+            CategoryID: "66e951a9e4a0682d9adf69bd",
+          },
+        }
       );
       setProducts(res?.data?.data);
       filteredProducts(res?.data?.data, subCategoryName); // Pass the subCategoryName here
@@ -34,10 +42,14 @@ const FilterBags = ({ filteredProducts }) => {
   };
 
   // Handle radio button change
-  const handleRadioChange = (subCategoryId, subCategoryName) => {
+const handleRadioChange = (subCategoryId, subCategoryName) => {
+  if (subCategoryId === null) {
+    setSelectedSubCategory("all");
+  } else {
     setSelectedSubCategory(subCategoryId);
-    getProductsBySubCategory(subCategoryId, subCategoryName); // Fetch products when subcategory is selected
-  };
+  }
+  getProductsBySubCategory(subCategoryId, subCategoryName);
+};
 
   useEffect(() => {
     getSubCategories(); // Fetch subcategories on component mount
@@ -64,9 +76,17 @@ const FilterBags = ({ filteredProducts }) => {
           aria-labelledby="panelsStayOpen-headingOne"
         >
           <div className="accordion-body panel">
+            <label className="container my-2">
+              All Bags
+              <input
+                type="radio"
+                onChange={() => handleRadioChange(null, "All Bags")}
+                checked={selectedSubCategory === "all"} // Adjust the checked condition
+              />
+            </label>
             {/* Map subcategories */}
             {subCategories?.map((subCat, index) => (
-              <label className="container" key={index}>
+              <label className="container my-2" key={index}>
                 {subCat?.SubCategoryName}
                 <input
                   type="radio"

@@ -324,6 +324,10 @@ nav .links ul {
   font-size: 25px;
 }
 
+.brochure button{
+  background-color: white !important;
+}
+
 @media (max-width: 425px) {
   .navbar {
     display: none;
@@ -619,13 +623,44 @@ i.fa.fa-cart-plus {
   font-weight: 700;
   margin-top: 15px;
 }
+.mobile-distribution-box {
+  display: none;
+}
 
-@media (max-width: 425px) {
+@media (max-width: 514px) {
   .distribution-box {
     display: none;
   }
+  .distrubution-heading {
+    display: flex;
+    justify-content: center;
+  }
 }
-.distribution-box {
+@media (max-width: 768px) {
+  .distribution-box {
+    display: none;
+  }
+  .distrubution-heading {
+    display: flex;
+    justify-content: center;
+  }
+  .mobile-distribution-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.distribution__cardThirdIcons {
+  background: #fff;
+  box-shadow: 1.04167vw -1.04167vw 0 #f556a0;
+  display: flex;
+  flex-wrap: wrap;
+  height: 55.84375vw;
+  margin-right: 5.2083vw;
+  padding: 2.60416666667vw;
+  width: 72.25vw;
 }
 
 /*  */
@@ -669,6 +704,23 @@ i.fa.fa-cart-plus {
   padding: 20px;
 }
 
+/* Experience Section @992px  */
+
+@media (max-width: 992px) {
+  .experience-inner {
+    width: 100vw;
+
+    /* height: 200px; */
+  }
+  .experience-inner img {
+    margin-left: 0;
+  }
+  .experience-box {
+    right: 29%;
+    top: 34%;
+  }
+}
+
 /* Experience Section @768px Tablet  */
 
 @media (max-width: 768px) {
@@ -688,12 +740,21 @@ i.fa.fa-cart-plus {
 
 /* Experience Section @425px Mobile */
 
-@media (max-width: 768px) {
+@media (max-width: 514px) {
   .experience-inner img {
     margin-left: 0;
   }
   .experience-box {
-    right: 10%;
+    right: 14%;
+    top: 47%;
+  }
+}
+@media (max-width: 375px) {
+  .experience-inner img {
+    margin-left: 0;
+  }
+  .experience-box {
+    right: 3%;
     top: 45%;
   }
 }
@@ -815,6 +876,22 @@ i.fa.fa-cart-plus {
   color: rgb(255, 255, 255);
   margin: 18px 0px;
   line-height: 27px;
+}
+
+@media (max-width: 768px) {
+  .Automation div{
+    margin: 0 auto;
+    padding: 20px;
+  }
+}
+@media (max-width: 375px) {
+ .Automation div h4 {
+    font-size: 50px;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
 }
 
 .ourapi-main-container-inner-card {

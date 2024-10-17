@@ -55,7 +55,7 @@ const Filter = ({ onProductsFetched }) => {
           aria-labelledby="panelsStayOpen-headingOne"
         >
           <div className="accordion-body panel">
-            <label className="container">
+            <label className="container my-2">
               All Products
               <input
                 type="radio"
@@ -64,7 +64,7 @@ const Filter = ({ onProductsFetched }) => {
               />
             </label>
             {category?.map((cat, index) => (
-              <label className="container" key={index}>
+              <label className="container my-2" key={index}>
                 {cat?.name}
                 <input
                   type="radio"

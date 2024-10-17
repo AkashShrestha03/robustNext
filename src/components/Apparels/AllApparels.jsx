@@ -3,7 +3,6 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { productDetails, removeProduct } from "@/store/productSlice";
-import Filter from "../Products/Filter";
 import CategoryFilter from "../Products/CategoryFilter";
 
 const AllApparels = () => {

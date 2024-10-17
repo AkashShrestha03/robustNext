@@ -21,7 +21,13 @@ const FilterApparel = ({ filteredProducts }) => {
   const getProductsBySubCategory = async (subCategoryId, subCategoryName) => {
     try {
       const res = await axios.get(
-        `https://spice-19.onrender.com/api/product/Sub/Category/Product/List?SubCategoryID=${subCategoryId}`
+        `https://spice-19.onrender.com/api/product/Sub/Category/Product/List`,
+        {
+          params: {
+            SubCategoryID: subCategoryId,
+            CategoryID: "66e947dfe4a0682d9adf6826",
+          },
+        }
       );
       filteredProducts(res?.data?.data, subCategoryName); // Send products and subcategory name back to parent
     } catch (error) {
@@ -30,10 +36,14 @@ const FilterApparel = ({ filteredProducts }) => {
   };
 
   // Handle radio button change
-  const handleRadioChange = (subCategoryId, subCategoryName) => {
+const handleRadioChange = (subCategoryId, subCategoryName) => {
+  if (subCategoryId === null) {
+    setSelectedSubCategory("all");
+  } else {
     setSelectedSubCategory(subCategoryId);
-    getProductsBySubCategory(subCategoryId, subCategoryName); // Fetch products when subcategory is selected
-  };
+  }
+  getProductsBySubCategory(subCategoryId, subCategoryName);
+};
 
   useEffect(() => {
     getSubCategories(); // Fetch subcategories on component mount
@@ -60,9 +70,17 @@ const FilterApparel = ({ filteredProducts }) => {
           aria-labelledby="panelsStayOpen-headingOne"
         >
           <div className="accordion-body panel">
+            <label className="container my-2">
+              All Apparels
+              <input
+                type="radio"
+                onChange={() => handleRadioChange(null, "All Apparel")}
+                checked={selectedSubCategory === "all"} // Adjust the checked condition
+              />
+            </label>
             {/* Map subcategories */}
             {subCategories?.map((subCat, index) => (
-              <label className="container" key={index}>
+              <label className="container my-2" key={index}>
                 {subCat?.SubCategoryName}
                 <input
                   type="radio"

@@ -24,7 +24,13 @@ const FilterDrink = ({ filteredProducts }) => {
   const getProductsBySubCategory = async (subCategoryId, subCategoryName) => {
     try {
       const res = await axios.get(
-        `https://spice-19.onrender.com/api/product/Sub/Category/Product/List?SubCategoryID=${subCategoryId}`
+        `https://spice-19.onrender.com/api/product/Sub/Category/Product/List`,
+        {
+          params: {
+            SubCategoryID: subCategoryId,
+            CategoryID: "66e9507ce4a0682d9adf698a",
+          },
+        }
       );
       setProducts(res?.data?.data);
       filteredProducts(res?.data?.data, subCategoryName);
@@ -35,12 +41,16 @@ const FilterDrink = ({ filteredProducts }) => {
 
   // Handle radio button change
   const handleRadioChange = (subCategoryId, subCategoryName) => {
-    setSelectedSubCategory(subCategoryId);
-    getProductsBySubCategory(subCategoryId, subCategoryName);  
+    if (subCategoryId === null) {
+      setSelectedSubCategory("all");
+    } else {
+      setSelectedSubCategory(subCategoryId);
+    }
+    getProductsBySubCategory(subCategoryId, subCategoryName);
   };
 
   useEffect(() => {
-    getSubCategories(); 
+    getSubCategories();
   }, []);
 
   return (
@@ -64,9 +74,17 @@ const FilterDrink = ({ filteredProducts }) => {
           aria-labelledby="panelsStayOpen-headingOne"
         >
           <div className="accordion-body panel">
-           
+            <label className="container my-2">
+              All Drinkware
+              <input
+                type="radio"
+                onChange={() => handleRadioChange(null, "All Drinkwares")}
+                checked={selectedSubCategory === "all"} // Adjust the checked condition
+              />
+            </label>
+            {/* Map subcategories */}
             {subCategories?.map((subCat, index) => (
-              <label className="container" key={index}>
+              <label className="container my-2" key={index}>
                 {subCat?.SubCategoryName}
                 <input
                   type="radio"

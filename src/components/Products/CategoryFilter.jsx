@@ -56,7 +56,7 @@ const CategoryFilter = ({ onProductsFetched }) => {
         >
           <div className="accordion-body panel">
             {category?.map((cat, index) => (
-              <label className="container" key={index}>
+              <label className="container my-2" key={index}>
                 {cat?.name}
                 <input
                   type="radio"

@@ -7,7 +7,7 @@ const WhatDo = () => {
         class="we-do-main-container row"
         style={{ padding: "40px", gap: "0" }}
       >
-        <div class="d-flex justift-content-around sep-logo col">
+        <div class="we-do d-flex justify-content-around sep-logo col">
           <div class="w-50" style={{ textAlign: "right" }}>
             <h4>What we do</h4>
             <p>
@@ -22,7 +22,7 @@ const WhatDo = () => {
             <div class="incline"></div>
           </div>
         </div>
-        <div className="col">
+        <div className="we-do-grid col">
           <img src="/Assests/RIA.png" alt="RIA" style={{ width: "330px" }} />
         </div>
       </div>

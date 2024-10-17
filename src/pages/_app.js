@@ -1,4 +1,5 @@
 import { Provider } from "react-redux";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "../Style/Auth.css";
 import "../Style/brochure.css";
 import "../Style/cart.css";

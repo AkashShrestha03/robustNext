@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import CardSwiper from "./CardSwiper";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import OffcanvasNav from "./Offcanvas";
+import { Offcanvas } from "react-bootstrap";
 
 const Navbar = () => {
   const router = useRouter();
+  const [show, setShow] = useState(false);
 
+  const handleShow = () => setShow(true);
   const isHomePage = router.pathname === "/";
   const isSignin = router.pathname === "/auth/signin";
 
@@ -74,8 +78,8 @@ const Navbar = () => {
                       </Link>
                     </div>
 
-                    <div class="signup">
-                      <Link style={{ color: "white" }} href="/brochure">
+                    <div class="brochure">
+                      <Link href="/brochure">
                         <button className="p-2 btn-light text-secondary shadow">
                           Brochure
                         </button>
@@ -97,7 +101,7 @@ const Navbar = () => {
                     </Link>
                   </div>
                   <div className="navbar-toggle">
-                    <span type="button">
+                    <span type="button" onClick={handleShow}>
                       <i class="bi bi-list"></i>
                     </span>
                   </div>
@@ -483,8 +487,8 @@ const Navbar = () => {
                   </Link>
                 </div>
 
-                <div class="signup">
-                  <Link style={{ color: "white" }} href="/brochure">
+                <div class="brochure">
+                  <Link href="/brochure">
                     <button className="p-2 btn-light text-secondary shadow">
                       Brochure
                     </button>
@@ -508,7 +512,7 @@ const Navbar = () => {
               </div>
 
               <div className="navbar-toggle">
-                <span type="button">
+                <span type="button" onClick={handleShow}>
                   <i class="bi bi-list"></i>
                 </span>
               </div>
@@ -822,6 +826,8 @@ const Navbar = () => {
           </div>
         </div>
       )}
+
+      <OffcanvasNav show={show} onClose={(show) => setShow(show)} />
     </>
   );
 };

@@ -24,7 +24,13 @@ const FilterOffice = ({ filteredProducts }) => {
   const getProductsBySubCategory = async (subCategoryId, subCategoryName) => {
     try {
       const res = await axios.get(
-        `https://spice-19.onrender.com/api/product/Sub/Category/Product/List?SubCategoryID=${subCategoryId}`
+        `https://spice-19.onrender.com/api/product/Sub/Category/Product/List`,
+        {
+          params: {
+            SubCategoryID: subCategoryId,
+            CategoryID: "66e94f09e4a0682d9adf68f8",
+          },
+        }
       );
       setProducts(res?.data?.data);
       filteredProducts(res?.data?.data, subCategoryName); // Pass the subCategoryName here
@@ -34,10 +40,15 @@ const FilterOffice = ({ filteredProducts }) => {
   };
 
   // Handle radio button change
-  const handleRadioChange = (subCategoryId, subCategoryName) => {
+const handleRadioChange = (subCategoryId, subCategoryName) => {
+  if (subCategoryId === null) {
+    setSelectedSubCategory("all");
+  } else {
     setSelectedSubCategory(subCategoryId);
-    getProductsBySubCategory(subCategoryId, subCategoryName); // Fetch products when subcategory is selected
-  };
+  }
+  getProductsBySubCategory(subCategoryId, subCategoryName);
+};
+
 
   useEffect(() => {
     getSubCategories(); // Fetch subcategories on component mount
@@ -64,9 +75,17 @@ const FilterOffice = ({ filteredProducts }) => {
           aria-labelledby="panelsStayOpen-headingOne"
         >
           <div className="accordion-body panel">
+            <label className="container my-2">
+              All Office Accessories
+              <input
+                type="radio"
+                onChange={() => handleRadioChange(null, "All Office Accessories")}
+                checked={selectedSubCategory === "all"} // Adjust the checked condition
+              />
+            </label>
             {/* Map subcategories */}
             {subCategories?.map((subCat, index) => (
-              <label className="container" key={index}>
+              <label className="container my-2" key={index}>
                 {subCat?.SubCategoryName}
                 <input
                   type="radio"
