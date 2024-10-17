@@ -54,7 +54,7 @@ const handleRadioChange = (subCategoryId, subCategoryName) => {
   }, []);
 
   return (
-    <div className="accordion" id="accordionPanelsStayOpenExample">
+    <div className="accordion mb-3" id="accordionPanelsStayOpenExample">
       <div className="accordion-item">
         <h2 className="accordion-header" id="panelsStayOpen-headingOne">
           <button

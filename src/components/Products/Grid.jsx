@@ -27,6 +27,7 @@ const Grid = ({ filtered }) => {
 
   return (
     <>
+      <h2 className="text-center">All Robust</h2>
       <div className="products-card">
         {(filtered?.length > 0 ? filtered : products)?.map((product, index) => (
           <figure className="snip1423" key={index}>
