@@ -12,10 +12,10 @@ const ProductEdit = () => {
   return (
     <>
       <div class="cart-details-main-container row ">
-        <div className="col-6">
+        <div className="col-md-6">
           <ImageSlide images={product?.productPicture} />
         </div>
-        <div className="col-6 ">
+        <div className="col-md-6 ">
           <ProductEditor product={product} />
         </div>
         {/* <div className="col-12">

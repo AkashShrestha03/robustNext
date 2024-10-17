@@ -20,7 +20,7 @@ const ProductEditor = ({ product }) => {
 
   return (
     <div className="Product-editor p-3">
-      <div className="edit-container-info-section d-flex justify-content-between align-items-center">
+      <div className="edit-container-info-section d-flex justify-content-between align-items-center flex-wrap">
         <div className="m-4" style={{ width: "80%" }}>
           <h2 className="cart-details-heading">
             {product?.productName}{" "}
@@ -41,7 +41,7 @@ const ProductEditor = ({ product }) => {
             <p className="text-secondary">Minimum Order Quantity:</p> <p className="mx-2"> {product?.minProduct}</p>
           </div>
         </div>
-        <div className="btn-sep-cart-details">
+        <div className="px-4 w-100">
           <button className="btn bg-pink" onClick={handleShortlist}>
             {isShortlisted ? "Shortlisted" : "Shortlist"}
           </button>
