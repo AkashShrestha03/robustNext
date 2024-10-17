@@ -90,42 +90,56 @@ const ProductBrochure = () => {
           className="brochure-container"
           key={index}
           id={`brochure-${index}`}
-          style={{ width: "210mm", padding: "10mm", boxSizing: "border-box" }} // Ensure proper sizing
         >
           <div className="brochure-header">
-            <h1>{product?.productName}</h1>
+            <p className="fs-1">
+              {product?.productName}{" "}
+              {product?.madeInIndia && (
+                <div className="made-in-india">
+                  <img src="/image.png" alt="Made in India" />
+                </div>
+              )}
+              {product?.sustainable && (
+                <i class="fa fa-leaf text-success" aria-hidden="true"></i>
+              )}
+            </p>
             <p>{product?.SubCategoryName}</p>
             <p className="product-price">₹{product?.productPrice}</p>
           </div>
+          <div>
+            <div className="main-image">
+              <img src={product?.productPicture[0]} alt="main-image" />
+            </div>
 
-          <div
-            className={`brochure-images ${
-              product?.productPicture?.length === 1
-                ? "single-image"
-                : "multiple-images"
-            }`}
-          >
-            {product?.productPicture?.map((picture, index) => (
-              <img src={picture} key={index} alt={`Product Image`} />
-            ))}
+            <div className={`brochure-images row multiple-images`}>
+              {product?.productPicture.slice(1)?.map((picture, index) => (
+                <img
+                  src={picture}
+                  key={index}
+                  className="col"
+                  alt={`Product Image`}
+                />
+              ))}
+            </div>
           </div>
+          <div className="mt-3">
+            <div className="brochure-description mt-4">
+              <h2>About the Product</h2>
+              <p>{product?.productDescription}</p>
+            </div>
 
-          <div className="brochure-description">
-            <h2>About the Product</h2>
-            <p>{product?.productDescription}</p>
-          </div>
-
-          <div className="brochure-footer">
-            <p>
-              For more information, visit{" "}
-              <a
-                href={"https://robust-01.netlify.app"}
-                target="_blank"
-                rel="noreferrer"
-              >
-                demo-website.com
-              </a>
-            </p>
+            <div className="brochure-footer">
+              <p>
+                For more information, visit{" "}
+                <a
+                  href={"https://robust-01.netlify.app"}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  demo-website.com
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       ))}
