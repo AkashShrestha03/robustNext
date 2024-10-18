@@ -13,8 +13,8 @@ const Automation = () => {
       <Seemless />
       <LogoSlider />
 
-      <div class="we-do-main-container-1 my-5 ">
-        <div class="we-do">
+      <div class="container we-do-main-container-1 my-5 row">
+        <div class="we-do-endless col-lg-6">
           <h1 class="endless-h1">
             Endless integrations. Unlimited possibilities. <br />{" "}
             <span>Zero fees.</span>
@@ -30,8 +30,9 @@ const Automation = () => {
             </button>
           </div>
         </div>
-
-        <img src="Assests/main.gif" alt="" />
+        <div className="col-lg-6 mt-3">
+          <img src="Assests/main.gif" alt="" />
+        </div>
       </div>
       <YouCan />
       <Distribution />

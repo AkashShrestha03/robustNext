@@ -16,10 +16,12 @@ const WhatDo = () => {
               Necessitatibus, enim!
             </p>
           </div>
-          <div class="vertical-line"></div>
-          <div class="d-flex flex-column align-items-center justify-content-between">
-            <div class="circle"></div>
-            <div class="incline"></div>
+          <div className="d-flex justify-content-evenly gap-4">
+            <div class="vertical-line"></div>
+            <div class="d-flex flex-column align-items-center justify-content-between">
+              <div class="circle"></div>
+              <div class="incline"></div>
+            </div>
           </div>
         </div>
         <div className="we-do-grid col">

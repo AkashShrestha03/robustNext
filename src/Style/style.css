@@ -324,7 +324,7 @@ nav .links ul {
   font-size: 25px;
 }
 
-.brochure button{
+.brochure button {
   background-color: white !important;
 }
 
@@ -657,10 +657,10 @@ i.fa.fa-cart-plus {
   box-shadow: 1.04167vw -1.04167vw 0 #f556a0;
   display: flex;
   flex-wrap: wrap;
-  height: 55.84375vw;
+  height: 72.84375vw;
   margin-right: 5.2083vw;
   padding: 2.60416666667vw;
-  width: 72.25vw;
+  width: 91.25vw;
 }
 
 /*  */
@@ -703,6 +703,15 @@ i.fa.fa-cart-plus {
   top: 34%;
   padding: 20px;
 }
+.experience-box-mobile {
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* width: 360px; */
+  padding: 20px;
+  display: none;
+}
 
 /* Experience Section @992px  */
 
@@ -741,12 +750,12 @@ i.fa.fa-cart-plus {
 /* Experience Section @425px Mobile */
 
 @media (max-width: 514px) {
-  .experience-inner img {
-    margin-left: 0;
-  }
   .experience-box {
-    right: 14%;
-    top: 47%;
+    display: none;
+  }
+
+  .experience-box-mobile {
+    display: block;
   }
 }
 @media (max-width: 375px) {
@@ -759,7 +768,8 @@ i.fa.fa-cart-plus {
   }
 }
 
-.experience-box h1 {
+.experience-box h1,
+.experience-box-mobile h1 {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -772,11 +782,13 @@ i.fa.fa-cart-plus {
   font-size: 24px;
 }
 
-.experience-box h1 span {
+.experience-box h1 span,
+.experience-box-mobile h1 span {
   color: #f556a0;
 }
 
-.experience-box p {
+.experience-box p,
+.experience-box-mobile p {
   font-size: 14px;
   font-family: "Poppins", sans-serif;
   font-weight: 300;
@@ -825,6 +837,10 @@ i.fa.fa-cart-plus {
   color: rgb(119, 119, 119);
   margin: 18px 0px;
   line-height: 27px;
+}
+
+.we-do-endless h1{
+  font-size: 2.75rem;
 }
 
 .endless-h1 {
@@ -879,19 +895,19 @@ i.fa.fa-cart-plus {
 }
 
 @media (max-width: 768px) {
-  .Automation div{
+  .Automation div {
     margin: 0 auto;
     padding: 20px;
   }
 }
 @media (max-width: 375px) {
- .Automation div h4 {
+  .Automation div h4 {
     font-size: 50px;
     color: white;
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-style: normal;
-}
+  }
 }
 
 .ourapi-main-container-inner-card {

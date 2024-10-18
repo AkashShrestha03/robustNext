@@ -174,7 +174,7 @@ button :focus {
   width: 80%;
 } */
 
-.we-do h1 {
+.we-do-endless h1, .we-do h1 {
   font-size: xxx-large;
   font-weight: 600;
 }
@@ -490,14 +490,14 @@ button :focus {
   justify-content: space-between;
   align-items: center;
   background-color: #ffffff;
-  padding: 2px 150px;
+  /* padding: 2px 150px; */
   max-width: 1440px;
   margin: auto;
   /* background-image: url("../Assests/bottom-2.png"); */
 }
 
 .we-do-main-container-1 img {
-  width: 430px;
+  width: 100%;
 }
 
 /* 
