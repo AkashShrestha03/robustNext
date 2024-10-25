@@ -408,14 +408,14 @@ const Navbar = () => {
                   <h1 class="poppins-black">ROBUST</h1>
                   <p class="poppins-bold f14 mb-5">
                     {" "}
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
+                    A Robust platform for all your corporate gifting needs.
+                    Shop, customize, and deliver premium products with just a
+                    click.
                   </p>
                   <Link href="/products">
                     <button class="btn bg-pink">
                       Shop Products
-                      <i class="fa fa-angle-right" aria-hidden="true"></i>
+                      <i class="fa fa-angle-right ms-2" aria-hidden="true"></i>
                     </button>
                   </Link>
                 </div>

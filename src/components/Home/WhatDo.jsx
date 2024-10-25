@@ -12,8 +12,12 @@ const WhatDo = () => {
             <h4>What we do</h4>
             <p>
               {" "}
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Necessitatibus, enim!
+              At Robust, we specialize in providing thoughtful{" "}
+              <strong>corporate gifting</strong>
+              solutions, creative <strong>advertising</strong> products, and
+              impactful <strong>promotional merchandise</strong> to help your
+              brand stand out and strengthen relationships. Let's make every
+              gesture count!
             </p>
           </div>
           <div className="d-flex justify-content-evenly gap-4">

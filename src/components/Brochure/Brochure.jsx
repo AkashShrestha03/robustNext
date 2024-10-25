@@ -92,17 +92,22 @@ const ProductBrochure = () => {
           id={`brochure-${index}`}
         >
           <div className="brochure-header">
-            <p className="fs-1">
-              {product?.productName}{" "}
-              {product?.madeInIndia && (
-                <div className="made-in-india">
-                  <img src="/image.png" alt="Made in India" />
-                </div>
-              )}
-              {product?.sustainable && (
-                <i class="fa fa-leaf text-success" aria-hidden="true"></i>
-              )}
-            </p>
+            <div className="fs-1 d-flex justify-content-center  align-items-center">
+              <div className="d-flex">
+                {product?.productName}{" "}
+                {product?.madeInIndia && (
+                  <div className="made-in-india mx-2">
+                    <img src="/image.png" alt="Made in India" />
+                  </div>
+                )}
+                {product?.sustainable && (
+                  <i
+                    class="fa fa-leaf text-success mx-2 mt-2"
+                    aria-hidden="true"
+                  ></i>
+                )}
+              </div>
+            </div>
             <p>{product?.SubCategoryName}</p>
             <p className="product-price">₹{product?.productPrice}</p>
           </div>

@@ -13,8 +13,9 @@ const Distribution = () => {
               <h4 class="disstribution ">Robust Distribution</h4>
               <p class="distribution-text">
                 {" "}
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Necessitatibus, enim!
+                Effortlessly deliver personalized products to your teams and
+                clients no matter where they are. From local offices to national
+                campaigns, we ensure your gifts reach every corner on time.
               </p>
             </div>
           </div>
@@ -26,11 +27,11 @@ const Distribution = () => {
             <div>
               <div class="distribution__cardThirdIcons___lYECv">
                 <div class="distribution__cardThirdIcon___FzDco">
-                  <p>
-                    Engage with your
-                    <br />
-                    Remote Employees
-                  </p>
+                  <img
+                    src="https://static.swag.com/images-webpack/dashboard.1c98dca628c600547be1..png"
+                    alt="Award ribbon icon enclosed in a dashed circular border"
+                  />
+                  <p>Strengthen Your Team</p>
                 </div>
                 <hr />
                 <div class="distribution__cardThirdIcon___FzDco">
@@ -38,22 +39,14 @@ const Distribution = () => {
                     src="https://static.swag.com/images-webpack/circle-container.5a937d6781aeca88d8f0..png"
                     alt="Award ribbon icon enclosed in a dashed circular border"
                   />
-                  <p>
-                    Reward your best
-                    <br />
-                    customers
-                  </p>
+                  <p>Appreciate Your Clients</p>
                 </div>
                 <div class="distribution__cardThirdIcon___FzDco">
                   <img
                     src="https://static.swag.com/images-webpack/people.0bcb5cac12674bf9d981..png"
                     alt="Icon of three interconnected people, symbolizing a team or network, enclosed within a dashed circular border"
                   />
-                  <p>
-                    Convert prospects
-                    <br />
-                    and leads
-                  </p>
+                  <p>Convert Prospects into Loyal Clients</p>
                 </div>
                 <hr />
                 <div class="distribution__cardThirdIcon___FzDco">
@@ -61,11 +54,7 @@ const Distribution = () => {
                     src="https://static.swag.com/images-webpack/calendar.71c2436ecd6bdf38e112..png"
                     alt="Calendar icon with a star marking a special date, enclosed within a dashed circular border"
                   />
-                  <p>
-                    Humanize online
-                    <br />
-                    events and meetings
-                  </p>
+                  <p>Personalize Online Interactions</p>
                 </div>
                 <hr />
               </div>

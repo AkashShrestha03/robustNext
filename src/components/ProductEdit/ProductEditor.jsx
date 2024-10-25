@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import TextEditor from "./TextEditor";
 
 const ProductEditor = ({ product }) => {
   const [isShortlisted, setIsShortlisted] = useState(false);
@@ -38,7 +39,8 @@ const ProductEditor = ({ product }) => {
             <s>₹{product?.productMRP}</s>₹{product?.productPrice}
           </div>
           <div className="price d-flex g-3">
-            <p className="text-secondary">Minimum Order Quantity:</p> <p className="mx-2"> {product?.minProduct}</p>
+            <p className="text-secondary">Minimum Order Quantity:</p>{" "}
+            <p className="mx-2"> {product?.minProduct}</p>
           </div>
         </div>
         <div className="px-4 w-100">
@@ -80,7 +82,8 @@ const ProductEditor = ({ product }) => {
         </h5>
 
         <ul>
-          <li>{product?.productDescription}</li>
+          {/* <li>{product?.productDescription}</li> */}
+          <TextEditor />
         </ul>
       </div>
     </div>

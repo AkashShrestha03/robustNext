@@ -698,7 +698,7 @@ i.fa.fa-cart-plus {
   position: absolute;
   background-color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 360px;
+  width: 550px;
   right: -8%;
   top: 34%;
   padding: 20px;
@@ -742,7 +742,7 @@ i.fa.fa-cart-plus {
     margin-left: 0;
   }
   .experience-box {
-    right: 29%;
+    right: 5%;
     top: 34%;
   }
 }
