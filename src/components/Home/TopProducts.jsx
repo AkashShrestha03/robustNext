@@ -11,7 +11,7 @@ const TopProducts = () => {
     const fetchProductCounts = async () => {
       try {
         const response = await axios.get(
-          `${API}/api/product/Count/Product/Category`
+          `https://spice-19.onrender.com/api/product/Count/Product/Category`
         );
         if (response.data.status === 1) {
           setProductCounts(response.data.data);
