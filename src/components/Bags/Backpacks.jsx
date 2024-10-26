@@ -97,7 +97,7 @@ const Backpacks = () => {
                           </div>
                         )}
                       </h3>
-                      <p>{product?.productDescription}</p>
+                      <p>{product?.ShortDescription}</p>
 
                       {/* {product?.madeInIndia && (
                 <div className="made-in-india-flag">

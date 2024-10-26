@@ -94,7 +94,7 @@ const AllOffice = () => {
                         </div>
                       )}
                     </h3>
-                    <p>{product?.productDescription}</p>
+                    <p>{product?.ShortDescription}</p>
 
                     {product?.sustainable && (
                       <div className="sustainable-icon">

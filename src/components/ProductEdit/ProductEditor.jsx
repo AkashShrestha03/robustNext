@@ -81,10 +81,11 @@ const ProductEditor = ({ product }) => {
           </span>
         </h5>
 
-        <ul>
-          <li>{product?.productDescription}</li>
-          
-        </ul>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: product?.productDescription,
+          }}
+        />
       </div>
     </div>
   );

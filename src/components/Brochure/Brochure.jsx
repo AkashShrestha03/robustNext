@@ -130,7 +130,7 @@ const ProductBrochure = () => {
           <div className="mt-3">
             <div className="brochure-description mt-4">
               <h2>About the Product</h2>
-              <p>{product?.productDescription}</p>
+              <p>{product?.ShortDescription}</p>
             </div>
 
             <div className="brochure-footer">
