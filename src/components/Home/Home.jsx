@@ -15,9 +15,9 @@ const Home = () => {
       <Distribution />
       <Experience />
       <Automation />
-      <div>
+      {/* <div>
         <img src="/Assests/bottom-bg.png" alt="" />
-      </div>
+      </div> */}
     </>
   );
 };
