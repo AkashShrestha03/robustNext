@@ -1,8 +1,11 @@
 .products-card {
-  display: flex;
+  /* display: flex;
   justify-content: center;
   max-width: 1130px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 260px);
+  gap: 10px;
 }
 
 .made-in-india-flag {
