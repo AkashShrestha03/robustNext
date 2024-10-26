@@ -9,6 +9,7 @@ const Backpacks = () => {
   const [products, setProducts] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [subcategoryName, setSubcategoryName] = useState("Backpacks");
+  const [sortOrder, setSortOrder] = useState(""); // Default empty to show "Sort By Price"
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,6 +28,25 @@ const Backpacks = () => {
     getProduct();
   }, [dispatch]);
 
+  const fetchSortedProducts = async (order) => {
+    try {
+      const res = await axios.get(
+        `https://spice-19.onrender.com/api/product/Sort/Product?price=${order}&SubCategoryID=66e951f1e4a0682d9adf69d0`
+      );
+      setProducts(res?.data?.data);
+    } catch (error) {
+      console.error("Error fetching sorted products:", error);
+    }
+  };
+
+  const handleSortChange = (e) => {
+    const selectedOrder = e.target.value;
+    setSortOrder(selectedOrder);
+    if (selectedOrder) {
+      fetchSortedProducts(selectedOrder);
+    }
+  };
+
   const handleFilteredProducts = (filtered, subCategoryName) => {
     setFiltered(filtered); // Update filtered products
     setSubcategoryName(subCategoryName); // Update the heading to the selected subcategory name
@@ -38,6 +58,17 @@ const Backpacks = () => {
       <div class="filter-main-product-cards-main container">
         <div className="row">
           <div className="col-md-3">
+            <div className="d-flex justify-content-end mb-3">
+              <select
+                className="form-select"
+                value={sortOrder}
+                onChange={handleSortChange}
+              >
+                <option value="">Sort By Price</option>
+                <option value="AES">Lowest Price First</option>
+                <option value="DES">Highest Price First</option>
+              </select>
+            </div>
             <FilterBags
               filteredProducts={(filtered, subCategoryName) =>
                 handleFilteredProducts(filtered, subCategoryName)

@@ -6,6 +6,7 @@ const FilterOffice = ({ filteredProducts }) => {
   const router = useRouter();
   const [subCategories, setSubCategories] = useState([]); // Store subcategories
   const [selectedSubCategory, setSelectedSubCategory] = useState(null);
+  const [sortOrder, setSortOrder] = useState(""); // Default empty to show "Sort By Price"
   const [products, setProducts] = useState([]); // Store products
 
   // Fetch subcategories
@@ -40,15 +41,14 @@ const FilterOffice = ({ filteredProducts }) => {
   };
 
   // Handle radio button change
-const handleRadioChange = (subCategoryId, subCategoryName) => {
-  if (subCategoryId === null) {
-    setSelectedSubCategory("all");
-  } else {
-    setSelectedSubCategory(subCategoryId);
-  }
-  getProductsBySubCategory(subCategoryId, subCategoryName);
-};
-
+  const handleRadioChange = (subCategoryId, subCategoryName) => {
+    if (subCategoryId === null) {
+      setSelectedSubCategory("all");
+    } else {
+      setSelectedSubCategory(subCategoryId);
+    }
+    getProductsBySubCategory(subCategoryId, subCategoryName);
+  };
 
   useEffect(() => {
     getSubCategories(); // Fetch subcategories on component mount
@@ -79,7 +79,9 @@ const handleRadioChange = (subCategoryId, subCategoryName) => {
               All Office Accessories
               <input
                 type="radio"
-                onChange={() => handleRadioChange(null, "All Office Accessories")}
+                onChange={() =>
+                  handleRadioChange(null, "All Office Accessories")
+                }
                 checked={selectedSubCategory === "all"} // Adjust the checked condition
               />
             </label>

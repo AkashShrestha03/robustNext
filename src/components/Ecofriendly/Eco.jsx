@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 
 const Eco = ({ filtered }) => {
   const [products, setProducts] = useState([]);
+  const [sortOrder, setSortOrder] = useState(""); // Default empty to show "Sort By Price"
   const dispatch = useDispatch();
 
   console.log(filtered);
@@ -26,13 +27,45 @@ const Eco = ({ filtered }) => {
     getProduct();
   }, [dispatch]);
 
+  const fetchSortedProducts = async (order) => {
+    try {
+      const res = await axios.get(
+        `https://spice-19.onrender.com/api/product/Sort/Product?price=${order}&CategoryID=66e954ebe4a0682d9adf6a48`
+      );
+      setProducts(res?.data?.data);
+    } catch (error) {
+      console.error("Error fetching sorted products:", error);
+    }
+  };
+
+  const handleSortChange = (e) => {
+    const selectedOrder = e.target.value;
+    setSortOrder(selectedOrder);
+    if (selectedOrder) {
+      fetchSortedProducts(selectedOrder);
+    }
+  };
+
   return (
     <>
       {" "}
       <div class="filter-main-product-cards-main container">
         <div className="row">
-          <div className="col-md-3">{/* <Filter /> */}</div>
-          <div className="col-md-12">
+          <div className="col-md-3">
+            {/* <Filter /> */}
+            <div className="d-flex justify-content-end mb-3">
+              <select
+                className="form-select"
+                value={sortOrder}
+                onChange={handleSortChange}
+              >
+                <option value="">Sort By Price</option>
+                <option value="AES">Lowest Price First</option>
+                <option value="DES">Highest Price First</option>
+              </select>
+            </div>
+          </div>
+          <div className="col-md-9">
             {" "}
             <h2 className="text-center">Eco Friendly</h2>{" "}
             {/* Changed class to className */}

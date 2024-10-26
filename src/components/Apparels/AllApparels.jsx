@@ -9,6 +9,7 @@ const AllApparels = () => {
   const [products, setProducts] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [categoryName, setCategoryName] = useState("Apparel");
+  const [sortOrder, setSortOrder] = useState(""); // Default empty to show "Sort By Price"
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,8 +18,8 @@ const AllApparels = () => {
         const res = await axios.get(
           `https://spice-19.onrender.com/api/product/Category/Product/List?CategoryID=66e947dfe4a0682d9adf6826`
         );
-        setProducts(res?.data?.data); // Axios automatically parses JSON
-        console.log(res?.data?.data); // Logs the fetched product data
+        setProducts(res?.data?.data);
+        console.log(res?.data?.data);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -28,16 +29,45 @@ const AllApparels = () => {
     dispatch(removeProduct());
   }, [dispatch]);
 
-  // Function to handle filtered products and update the heading
+  const fetchSortedProducts = async (order) => {
+    try {
+      const res = await axios.get(
+        `https://spice-19.onrender.com/api/product/Sort/Product?price=${order}&CategoryID=66e947dfe4a0682d9adf6826`
+      );
+      setProducts(res?.data?.data);
+    } catch (error) {
+      console.error("Error fetching sorted products:", error);
+    }
+  };
+
+  const handleSortChange = (e) => {
+    const selectedOrder = e.target.value;
+    setSortOrder(selectedOrder);
+    if (selectedOrder) {
+      fetchSortedProducts(selectedOrder);
+    }
+  };
+
   const handleFilteredProducts = (filteredProducts, subCategoryName) => {
-    setFiltered(filteredProducts); 
-    setCategoryName(subCategoryName); 
+    setFiltered(filteredProducts);
+    setCategoryName(subCategoryName);
   };
 
   return (
     <div className="filter-main-product-cards-main container">
       <div className="row">
         <div className="col-md-3">
+          <div className="d-flex justify-content-end mb-3">
+            <select
+              className="form-select"
+              value={sortOrder}
+              onChange={handleSortChange}
+            >
+              <option value="">Sort By Price</option>
+              <option value="AES">Lowest Price First</option>
+              <option value="DES">Highest Price First</option>
+            </select>
+          </div>
           <CategoryFilter
             onProductsFetched={(filteredProducts, subCategoryName) =>
               handleFilteredProducts(filteredProducts, subCategoryName)
@@ -46,6 +76,7 @@ const AllApparels = () => {
         </div>
         <div className="col-md-8">
           <h2 className="text-center">{categoryName}</h2>
+
           <div className="products-card">
             {(filtered?.length > 0 ? filtered : products)?.map(
               (product, index) => (
@@ -91,3 +122,4 @@ const AllApparels = () => {
 };
 
 export default AllApparels;
+ 

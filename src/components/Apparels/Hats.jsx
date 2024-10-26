@@ -8,7 +8,8 @@ import FilterApparel from "./FilterApparel";
 const Hats = () => {
   const [products, setProducts] = useState([]);
   const [filtered, setFiltered] = useState([]);
-   const [subcategoryName, setSubcategoryName] = useState("Hats");
+  const [subcategoryName, setSubcategoryName] = useState("Hats");
+  const [sortOrder, setSortOrder] = useState(""); // Default empty to show "Sort By Price"
   const dispatch = useDispatch();
 
   console.log(filtered);
@@ -29,6 +30,25 @@ const Hats = () => {
     getProduct();
   }, [dispatch]);
 
+  const fetchSortedProducts = async (order) => {
+    try {
+      const res = await axios.get(
+        `https://spice-19.onrender.com/api/product/Sort/Product?price=${order}&SubCategoryID=66e94ce8e4a0682d9adf68b6`
+      );
+      setProducts(res?.data?.data);
+    } catch (error) {
+      console.error("Error fetching sorted products:", error);
+    }
+  };
+
+  const handleSortChange = (e) => {
+    const selectedOrder = e.target.value;
+    setSortOrder(selectedOrder);
+    if (selectedOrder) {
+      fetchSortedProducts(selectedOrder);
+    }
+  };
+
   // Function to handle filtered products and update the heading
   const handleFilteredProducts = (filtered, subCategoryName) => {
     setFiltered(filtered); // Update filtered products
@@ -40,6 +60,17 @@ const Hats = () => {
       <div className="filter-main-product-cards-main container">
         <div className="row">
           <div className="col-md-3">
+            <div className="d-flex justify-content-end mb-3">
+              <select
+                className="form-select"
+                value={sortOrder}
+                onChange={handleSortChange}
+              >
+                <option value="">Sort By Price</option>
+                <option value="AES">Lowest Price First</option>
+                <option value="DES">Highest Price First</option>
+              </select>
+            </div>
             <FilterApparel
               filteredProducts={(filtered, subCategoryName) =>
                 handleFilteredProducts(filtered, subCategoryName)
