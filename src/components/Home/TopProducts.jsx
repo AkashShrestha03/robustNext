@@ -239,6 +239,7 @@ const TopProducts = () => {
 
         .item-name-hex:hover .product-count {
           display: inline-block;
+          text-wrap: nowrap;
         }
       `}</style>
     </>
