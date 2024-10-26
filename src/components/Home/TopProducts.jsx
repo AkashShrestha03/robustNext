@@ -1,7 +1,6 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import API from "@/Config";
 
 const TopProducts = () => {
   const [productCounts, setProductCounts] = useState({});
