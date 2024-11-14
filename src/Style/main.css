@@ -152,7 +152,7 @@ button :focus {
 
 .left-section p {
   width: 53%;
-  text-align: justify;
+  text-align: center;
   color: white;
 }
 
@@ -1133,7 +1133,7 @@ img {
   background-image: url(../../public/Assests/bg-c.png);
   background-repeat: no-repeat;
   background-size: cover;
-  background-size: 100% 100%;
+  background-size: 100% 100% ;
   display: flex;
   flex-direction: column;
   padding: 8.979167vw 0 11.9791666667vw;
@@ -1189,6 +1189,10 @@ img {
 }
 
 @media (max-width: 425px) {
+  .bg-c {
+    height: 500px;
+    /* background-size: 100% 100%; */
+  }
   .bg-d {
     justify-content: center;
   }

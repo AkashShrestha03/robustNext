@@ -518,7 +518,7 @@ i.fa.fa-cart-plus {
 .slider-inner {
   display: flex;
   /* width: calc(100%* 20); */
-  animation: slide 20s linear infinite;
+  /* animation: slide 20s linear infinite; */
   align-items: center;
   justify-content: center;
 }
@@ -538,7 +538,7 @@ i.fa.fa-cart-plus {
 .img-container img {
   width: 100%;
   height: auto;
-  mix-blend-mode: luminosity;
+ 
 }
 
 /* Animation for sliding */
@@ -658,10 +658,11 @@ i.fa.fa-cart-plus {
   display: flex;
   flex-wrap: wrap;
   height: 72.84375vw;
-  margin-right: 5.2083vw;
+  /* margin-right: 5.2083vw; */
   padding: 2.60416666667vw;
   width: 91.25vw;
 }
+
 
 /*  */
 

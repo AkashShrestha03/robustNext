@@ -88,7 +88,7 @@ const OffcanvasNav = ({ show, onClose }) => {
           </div>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <div className="d-flex flex-column">
+          <div className={`d-flex flex-column ${styles.nav}`}>
             <ul className="d-flex flex-column f13 poppins-semibold">
               <Link href="/products" onClick={() => onClose(false)}>
                 <li>
@@ -98,7 +98,7 @@ const OffcanvasNav = ({ show, onClose }) => {
 
               {categories.map((category, index) => (
                 <li key={index}>
-                  <div className="dropdown">
+                  <div className={`dropdown ${styles.dropdown}`}>
                     <p onClick={() => toggleDropdown(category.name)}>
                       <h6>{category.name} </h6>
                     </p>
@@ -106,12 +106,15 @@ const OffcanvasNav = ({ show, onClose }) => {
                       className={`${styles["dropdown-menu"]} ${
                         openCategory === category.name && styles.show
                       }`}
-                      style={{
-                        maxHeight:
-                          openCategory === category.name ? "200px" : "0",
-                        transition: "max-height 0.3s ease",
-                        overflow: "hidden",
-                      }}
+                      style={
+                        {
+                          // maxHeight:
+                          //   openCategory === category.name ? "200px" : "0",
+                          // opacity: openCategory === category.name ? "1" : "0",
+                          // display:
+                          //   openCategory === category.name ? "block" : "none",
+                        }
+                      }
                     >
                       <div
                         className="d-flex flex-column"
@@ -120,7 +123,7 @@ const OffcanvasNav = ({ show, onClose }) => {
                         {category.links.map((link, linkIndex) => (
                           <Link
                             key={linkIndex}
-                            style={{textDecoration: "none"}}
+                            style={{ textDecoration: "none" }}
                             className="dropdown-item"
                             href={link.href}
                             onClick={() => onClose(false)}

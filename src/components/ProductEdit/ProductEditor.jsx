@@ -38,8 +38,10 @@ const ProductEditor = ({ product }) => {
             <s>₹{product?.productMRP}</s>₹{product?.productPrice}
           </div>
           <div className="price d-flex g-3">
-            <p className="text-secondary">Minimum Order Quantity:</p>{" "}
-            <p className="mx-2"> {product?.minProduct}</p>
+            <span className="text-secondary">
+              Minimum Order Quantity: {product?.minProduct}
+            </span>{" "}
+         
           </div>
         </div>
         <div className="px-4 w-100">

@@ -69,6 +69,11 @@ const Distribution = () => {
         <div>
           <div class="distribution__cardThirdIcons">
             <div class="distribution__cardThirdIcon___FzDco">
+              <img
+                src="https://static.swag.com/images-webpack/dashboard.1c98dca628c600547be1..png"
+                alt="Award ribbon icon enclosed in a dashed circular border"
+                style={{ height: "60px", width: "60px" }}
+              />
               <p>
                 Engage with your
                 <br />
@@ -79,6 +84,7 @@ const Distribution = () => {
             <div class="distribution__cardThirdIcon___FzDco">
               <img
                 src="https://static.swag.com/images-webpack/circle-container.5a937d6781aeca88d8f0..png"
+                style={{ height: "60px", width: "60px" }}
                 alt="Award ribbon icon enclosed in a dashed circular border"
               />
               <p>
@@ -90,6 +96,7 @@ const Distribution = () => {
             <div class="distribution__cardThirdIcon___FzDco">
               <img
                 src="https://static.swag.com/images-webpack/people.0bcb5cac12674bf9d981..png"
+                style={{ height: "60px", width: "60px" }}
                 alt="Icon of three interconnected people, symbolizing a team or network, enclosed within a dashed circular border"
               />
               <p>
@@ -102,6 +109,7 @@ const Distribution = () => {
             <div class="distribution__cardThirdIcon___FzDco">
               <img
                 src="https://static.swag.com/images-webpack/calendar.71c2436ecd6bdf38e112..png"
+                style={{ height: "60px", width: "60px" }}
                 alt="Calendar icon with a star marking a special date, enclosed within a dashed circular border"
               />
               <p>

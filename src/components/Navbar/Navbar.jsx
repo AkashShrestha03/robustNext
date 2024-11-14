@@ -409,7 +409,7 @@ const Navbar = () => {
                   <p class="poppins-bold f14 mb-5">
                     {" "}
                     A Robust platform for all your corporate gifting needs.
-                    Shop, customize, and deliver premium products with just a
+                    Shop, customize and deliver premium products with just a
                     click.
                   </p>
                   <Link href="/products">
