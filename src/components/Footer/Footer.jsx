@@ -7,9 +7,10 @@ const Footer = () => {
       <div class="footer-content">
         <h3>Robust</h3>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae
-          felis scelerisque, gravida sapien non, cursus augue. Aenean id pretium
-          turpis. Suspendisse eros nunc, sollicitudin nec.
+          At Robust, we bring your brand to life with tailored corporate gifts,
+          inventive advertising items, and memorable promotional merchandise
+          designed to leave a lasting impression and build strong connections.
+          Make every interaction meaningful with our customized solutions!
         </p>
         <ul class="socials">
           <li>
@@ -41,7 +42,8 @@ const Footer = () => {
       </div>
       <div class="footer-bottom">
         <p style={{ textAlign: "center" }}>
-          Copyright &copy; {new Date().getFullYear()} <Link href="/">Robust</Link>{" "}
+          Copyright &copy; {new Date().getFullYear()}{" "}
+          <Link href="/">Robust</Link>{" "}
         </p>
       </div>
     </footer>
