@@ -7,6 +7,8 @@ import CategoryFilter from "../Products/CategoryFilter";
 
 const AllOffice = () => {
   const [products, setProducts] = useState([]);
+  const [count, setCount] = useState(18);
+  const [loading, setLoading] = useState(false);
   const [filtered, setFiltered] = useState([]);
   const [categoryName, setCategoryName] = useState("Office");
   const [sortOrder, setSortOrder] = useState(""); // Default empty to show "Sort By Price"
@@ -15,13 +17,16 @@ const AllOffice = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
+        setLoading(true);
         const res = await axios.get(
           `https://spice-19.onrender.com/api/product/Category/Product/List?CategoryID=66e94f09e4a0682d9adf68f8`
         );
         setProducts(res?.data?.data); // Axios automatically parses JSON
+        setLoading(false);
         console.log(res?.data?.data); // Logs the fetched product data
       } catch (error) {
         console.error("Error fetching products:", error);
+        setLoading(false);
       }
     };
 
@@ -29,30 +34,38 @@ const AllOffice = () => {
     dispatch(removeProduct());
   }, [dispatch]);
 
-    const fetchSortedProducts = async (order) => {
-      try {
-        const res = await axios.get(
-          `https://spice-19.onrender.com/api/product/Sort/Product?price=${order}&CategoryID=66e94f09e4a0682d9adf68f8`
-        );
-        setProducts(res?.data?.data);
-      } catch (error) {
-        console.error("Error fetching sorted products:", error);
-      }
-    };
+  const fetchSortedProducts = async (order) => {
+    try {
+      const res = await axios.get(
+        `https://spice-19.onrender.com/api/product/Sort/Product?price=${order}&CategoryID=66e94f09e4a0682d9adf68f8`
+      );
+      setProducts(res?.data?.data);
+    } catch (error) {
+      console.error("Error fetching sorted products:", error);
+    }
+  };
 
-    const handleSortChange = (e) => {
-      const selectedOrder = e.target.value;
-      setSortOrder(selectedOrder);
-      if (selectedOrder) {
-        fetchSortedProducts(selectedOrder);
-      }
-    };
+  const handleSortChange = (e) => {
+    const selectedOrder = e.target.value;
+    setSortOrder(selectedOrder);
+    if (selectedOrder) {
+      fetchSortedProducts(selectedOrder);
+    }
+  };
 
   // Function to handle filtered products and update the heading
   const handleFilteredProducts = (filteredProducts, subCategoryName) => {
     setFiltered(filteredProducts);
     setCategoryName(subCategoryName);
   };
+
+  if (loading) {
+    return (
+      <div className="load d-flex justify-content-center align-items-center">
+        <h3>Loading...</h3>
+      </div>
+    );
+  }
 
   return (
     <div className="filter-main-product-cards-main container">
@@ -78,8 +91,9 @@ const AllOffice = () => {
         <div className="col-md-8">
           <h2 className="text-center">{categoryName}</h2>
           <div className="products-card">
-            {(filtered?.length > 0 ? filtered : products)?.map(
-              (product, index) => (
+            {(filtered?.length > 0 ? filtered : products)
+              .slice(0, count)
+              ?.map((product, index) => (
                 <figure className="snip1423" key={index}>
                   <img
                     src={product?.productPicture[0] || "/Assests/mokup1.png"}
@@ -94,7 +108,7 @@ const AllOffice = () => {
                         </div>
                       )}
                     </h3>
-                    <p>{product?.ShortDescription}</p>
+                    <p>{product?.ShortDescription || "Product Description"}</p>
 
                     {product?.sustainable && (
                       <div className="sustainable-icon">
@@ -112,9 +126,16 @@ const AllOffice = () => {
                     onClick={() => dispatch(productDetails(product))}
                   ></Link>
                 </figure>
-              )
-            )}
+              ))}
           </div>
+          {count >= products?.length ? null : (
+            <div
+              className="d-flex justify-content-center text-primary cursor"
+              onClick={() => setCount(count + 9)}
+            >
+              View More...
+            </div>
+          )}
         </div>
       </div>
     </div>

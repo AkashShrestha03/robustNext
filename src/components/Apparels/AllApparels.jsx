@@ -7,6 +7,8 @@ import CategoryFilter from "../Products/CategoryFilter";
 
 const AllApparels = () => {
   const [products, setProducts] = useState([]);
+  const [count, setCount] = useState(18);
+  const [loading, setLoading] = useState(false);
   const [filtered, setFiltered] = useState([]);
   const [categoryName, setCategoryName] = useState("Apparel");
   const [sortOrder, setSortOrder] = useState(""); // Default empty to show "Sort By Price"
@@ -15,13 +17,16 @@ const AllApparels = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
+        setLoading(true);
         const res = await axios.get(
           `https://spice-19.onrender.com/api/product/Category/Product/List?CategoryID=66e947dfe4a0682d9adf6826`
         );
         setProducts(res?.data?.data);
+          setLoading(false);
         console.log(res?.data?.data);
       } catch (error) {
         console.error("Error fetching products:", error);
+          setLoading(false);
       }
     };
 
@@ -53,6 +58,14 @@ const AllApparels = () => {
     setCategoryName(subCategoryName);
   };
 
+  if (loading) {
+    return (
+      <div className="load d-flex justify-content-center align-items-center">
+        <h3>Loading...</h3>
+      </div>
+    );
+  }
+
   return (
     <div className="filter-main-product-cards-main container">
       <div className="row">
@@ -78,8 +91,9 @@ const AllApparels = () => {
           <h2 className="text-center">{categoryName}</h2>
 
           <div className="products-card">
-            {(filtered?.length > 0 ? filtered : products)?.map(
-              (product, index) => (
+            {(filtered?.length > 0 ? filtered : products)
+              .slice(0, count)
+              ?.map((product, index) => (
                 <figure className="snip1423" key={index}>
                   <img
                     src={product?.productPicture[0] || "/Assests/mokup1.png"}
@@ -94,7 +108,7 @@ const AllApparels = () => {
                         </div>
                       )}
                     </h3>
-                    <p>{product?.ShortDescription}</p>
+                    <p>{product?.ShortDescription || "Product Description"}</p>
 
                     {product?.sustainable && (
                       <div className="sustainable-icon">
@@ -112,14 +126,20 @@ const AllApparels = () => {
                     onClick={() => dispatch(productDetails(product))}
                   ></Link>
                 </figure>
-              )
-            )}
+              ))}
           </div>
         </div>
+        {count >= products?.length ? null : (
+          <div
+            className="d-flex justify-content-center text-primary cursor"
+            onClick={() => setCount(count + 9)}
+          >
+            View More...
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
 export default AllApparels;
- 

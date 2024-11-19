@@ -95,7 +95,9 @@ const Footwears = () => {
                           </div>
                         )}
                       </h3>
-                      <p>{product?.ShortDescription}</p>
+                      <p>
+                        {product?.ShortDescription || "Product Description"}
+                      </p>
 
                       {product?.sustainable && (
                         <div className="sustainable-icon">
