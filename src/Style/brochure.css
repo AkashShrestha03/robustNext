@@ -121,3 +121,20 @@
   padding: 10px;
   background: rgb(189, 102, 189);
 }
+
+.brochure {
+  position: relative;
+}
+
+.bro-count {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  background-color: #e56997;
+  border-radius: 50%;
+  /* border: 1px solid #512da8; */
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  /* padding: 5px; */
+}

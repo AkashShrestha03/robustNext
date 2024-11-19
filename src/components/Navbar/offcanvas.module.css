@@ -16,6 +16,7 @@
 
 .dropdown h6{
   margin-bottom: 0;
+  cursor: pointer;
 }
 .dropdown-menu {
   padding-left: 10px;

@@ -7,8 +7,12 @@ import { useDispatch, useSelector } from "react-redux";
 const BrochureList = () => {
   const router = useRouter();
   const { brochure } = useSelector((state) => state.product);
-  console.log(brochure);
+  // console.log(brochure);
   const dispatch = useDispatch();
+
+  if(brochure?.length === 0){
+    router.push("/")
+  }
 
   return (
     <>

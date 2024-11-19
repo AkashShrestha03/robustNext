@@ -12,6 +12,10 @@ strong {
   font-weight: bold;
 }
 
+.basket-labels ul li{
+  list-style: none;
+}
+
 p {
   margin: 0.75rem 0 0;
 }

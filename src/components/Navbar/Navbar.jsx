@@ -4,10 +4,13 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import OffcanvasNav from "./Offcanvas";
 import { Offcanvas } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import toast, { Toaster } from "react-hot-toast";
 
 const Navbar = () => {
   const router = useRouter();
   const [show, setShow] = useState(false);
+  const { brochure } = useSelector((state) => state.product);
 
   const handleShow = () => setShow(true);
   const isHomePage = router.pathname === "/";
@@ -79,11 +82,12 @@ const Navbar = () => {
                     </div>
 
                     <div class="brochure">
-                      <Link href="/brochure">
+                      <Link href={brochure?.length === 0 ? "/" : "/brochure"}>
                         <button className="p-2 btn-light text-secondary shadow">
                           Brochure
                         </button>
                       </Link>
+                      <span className="bro-count">{brochure?.length}</span>
                     </div>
                     {/* <div class="cart f24">
                       <Link style={{ color: "white" }} href="/cart">
@@ -471,15 +475,6 @@ const Navbar = () => {
                 </div>
               </div>
               <div class="top-nav-right-container">
-                {/* <div class="serach-top">
-                  <i class="fa fa-search">
-                    <input
-                      type="search"
-                      placeholder="Search by product name or type"
-                    />
-                  </i>
-                </div> */}
-
                 <div class="signup">
                   <Link href="/auth/signin">
                     <p>Signup</p>
@@ -488,11 +483,19 @@ const Navbar = () => {
                 </div>
 
                 <div class="brochure">
-                  <Link href="/brochure">
-                    <button className="p-2 btn-light text-secondary shadow">
-                      Brochure
-                    </button>
-                  </Link>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      brochure?.length === 0
+                        ? toast.error("Please add products first!")
+                        : router.push("/brochure")
+                    }
+                    className="p-2 btn-light text-secondary shadow"
+                  >
+                    Brochure
+                  </button>
+
+                  <span className="bro-count">{brochure?.length}</span>
                 </div>
 
                 {/* <div class="cart f24">
@@ -828,6 +831,7 @@ const Navbar = () => {
       )}
 
       <OffcanvasNav show={show} onClose={(show) => setShow(show)} />
+      <Toaster />
     </>
   );
 };

@@ -509,6 +509,11 @@ button :focus {
   color: white;
 }
 
+.we-do-grid{
+  display: flex;
+  justify-content: center;
+}
+
 @media (max-width: 768px) {
   .we-do {
     display: none !important;
