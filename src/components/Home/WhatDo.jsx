@@ -22,7 +22,7 @@ const WhatDo = () => {
           </div>
           <div className="d-flex justify-content-evenly gap-4">
             <div class="vertical-line"></div>
-            <div class="d-flex flex-column align-items-center justify-content-between">
+            <div class="d-flex flex-column align-items-center gap-3">
               <div class="circle"></div>
               <div class="incline"></div>
             </div>

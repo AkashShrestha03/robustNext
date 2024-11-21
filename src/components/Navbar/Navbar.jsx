@@ -65,14 +65,13 @@ const Navbar = () => {
                     </div>
                   </div>
                   <div class="top-nav-right-container">
-                    {/* <div class="serach-top">
-                      <i class="fa fa-search">
-                        <input
-                          type="search"
-                          placeholder="Search by product name or type"
-                        />
-                      </i>
-                    </div> */}
+                    <div class="serach-top">
+                      <i class="fa fa-search"></i>
+                      <input
+                        type="search"
+                        placeholder="Search by product name or type"
+                      />
+                    </div>
 
                     <div class="signup">
                       <Link href="/auth/signin">
@@ -89,11 +88,6 @@ const Navbar = () => {
                       </Link>
                       <span className="bro-count">{brochure?.length}</span>
                     </div>
-                    {/* <div class="cart f24">
-                      <Link style={{ color: "white" }} href="/cart">
-                        <i class="fa fa-shopping-cart"></i>
-                      </Link>
-                    </div> */}
                   </div>
                 </div>
               </div>
