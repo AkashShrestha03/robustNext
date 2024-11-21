@@ -49,9 +49,9 @@ const Eco = ({ filtered }) => {
   return (
     <>
       {" "}
-      <div class="filter-main-product-cards-main container">
+      <div class="filter-main-product-cards-main">
         <div className="row">
-          <div className="col-md-3">
+          <div className="col-md-3 filter-container">
             {/* <Filter /> */}
             <div className="d-flex justify-content-end mb-3">
               <select
@@ -65,7 +65,7 @@ const Eco = ({ filtered }) => {
               </select>
             </div>
           </div>
-          <div className="col-md-9">
+          <div className="col-md-8">
             {" "}
             <h2 className="text-center">Eco Friendly</h2>{" "}
             {/* Changed class to className */}

@@ -28,24 +28,24 @@ const TechAss = () => {
     getProduct();
   }, [dispatch]);
 
-    const fetchSortedProducts = async (order) => {
-      try {
-        const res = await axios.get(
-          `https://spice-19.onrender.com/api/product/Sort/Product?price=${order}&SubCategoryID=66e95284e4a0682d9adf69e0`
-        );
-        setProducts(res?.data?.data);
-      } catch (error) {
-        console.error("Error fetching sorted products:", error);
-      }
-    };
+  const fetchSortedProducts = async (order) => {
+    try {
+      const res = await axios.get(
+        `https://spice-19.onrender.com/api/product/Sort/Product?price=${order}&SubCategoryID=66e95284e4a0682d9adf69e0`
+      );
+      setProducts(res?.data?.data);
+    } catch (error) {
+      console.error("Error fetching sorted products:", error);
+    }
+  };
 
-    const handleSortChange = (e) => {
-      const selectedOrder = e.target.value;
-      setSortOrder(selectedOrder);
-      if (selectedOrder) {
-        fetchSortedProducts(selectedOrder);
-      }
-    };
+  const handleSortChange = (e) => {
+    const selectedOrder = e.target.value;
+    setSortOrder(selectedOrder);
+    if (selectedOrder) {
+      fetchSortedProducts(selectedOrder);
+    }
+  };
 
   const handleFilteredProducts = (filtered, subCategoryName) => {
     setFiltered(filtered); // Update filtered products
@@ -55,25 +55,27 @@ const TechAss = () => {
   return (
     <>
       {" "}
-      <div class="filter-main-product-cards-main container">
+      <div class="filter-main-product-cards-main">
         <div className="row">
-          <div className="col-md-3">
-            <div className="d-flex justify-content-end mb-3">
-              <select
-                className="form-select"
-                value={sortOrder}
-                onChange={handleSortChange}
-              >
-                <option value="">Sort By Price</option>
-                <option value="AES">Lowest Price First</option>
-                <option value="DES">Highest Price First</option>
-              </select>
+          <div className="col-md-3 filter-container">
+            <div className="filter">
+              <div className="d-flex justify-content-end mb-3">
+                <select
+                  className="form-select"
+                  value={sortOrder}
+                  onChange={handleSortChange}
+                >
+                  <option value="">Sort By Price</option>
+                  <option value="AES">Lowest Price First</option>
+                  <option value="DES">Highest Price First</option>
+                </select>
+              </div>
+              <FilterTech
+                filteredProducts={(filtered, subCategoryName) =>
+                  handleFilteredProducts(filtered, subCategoryName)
+                }
+              />
             </div>
-            <FilterTech
-              filteredProducts={(filtered, subCategoryName) =>
-                handleFilteredProducts(filtered, subCategoryName)
-              }
-            />
             {/* <Filter /> */}
           </div>
           <div className="col-md-8">

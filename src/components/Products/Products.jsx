@@ -29,25 +29,27 @@ const Products = () => {
   };
 
   return (
-    <div className="filter-main-product-cards-main container">
+    <div className="filter-main-product-cards-main">
       <div className="row">
-        <div className="col-md-3">
-          <div className="form-group mb-3">
-            <select
-              name="sortPrice"
-              className="form-control"
-              id="sortPrice"
-              value={sortOrder}
-              onChange={handleSortChange}
-            >
-              <option value="">Sort By Price</option>
-              <option value="AES">Lowest Price First</option>
-              <option value="DES">Highest Price First</option>
-            </select>
+        <div className="col-md-3 filter-container">
+          <div className="filter">
+            <div className="form-group mb-3">
+              <select
+                name="sortPrice"
+                className="form-control"
+                id="sortPrice"
+                value={sortOrder}
+                onChange={handleSortChange}
+              >
+                <option value="">Sort By Price</option>
+                <option value="AES">Lowest Price First</option>
+                <option value="DES">Highest Price First</option>
+              </select>
+            </div>
+            <Filter onProductsFetched={(products) => setProducts(products)} />
           </div>
-          <Filter onProductsFetched={(products) => setProducts(products)} />
         </div>
-        <div className="col-md-9">
+        <div className="col-md-8">
           <Grid filtered={products} />
         </div>
       </div>

@@ -57,26 +57,27 @@ const Fitness = () => {
   return (
     <>
       {" "}
-      <div class="filter-main-product-cards-main container">
+      <div class="filter-main-product-cards-main">
         <div className="row">
-          <div className="col-md-3">
-            <div className="d-flex justify-content-end mb-3">
-              <select
-                className="form-select"
-                value={sortOrder}
-                onChange={handleSortChange}
-              >
-                <option value="">Sort By Price</option>
-                <option value="AES">Lowest Price First</option>
-                <option value="DES">Highest Price First</option>
-              </select>
+          <div className="col-md-3 filter-container">
+            <div className="filter">
+              <div className="d-flex justify-content-end mb-3">
+                <select
+                  className="form-select"
+                  value={sortOrder}
+                  onChange={handleSortChange}
+                >
+                  <option value="">Sort By Price</option>
+                  <option value="AES">Lowest Price First</option>
+                  <option value="DES">Highest Price First</option>
+                </select>
+              </div>
+              <FilterWellness
+                filteredProducts={(filtered, subCategoryName) =>
+                  handleFilteredProducts(filtered, subCategoryName)
+                }
+              />
             </div>
-            <FilterWellness
-              filteredProducts={(filtered, subCategoryName) =>
-                handleFilteredProducts(filtered, subCategoryName)
-              }
-            />
-            {/* <Filter /> */}
           </div>
           <div className="col-md-8">
             {" "}

@@ -350,3 +350,12 @@ button.circle-border {
   margin: auto;
   margin-top: 180px;
 }
+
+
+.back button{
+  height: 48px;
+  width: 150px;
+  margin-bottom: 10px;
+  margin-left: 12px;
+  background-color: #6f42c1;
+}

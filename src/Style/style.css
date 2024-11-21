@@ -1005,7 +1005,7 @@ i.fa.fa-cart-plus {
   display: flex;
   justify-content: center;
   /* align-items: center; */
-  max-width: 1399px;
+  /* max-width: 1399px; */
   margin: 200px auto;
 }
 
@@ -1029,4 +1029,14 @@ label.container {
   margin-bottom: 5px;
   text-transform: uppercase;
   margin-bottom: 15px;
+}
+
+
+.filter-container{
+  position: relative;
+}
+
+.filter-container div{
+  position: sticky;
+  top: 200px;
 }

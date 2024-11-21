@@ -33,20 +33,20 @@ const ProductEditor = ({ product }) => {
               <i class="fa fa-leaf text-success" aria-hidden="true"></i>
             )}
           </h2>{" "}
-          {/* <p className="cart-details-text">{product?.productDescription}</p> */}
+
           <div className="price mt-2">
             <s>₹{product?.productMRP}</s>₹{product?.productPrice}
           </div>
           <div className="price d-flex g-3">
             <span className="text-secondary">
               Minimum Order Quantity: {product?.minProduct}
-            </span>{" "}
+            </span>
          
           </div>
         </div>
         <div className="px-4 w-100">
           <button className="btn bg-pink" onClick={handleShortlist}>
-            {isShortlisted ? "Shortlisted" : "Shortlist"}
+            {isShortlisted ? "Added" : "Add to Brochure"}
           </button>
         </div>
       </div>
