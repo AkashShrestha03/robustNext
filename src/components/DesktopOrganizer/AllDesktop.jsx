@@ -5,10 +5,10 @@ import { useDispatch } from "react-redux";
 import { productDetails, removeProduct } from "@/store/productSlice";
 import CategoryFilter from "../Products/CategoryFilter";
 
-const Eco = () => {
+const AllDesktop = () => {
   const [products, setProducts] = useState([]);
   const [filtered, setFiltered] = useState([]);
-  const [categoryName, setCategoryName] = useState("Eco Friendly");
+  const [categoryName, setCategoryName] = useState("Desktop Organizer");
   const [sortOrder, setSortOrder] = useState(""); // Default empty to show "Sort By Price"
   const dispatch = useDispatch();
 
@@ -16,7 +16,7 @@ const Eco = () => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          `https://spice-19.onrender.com/api/product/Category/Product/List?CategoryID=66e954ebe4a0682d9adf6a48`
+          `https://spice-19.onrender.com/api/product/Category/Product/List?CategoryID=673f1aeb432f3bd04f531570`
         );
         setProducts(res?.data?.data); // Axios automatically parses JSON
         console.log(res?.data?.data); // Logs the fetched product data
@@ -32,7 +32,7 @@ const Eco = () => {
   const fetchSortedProducts = async (order) => {
     try {
       const res = await axios.get(
-        `https://spice-19.onrender.com/api/product/Sort/Product?price=${order}&CategoryID=66e954ebe4a0682d9adf6a48`
+        `https://spice-19.onrender.com/api/product/Sort/Product?price=${order}&CategoryID=673f1aeb432f3bd04f531570`
       );
       setProducts(res?.data?.data);
     } catch (error) {
@@ -123,4 +123,4 @@ const Eco = () => {
   );
 };
 
-export default Eco;
+export default AllDesktop;

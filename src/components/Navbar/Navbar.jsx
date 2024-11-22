@@ -7,6 +7,98 @@ import { Offcanvas } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
 
+const menuItems = [
+  {
+    label: "All Robust",
+    link: "/products",
+    subItems: [],
+  },
+  {
+    label: "Apparel",
+    subItems: [
+      { label: "All Apparels", link: "/products/apparels/allapparels" },
+      { label: "T Shirts", link: "/products/apparels/tshirts" },
+      { label: "Hats", link: "/products/apparels/hats" },
+      { label: "Footwear", link: "/products/apparels/footwears" },
+      { label: "Sweatshirts", link: "/products/apparels/sweatshirts" },
+      { label: "Outwear", link: "/products/apparels/outerwear" },
+      { label: "Jeans", link: "/products/apparels/jeans" },
+    ],
+  },
+  {
+    label: "Office",
+    subItems: [
+      { label: "All Office Accessories", link: "/products/office/alloffice" },
+      { label: "Desk Accessories", link: "/products/office/desk_accessories" },
+      { label: "Notebooks", link: "/products/office/notebooks" },
+      { label: "Pens", link: "/products/office/pens" },
+      { label: "Combo Set", link: "/products/office/combo" },
+      { label: "2 pcs Combo Set", link: "/products/office/two" },
+      { label: "3 pcs Combo Set", link: "/products/office/three" },
+      { label: "4 pcs Combo Set", link: "/products/office/four" },
+      { label: "Diary", link: "/products/office/diary" },
+      { label: "Sleeve Bag", link: "/products/office/sleeve" },
+    ],
+  },
+  {
+    label: "Drinkware",
+    subItems: [
+      { label: "All Drinkware", link: "/products/drinkware/alldrinkware" },
+      { label: "Water bottles", link: "/products/drinkware/waterbottles" },
+      { label: "Mugs", link: "/products/drinkware/mugs" },
+      { label: "Tumblers", link: "/products/drinkware/tumblers" },
+      { label: "Combo Set", link: "/products/drinkware/combo" },
+    ],
+  },
+  {
+    label: "Bags",
+    subItems: [
+      { label: "Totes", link: "/products/bags/totes" },
+      { label: "Backpacks", link: "/products/bags/backpacks" },
+      { label: "Pouches", link: "/products/bags/pouches" },
+      { label: "Duffle Bags", link: "/products/bags/duffle" },
+      { label: "Laptop Bags", link: "/products/bags/laptop" },
+      { label: "Sling Bags", link: "/products/bags/sling" },
+    ],
+  },
+  {
+    label: "Tech",
+    subItems: [
+      { label: "Tech Accessories", link: "/products/tech/tech_accessories" },
+      { label: "Chargers", link: "/products/tech/chargers" },
+      { label: "Audio", link: "/products/tech/audio" },
+    ],
+  },
+  {
+    label: "Wellness",
+    subItems: [
+      { label: "All Wellness", link: "/products/wellness/allwellness" },
+      { label: "Self Care", link: "/products/wellness/self_care" },
+      { label: "Fitness & Recreation", link: "/products/wellness/fitness" },
+      { label: "Camping & Outdoors", link: "/products/wellness/outdoors" },
+      { label: "Perfume", link: "/products/wellness/perfume" },
+      { label: "Combo Set", link: "/products/wellness/comboset" },
+    ],
+  },
+  {
+    label: "Eco Friendly",
+    // link: "/products/eco-friendly/ecofriendly",
+    subItems: [
+      { label: "All Eco Friendly", link: "/products/eco-friendly/ecofriendly" },
+      { label: "Combo Set", link: "/products/eco-friendly/comboset" },
+    ],
+  },
+  {
+    label: "Desktop Organizer",
+    // link: "/products/eco-friendly/ecofriendly",
+    subItems: [
+      { label: "All Desktop Organizers", link: "/products/desktop/desktop" },
+      { label: "Combo Set", link: "/products/desktop/comboset" },
+      { label: "Pen Stand", link: "/products/desktop/penstand" },
+    ],
+  },
+];
+
 const Navbar = () => {
   const router = useRouter();
   const [show, setShow] = useState(false);
@@ -103,296 +195,48 @@ const Navbar = () => {
                       <i class="bi bi-list"></i>
                     </span>
                   </div>
-                  <div class="navbar links">
-                    <ul class="d-flex align-items-center f13 poppins-semibold ">
-                      <Link href="/products">
-                        <li>All Robust</li>
-                      </Link>
-                      <li>
-                        <div class="dropdown">
-                          <p
-                            class=" dropdown-toggle mb-0"
-                            id="dropdownMenuButton"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                          >
-                            Apparel
-                          </p>
-                          <div
-                            class="dropdown-menu"
-                            aria-labelledby="dropdownMenuButton"
-                          >
-                            <div class="d-flex" style={{ fontSize: "13px" }}>
-                              {/* <Link
-                                class="dropdown-item"
-                                href="/products/apparels/allapparels"
+                  <div className="navbar links">
+                    <ul className="d-flex align-items-center f13 poppins-semibold">
+                      {menuItems.map((item, index) => (
+                        <li key={index}>
+                          {item.subItems.length > 0 ? (
+                            <div className="dropdown">
+                              <p
+                                className="dropdown-toggle mb-0"
+                                id={`dropdownMenuButton-${index}`}
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
                               >
-                                All Apparels
-                              </Link> */}
-                              <Link
-                                class="dropdown-item"
-                                href="/products/apparels/allapparels"
+                                {item.label}
+                              </p>
+                              <div
+                                className="dropdown-menu"
+                                aria-labelledby={`dropdownMenuButton-${index}`}
                               >
-                                All Apparels
-                              </Link>
-                              <Link
-                                class="dropdown-item"
-                                href="/products/apparels/tshirts"
-                              >
-                                T Shirts
-                              </Link>
-                              <Link
-                                class="dropdown-item"
-                                href="/products/apparels/hats"
-                              >
-                                Hats
-                              </Link>
-                              <Link
-                                class="dropdown-item"
-                                href="/products/apparels/footwears"
-                              >
-                                Footwear
-                              </Link>
-                              <Link
-                                class="dropdown-item"
-                                href="/products/apparels/sweatshirts"
-                              >
-                                Sweatshirts
-                              </Link>
-                              <Link
-                                class="dropdown-item"
-                                href="/products/apparels/outerwear"
-                              >
-                                Outwear
-                              </Link>
+                                <div
+                                  className="d-flex"
+                                  style={{ fontSize: "13px" }}
+                                >
+                                  {item.subItems.map((subItem, subIndex) => (
+                                    <Link
+                                      key={subIndex}
+                                      className="dropdown-item"
+                                      href={subItem.link}
+                                    >
+                                      {subItem.label}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="dropdown">
-                          <p
-                            class=" dropdown-toggle mb-0"
-                            id="dropdownMenuButton"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                          >
-                            Office
-                          </p>
-                          <div
-                            class="dropdown-menu "
-                            aria-labelledby="dropdownMenuButton"
-                          >
-                            <div class="d-flex" style={{ fontSize: "13px" }}>
-                              <Link
-                                class="dropdown-item"
-                                href="/products/office/alloffice"
-                              >
-                                All Office Accessories
-                              </Link>
-                              <Link
-                                class="dropdown-item"
-                                href="/products/office/desk_accessories"
-                              >
-                                Desk Accessories
-                              </Link>
-                              <Link
-                                class="dropdown-item"
-                                href="/products/office/notebooks"
-                              >
-                                Notebooks
-                              </Link>
-                              <Link
-                                class="dropdown-item"
-                                href="/products/office/pens"
-                              >
-                                Pens
-                              </Link>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="dropdown">
-                          <p
-                            class=" dropdown-toggle mb-0"
-                            id="dropdownMenuButton"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                          >
-                            Drinkware
-                          </p>
-                          <div
-                            class="dropdown-menu "
-                            aria-labelledby="dropdownMenuButton"
-                          >
-                            <div class="d-flex" style={{ fontSize: "13px" }}>
-                              <Link
-                                class="dropdown-item"
-                                href="/products/drinkware/alldrinkware"
-                              >
-                                All Drinkware
-                              </Link>
-                              <Link
-                                class="dropdown-item"
-                                href="/products/drinkware/waterbottles"
-                              >
-                                Water bottles
-                              </Link>
-                              <Link
-                                class="dropdown-item"
-                                href="/products/drinkware/mugs"
-                              >
-                                Mugs
-                              </Link>
-                              <Link
-                                class="dropdown-item"
-                                href="/products/drinkware/tumblers"
-                              >
-                                Tumblers
-                              </Link>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="dropdown">
-                          <p
-                            class=" dropdown-toggle mb-0"
-                            id="dropdownMenuButton"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                          >
-                            Bags
-                          </p>
-                          <div
-                            class="dropdown-menu "
-                            aria-labelledby="dropdownMenuButton"
-                          >
-                            <div class="d-flex" style={{ fontSize: "13px" }}>
-                              <Link
-                                class="dropdown-item"
-                                href="/products/bags/totes"
-                              >
-                                Totes
-                              </Link>
-                              <Link
-                                class="dropdown-item"
-                                href="/products/bags/backpacks"
-                              >
-                                Backpacks
-                              </Link>
-                              <Link
-                                class="dropdown-item"
-                                href="/products/bags/pouches"
-                              >
-                                Pouches
-                              </Link>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="dropdown">
-                          <p
-                            class=" dropdown-toggle mb-0"
-                            id="dropdownMenuButton"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                          >
-                            Tech
-                          </p>
-                          <div
-                            class="dropdown-menu "
-                            aria-labelledby="dropdownMenuButton"
-                          >
-                            <div class="d-flex" style={{ fontSize: "13px" }}>
-                              <Link
-                                class="dropdown-item"
-                                href="/products/tech/tech_accessories"
-                              >
-                                Tech Accessories
-                              </Link>
-                              <Link
-                                class="dropdown-item"
-                                href="/products/tech/chargers"
-                              >
-                                Chargers
-                              </Link>
-                              <Link
-                                class="dropdown-item"
-                                href="/products/tech/audio"
-                              >
-                                Audio
-                              </Link>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="dropdown">
-                          <p
-                            class=" dropdown-toggle mb-0"
-                            id="dropdownMenuButton"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                          >
-                            Wellness
-                          </p>
-                          <div
-                            class="dropdown-menu "
-                            aria-labelledby="dropdownMenuButton"
-                          >
-                            <div class="d-flex" style={{ fontSize: "13px" }}>
-                              <Link
-                                class="dropdown-item"
-                                href="/products/wellness/allwellness"
-                              >
-                                All Wellness
-                              </Link>
-                              <Link
-                                class="dropdown-item"
-                                href="/products/wellness/self_care"
-                              >
-                                Self Care
-                              </Link>
-                              <Link
-                                class="dropdown-item"
-                                href="/products/wellness/fitness"
-                              >
-                                Fitness & Recreation
-                              </Link>
-                              <Link
-                                class="dropdown-item"
-                                href="/products/wellness/outdoors"
-                              >
-                                Camping & Outdoors
-                              </Link>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <Link href="/products/ecofriendly">
-                        <li>
-                          <div class="dropdown">
-                            <p
-                              class=" mb-0"
-                              id="dropdownMenuButton"
-                              data-toggle="dropdown"
-                              aria-haspopup="true"
-                              aria-expanded="false"
-                            >
-                              Eco Friendly
-                            </p>
-                          </div>
+                          ) : (
+                            <Link href={item.link} className="text-dark">
+                              <p className="mb-0">{item.label}</p>
+                            </Link>
+                          )}
                         </li>
-                      </Link>
+                      ))}
                     </ul>
                   </div>
                   <div></div>
@@ -513,309 +357,48 @@ const Navbar = () => {
                   <i class="bi bi-list"></i>
                 </span>
               </div>
-              <div class="navbar links">
-                <ul class="d-flex align-items-center f13 poppins-semibold ">
-                  <Link href="/products">
-                    <li>All Robust</li>
-                  </Link>
-                  <li>
-                    <div class="dropdown">
-                      <p
-                        class=" dropdown-toggle mb-0"
-                        id="dropdownMenuButton"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        Apparel
-                      </p>
-                      <div
-                        class="dropdown-menu"
-                        aria-labelledby="dropdownMenuButton"
-                      >
-                        <div class="d-flex" style={{ fontSize: "13px" }}>
-                          {/* <Link
-                            class="dropdown-item"
-                            href="/products/apparels/allapparels"
+              <div className="navbar links">
+                <ul className="d-flex align-items-center f13 poppins-semibold">
+                  {menuItems.map((item, index) => (
+                    <li key={index}>
+                      {item.subItems.length > 0 ? (
+                        <div className="dropdown">
+                          <p
+                            className="dropdown-toggle mb-0"
+                            id={`dropdownMenuButton-${index}`}
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
                           >
-                            All Apparels
-                          </Link> */}
-                          <Link
-                            class="dropdown-item"
-                            href="/products/apparels/allapparels"
+                            {item.label}
+                          </p>
+                          <div
+                            className="dropdown-menu"
+                            aria-labelledby={`dropdownMenuButton-${index}`}
                           >
-                            All Apparels
-                          </Link>
-                          <Link
-                            class="dropdown-item"
-                            href="/products/apparels/tshirts"
-                          >
-                            T Shirts
-                          </Link>
-                          <Link
-                            class="dropdown-item"
-                            href="/products/apparels/hats"
-                          >
-                            Hats
-                          </Link>
-                          <Link
-                            class="dropdown-item"
-                            href="/products/apparels/footwears"
-                          >
-                            Footwear
-                          </Link>
-                          <Link
-                            class="dropdown-item"
-                            href="/products/apparels/sweatshirts"
-                          >
-                            Sweatshirts
-                          </Link>
-                          <Link
-                            class="dropdown-item"
-                            href="/products/apparels/outerwear"
-                          >
-                            Outwear
-                          </Link>
+                            <div
+                              className="d-flex"
+                              style={{ fontSize: "13px" }}
+                            >
+                              {item.subItems.map((subItem, subIndex) => (
+                                <Link
+                                  key={subIndex}
+                                  className="dropdown-item"
+                                  href={subItem.link}
+                                >
+                                  {subItem.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="dropdown">
-                      <p
-                        class=" dropdown-toggle mb-0"
-                        id="dropdownMenuButton"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        Office
-                      </p>
-                      <div
-                        class="dropdown-menu "
-                        aria-labelledby="dropdownMenuButton"
-                      >
-                        <div class="d-flex" style={{ fontSize: "13px" }}>
-                          <Link
-                            class="dropdown-item"
-                            href="/products/office/alloffice"
-                          >
-                            All Office Accessories
-                          </Link>
-                          <Link
-                            class="dropdown-item"
-                            href="/products/office/desk_accessories"
-                          >
-                            Desk Accessories
-                          </Link>
-                          <Link
-                            class="dropdown-item"
-                            href="/products/office/notebooks"
-                          >
-                            Notebooks
-                          </Link>
-                          <Link
-                            class="dropdown-item"
-                            href="/products/office/pens"
-                          >
-                            Pens
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="dropdown">
-                      <p
-                        class=" dropdown-toggle mb-0"
-                        id="dropdownMenuButton"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        Drinkware
-                      </p>
-
-                      <div
-                        class="dropdown-menu "
-                        aria-labelledby="dropdownMenuButton"
-                      >
-                        <div class="d-flex" style={{ fontSize: "13px" }}>
-                          <Link
-                            class="dropdown-item"
-                            href="/products/drinkware/alldrinkware"
-                          >
-                            All Drinkware
-                          </Link>
-                          <Link
-                            class="dropdown-item"
-                            href="/products/drinkware/waterbottles"
-                          >
-                            Water bottles
-                          </Link>
-                          <Link
-                            class="dropdown-item"
-                            href="/products/drinkware/mugs"
-                          >
-                            Mugs
-                          </Link>
-                          <Link
-                            class="dropdown-item"
-                            href="/products/drinkware/tumblers"
-                          >
-                            Tumblers
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="dropdown">
-                      <p
-                        class=" dropdown-toggle mb-0"
-                        id="dropdownMenuButton"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        Bags
-                      </p>
-                      <div
-                        class="dropdown-menu "
-                        aria-labelledby="dropdownMenuButton"
-                      >
-                        <div class="d-flex" style={{ fontSize: "13px" }}>
-                          <Link
-                            class="dropdown-item"
-                            href="/products/bags/allbags"
-                          >
-                            All Bags
-                          </Link>
-                          <Link
-                            class="dropdown-item"
-                            href="/products/bags/totes"
-                          >
-                            Totes
-                          </Link>
-                          <Link
-                            class="dropdown-item"
-                            href="/products/bags/backpacks"
-                          >
-                            Backpacks
-                          </Link>
-                          <Link
-                            class="dropdown-item"
-                            href="/products/bags/pouches"
-                          >
-                            Pouches
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="dropdown">
-                      <p
-                        class=" dropdown-toggle mb-0"
-                        id="dropdownMenuButton"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        Tech
-                      </p>
-                      <div
-                        class="dropdown-menu "
-                        aria-labelledby="dropdownMenuButton"
-                      >
-                        <div class="d-flex" style={{ fontSize: "13px" }}>
-                          <Link
-                            class="dropdown-item"
-                            href="/products/tech/alltech"
-                          >
-                            All Tech Accessories
-                          </Link>
-                          <Link
-                            class="dropdown-item"
-                            href="/products/tech/tech_accessories"
-                          >
-                            Tech Accessories
-                          </Link>
-                          <Link
-                            class="dropdown-item"
-                            href="/products/tech/chargers"
-                          >
-                            Chargers
-                          </Link>
-                          <Link
-                            class="dropdown-item"
-                            href="/products/tech/audio"
-                          >
-                            Audio
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="dropdown">
-                      <p
-                        class=" dropdown-toggle mb-0"
-                        id="dropdownMenuButton"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        Wellness
-                      </p>
-                      <div
-                        class="dropdown-menu "
-                        aria-labelledby="dropdownMenuButton"
-                      >
-                        <div class="d-flex" style={{ fontSize: "13px" }}>
-                          <Link
-                            class="dropdown-item"
-                            href="/products/wellness/allwellness"
-                          >
-                            All Wellness
-                          </Link>
-                          <Link
-                            class="dropdown-item"
-                            href="/products/wellness/self_care"
-                          >
-                            Self Care
-                          </Link>
-                          <Link
-                            class="dropdown-item"
-                            href="/products/wellness/fitness"
-                          >
-                            Fitness & Recreation
-                          </Link>
-                          <Link
-                            class="dropdown-item"
-                            href="/products/wellness/outdoors"
-                          >
-                            Camping & Outdoors
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <Link href="/products/ecofriendly">
-                    <li>
-                      <div class="dropdown">
-                        <p
-                          class=" mb-0"
-                          id="dropdownMenuButton"
-                          data-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                          Eco Friendly
-                        </p>
-                      </div>
+                      ) : (
+                        <Link href={item.link} className="text-dark">
+                          <p className="mb-0">{item.label}</p>
+                        </Link>
+                      )}
                     </li>
-                  </Link>
+                  ))}
                 </ul>
               </div>
               <div></div>

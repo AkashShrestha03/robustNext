@@ -172,13 +172,13 @@ const TopProducts = () => {
               className="item-name-hex"
               style={{ backgroundColor: "#9844ff" }}
             >
-              <p>Category 8</p>
+              <p>Desktop Organizer</p>
               <div className="button-hover">
                 <button className="text-dark">
                   <Link href={"/products/ecofriendly"}>Shop Now</Link>
                 </button>
                 <span className="product-count">
-                  {formatProductCount( 0)}
+                  {formatProductCount(productCounts["Desktop Organizer"] || 0)}
                 </span>
               </div>
             </div>
@@ -194,9 +194,7 @@ const TopProducts = () => {
                 <button className="text-dark">
                   <Link href={"/products/ecofriendly"}>Shop Now</Link>
                 </button>
-                <span className="product-count">
-                  {formatProductCount(0)}
-                </span>
+                <span className="product-count">{formatProductCount(0)}</span>
               </div>
             </div>
           </div>
@@ -211,9 +209,7 @@ const TopProducts = () => {
                 <button className="text-dark">
                   <Link href={"/products/ecofriendly"}>Shop Now</Link>
                 </button>
-                <span className="product-count">
-                  {formatProductCount( 0)}
-                </span>
+                <span className="product-count">{formatProductCount(0)}</span>
               </div>
             </div>
           </div>
