@@ -28,7 +28,7 @@ const FilterTech = ({ filteredProducts }) => {
         {
           params: {
             SubCategoryID: subCategoryId,
-            CategoryID: "66e95284e4a0682d9adf69de",
+            CategoryID: subCategoryId ? null : "66e95284e4a0682d9adf69de",
           },
         }
       );

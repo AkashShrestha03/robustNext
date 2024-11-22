@@ -30,7 +30,7 @@ const FilterDrink = ({ filteredProducts }) => {
         {
           params: {
             SubCategoryID: subCategoryId,
-            CategoryID: "66e9507ce4a0682d9adf698a",
+            CategoryID: subCategoryId ? null : "66e9507ce4a0682d9adf698a",
           },
         }
       );

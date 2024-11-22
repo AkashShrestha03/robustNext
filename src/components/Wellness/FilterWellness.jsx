@@ -28,7 +28,7 @@ const FilterWellness = ({ filteredProducts }) => {
         {
           params: {
             SubCategoryID: subCategoryId,
-            CategoryID: "66e947dfe4a0682d9adf6826",
+            CategoryID: subCategoryId ? null : "66e947dfe4a0682d9adf6826",
           },
         }
       );

@@ -29,7 +29,7 @@ const FilterOffice = ({ filteredProducts }) => {
         {
           params: {
             SubCategoryID: subCategoryId,
-            CategoryID: "66e94f09e4a0682d9adf68f8",
+            CategoryID: subCategoryId ? null : "66e94f09e4a0682d9adf68f8",
           },
         }
       );

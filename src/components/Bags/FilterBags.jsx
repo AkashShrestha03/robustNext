@@ -30,7 +30,7 @@ const FilterBags = ({ filteredProducts }) => {
         {
           params: {
             SubCategoryID: subCategoryId,
-            CategoryID: "66e951a9e4a0682d9adf69bd",
+            CategoryID: subCategoryId ? null : "66e951a9e4a0682d9adf69bd",
           },
         }
       );

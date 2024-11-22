@@ -28,7 +28,7 @@ const EcoFilter = ({ filteredProducts }) => {
         {
           params: {
             SubCategoryID: subCategoryId,
-            CategoryID: "66e954ebe4a0682d9adf6a48",
+            CategoryID: subCategoryId ? null : "66e954ebe4a0682d9adf6a48",
           },
         }
       );

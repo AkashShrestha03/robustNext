@@ -14,6 +14,19 @@ const menuItems = [
     subItems: [],
   },
   {
+    label: "Brands",
+    link: "/",
+    subItems: [
+      { label: "Brand", link: "" },
+      { label: "Brand", link: "" },
+      { label: "Brand", link: "" },
+      { label: "Brand", link: "" },
+      { label: "Brand", link: "" },
+      { label: "Brand", link: "" },
+      
+    ],
+  },
+  {
     label: "Apparel",
     subItems: [
       { label: "All Apparels", link: "/products/apparels/allapparels" },
@@ -173,13 +186,20 @@ const Navbar = () => {
                     </div>
 
                     <div class="brochure">
-                      <Link href={brochure?.length === 0 ? "/" : "/brochure"}>
-                        <button className="p-2 btn-light text-secondary shadow">
-                          Brochure
-                        </button>
-                      </Link>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          brochure?.length === 0
+                            ? toast.error("Please add products first!")
+                            : router.push("/brochure")
+                        }
+                        className="p-2 btn-light text-secondary shadow"
+                      >
+                        Brochure
+                      </button>
+
                       <span className="bro-count">{brochure?.length}</span>
-                    </div>
+                    </div>you
                   </div>
                 </div>
               </div>
@@ -313,6 +333,14 @@ const Navbar = () => {
                 </div>
               </div>
               <div class="top-nav-right-container">
+                <div class="serach-top">
+                  <i class="fa fa-search"></i>
+                  <input
+                    type="search"
+                    placeholder="Search by product name or type"
+                  />
+                </div>
+
                 <div class="signup">
                   <Link href="/auth/signin">
                     <p>Signup</p>

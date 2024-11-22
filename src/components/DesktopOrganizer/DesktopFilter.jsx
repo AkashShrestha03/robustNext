@@ -28,7 +28,7 @@ const DesktopFilter = ({ filteredProducts }) => {
         {
           params: {
             SubCategoryID: subCategoryId,
-            CategoryID: "673f1aeb432f3bd04f531570",
+            CategoryID: subCategoryId ? null : "673f1aeb432f3bd04f531570",
           },
         }
       );
