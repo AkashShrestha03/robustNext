@@ -215,7 +215,7 @@ const Navbar = () => {
                                 aria-labelledby={`dropdownMenuButton-${index}`}
                               >
                                 <div
-                                  className="d-flex"
+                                  className="d-flex flex-wrap"
                                   style={{ fontSize: "13px" }}
                                 >
                                   {item.subItems.map((subItem, subIndex) => (
@@ -377,7 +377,7 @@ const Navbar = () => {
                             aria-labelledby={`dropdownMenuButton-${index}`}
                           >
                             <div
-                              className="d-flex"
+                              className="d-flex flex-wrap"
                               style={{ fontSize: "13px" }}
                             >
                               {item.subItems.map((subItem, subIndex) => (

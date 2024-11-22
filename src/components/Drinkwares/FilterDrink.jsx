@@ -22,6 +22,8 @@ const FilterDrink = ({ filteredProducts }) => {
 
   // Fetch products by subcategory
   const getProductsBySubCategory = async (subCategoryId, subCategoryName) => {
+    console.log(subCategoryId);
+    
     try {
       const res = await axios.get(
         `https://spice-19.onrender.com/api/product/Sub/Category/Product/List`,

@@ -139,7 +139,9 @@ const TopProducts = () => {
               <p>Drinkware</p>
               <div className="button-hover">
                 <button className="text-dark">
-                  <Link href={"/products/bags/totes"}>Shop Now</Link>
+                  <Link href={"/products/drinkware/alldrinkware"}>
+                    Shop Now
+                  </Link>
                 </button>
                 <span className="product-count">
                   {formatProductCount(productCounts.Drinkware || 0)}
@@ -158,7 +160,9 @@ const TopProducts = () => {
               <p>Eco-Friendly</p>
               <div className="button-hover">
                 <button className="text-dark">
-                  <Link href={"/products/ecofriendly"}>Shop Now</Link>
+                  <Link href={"/products/eco-friendly/ecofriendly"}>
+                    Shop Now
+                  </Link>
                 </button>
                 <span className="product-count">
                   {formatProductCount(productCounts["Eco-Friendly"] || 0)}
@@ -175,7 +179,7 @@ const TopProducts = () => {
               <p>Desktop Organizer</p>
               <div className="button-hover">
                 <button className="text-dark">
-                  <Link href={"/products/ecofriendly"}>Shop Now</Link>
+                  <Link href={"/products/desktop/desktop"}>Shop Now</Link>
                 </button>
                 <span className="product-count">
                   {formatProductCount(productCounts["Desktop Organizer"] || 0)}
