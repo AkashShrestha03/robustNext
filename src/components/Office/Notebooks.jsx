@@ -58,6 +58,17 @@ const Notebooks = () => {
         <div className="row">
           <div className="col-md-3 filter-container">
             <div className="filter">
+              <div aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                  <li className="breadcrumb-item">
+                    <Link href="/">Home</Link>
+                  </li>
+
+                  <li className="breadcrumb-item " aria-current="page">
+                    {subcategoryName}
+                  </li>
+                </ol>
+              </div>
               <div className="d-flex justify-content-end mb-3">
                 <select
                   className="form-select"

@@ -33,6 +33,7 @@ const Products = () => {
       <div className="row">
         <div className="col-md-3 filter-container">
           <div className="filter">
+            
             <div className="form-group mb-3">
               <select
                 name="sortPrice"

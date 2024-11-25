@@ -66,6 +66,7 @@ const menuItems = [
   {
     label: "Bags",
     subItems: [
+      { label: "All Bags", link: "/products/bags/allbags" },
       { label: "Totes", link: "/products/bags/totes" },
       { label: "Backpacks", link: "/products/bags/backpacks" },
       { label: "Pouches", link: "/products/bags/pouches" },
@@ -77,6 +78,7 @@ const menuItems = [
   {
     label: "Tech",
     subItems: [
+      { label: "All Tech", link: "/products/tech/alltech" },
       { label: "Tech Accessories", link: "/products/tech/tech_accessories" },
       { label: "Chargers", link: "/products/tech/chargers" },
       { label: "Audio", link: "/products/tech/audio" },
@@ -199,7 +201,7 @@ const Navbar = () => {
                       </button>
 
                       <span className="bro-count">{brochure?.length}</span>
-                    </div>you
+                    </div>
                   </div>
                 </div>
               </div>

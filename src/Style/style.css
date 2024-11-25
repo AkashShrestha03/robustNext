@@ -1044,3 +1044,18 @@ label.container {
   position: sticky;
   top: 200px;
 }
+
+/* BreadCrumb */
+
+.breadcrumb {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 11px;
+  background-color: #8056bf;
+}
+
+a{
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+}

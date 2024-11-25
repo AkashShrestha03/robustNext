@@ -4,6 +4,7 @@ import ProductEditor from "./ProductEditor";
 import ProductsGrid from "./ProductsGrid";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
+import Breadcrumb from "../Breadcrumb/Breadcrumb";
 
 const ProductEdit = () => {
   const router = useRouter();
@@ -16,7 +17,8 @@ const ProductEdit = () => {
       <div class="cart-details-main-container row ">
         <div className="col-md-6">
           <div className="back">
-            <button onClick={() => router.back()}>Previous Page</button>
+            {/* <button onClick={() => router.back()}>Previous Page</button> */}
+            <Breadcrumb product={product} />
           </div>
           <ImageSlide images={product?.productPicture} />
         </div>

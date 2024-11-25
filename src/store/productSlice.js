@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   product: null,
   brochure: [], // Initialized as an empty array
+  
 };
 
 const productSlice = createSlice({
