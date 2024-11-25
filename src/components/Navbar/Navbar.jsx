@@ -23,7 +23,6 @@ const menuItems = [
       { label: "Brand", link: "" },
       { label: "Brand", link: "" },
       { label: "Brand", link: "" },
-      
     ],
   },
   {
@@ -145,7 +144,7 @@ const Navbar = () => {
                         What We Offer <i class="fa fa-chevron-down"></i>
                       </span>
                       <div class="dropdown-content">
-                        <a href="">
+                        <a >
                           <p>
                             {" "}
                             <span>Robust bulk order -</span>
@@ -172,12 +171,19 @@ const Navbar = () => {
                     </div>
                   </div>
                   <div class="top-nav-right-container">
-                    <div class="serach-top">
-                      <i class="fa fa-search"></i>
-                      <input
-                        type="search"
-                        placeholder="Search by product name or type"
-                      />
+                    <div className="search">
+                      <div class="serach-top">
+                        <i class="fa fa-search"></i>
+                        <input
+                          type="search"
+                          placeholder="Search by product name or type"
+                        />
+                      </div>
+                      <div className="searched-items">
+                        {/* <div className="search-item">
+                          <p>Product Name</p> <p>₹400</p>
+                        </div> */}
+                      </div>
                     </div>
 
                     <div class="signup">
