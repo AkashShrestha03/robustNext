@@ -145,34 +145,65 @@ a {
 .search {
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  /* background-color: #fff; */
   color: #000;
   
   max-height: 400px;
   height: fit-content;
   align-items: flex-start;
   width: 100%;
+  position: relative;
 }
 
 .searched-items {
+  position: absolute;
+  top: 100%; /* Places dropdown right below the search bar */
+  left: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  max-height: 400px;
-  width: 100%;
-  height: fit-content;
+  align-items: flex-start;
+  max-height: 300px;
+  width: 31.8%;
   background-color: #fff;
+  border: 1px solid rgba(100, 100, 111, 0.2);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   z-index: 10;
+  overflow-y: auto; /* Allows scrolling if items exceed height */
+  visibility: hidden; /* Hidden by default */
+  opacity: 0;
+  transition: visibility 0.2s, opacity 0.2s;
+}
+
+.search-item:hover {
+  background-color: #f8f9fa; /* Highlight item on hover */
+}
+
+.serach-top:focus-within + .searched-items {
+  visibility: visible; /* Show dropdown when the search bar is focused */
+  opacity: 1;
 }
 
 .search-item {
-  height: 25px;
+  padding: 10px 15px;
   width: 100%;
   display: flex;
-  padding: 0 11px;
   justify-content: space-between;
   align-items: center;
-  z-index: 10;
+  cursor: pointer;
+  color: #000;
+}
+
+.serach-top select{
+  border: none;
+  outline: none;
+
+}
+
+.serach-top button{
+  height: 30px;
+  border: 1px solid #8056bf;
+  background-color: #8056bf;
+  color: #fff;
 }
 
 .serach-top {
@@ -182,6 +213,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 }
 .serach-top input {
   border: none;
@@ -219,6 +251,7 @@ a {
 }
 .top-nav-right-container {
   display: flex;
+  position: relative;
   /* flex-wrap: wrap; */
   justify-content: center;
   align-items: center;

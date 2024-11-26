@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   product: null,
   brochure: [], // Initialized as an empty array
-  
+  searchedProducts: [],
 };
 
 const productSlice = createSlice({
@@ -12,6 +12,13 @@ const productSlice = createSlice({
   reducers: {
     productDetails: (state, action) => {
       state.product = action.payload;
+    },
+    searchedProducts: (state, action) => {
+      state.searchedProducts = action.payload;
+    },
+
+    removeSearch: (state) => {
+      state.searchedProducts = [];
     },
 
     shortlist: (state, action) => {
@@ -39,6 +46,6 @@ const productSlice = createSlice({
   },
 });
 
-export const { productDetails, removeProduct, shortlist, removeFromList } =
+export const { productDetails, removeProduct, shortlist, removeFromList, searchedProducts, removeSearch } =
   productSlice.actions;
 export { productSlice };

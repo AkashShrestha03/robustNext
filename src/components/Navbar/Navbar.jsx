@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CardSwiper from "./CardSwiper";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import OffcanvasNav from "./Offcanvas";
 import { Offcanvas } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
+import axios from "axios";
+import { searchedProducts } from "@/store/productSlice";
 
 const menuItems = [
   {
@@ -115,8 +117,50 @@ const menuItems = [
 
 const Navbar = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
   const [show, setShow] = useState(false);
+  const [category, setCategory] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [products, setProducts] = useState([]);
+  const [search, setSearch] = useState("");
+  const [categoryID, setCategoryID] = useState(null);
   const { brochure } = useSelector((state) => state.product);
+
+  const getCategory = async () => {
+    try {
+      const response = await axios.get(
+        "https://spice-19.onrender.com/api/product/category/List"
+      );
+      setCategory(response?.data?.data);
+    } catch (error) {
+      console.error("Error fetching categories:", error);
+    }
+  };
+
+  useEffect(() => {
+    getCategory();
+  }, []);
+
+  const handleSearch = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get(
+        `https://spice-19.onrender.com/api/product/Sort?&productName=${search}&categoryID=${categoryID}`
+      );
+      if (response.data.status === 1) {
+        setLoading(false);
+        setProducts(response.data.data);
+        dispatch(searchedProducts(response.data.data));
+        router.push("/searchedexample");
+      }
+    } catch (error) {
+      setLoading(false);
+      if(error.status === 404){
+        toast.error(`No products found with name ${search}`)
+      }
+      console.error("Error fetching sorted products:", error);
+    }
+  };
 
   const handleShow = () => setShow(true);
   const isHomePage = router.pathname === "/";
@@ -144,7 +188,7 @@ const Navbar = () => {
                         What We Offer <i class="fa fa-chevron-down"></i>
                       </span>
                       <div class="dropdown-content">
-                        <a >
+                        <a>
                           <p>
                             {" "}
                             <span>Robust bulk order -</span>
@@ -171,20 +215,54 @@ const Navbar = () => {
                     </div>
                   </div>
                   <div class="top-nav-right-container">
-                    <div className="search">
-                      <div class="serach-top">
-                        <i class="fa fa-search"></i>
-                        <input
-                          type="search"
-                          placeholder="Search by product name or type"
-                        />
-                      </div>
-                      <div className="searched-items">
-                        {/* <div className="search-item">
-                          <p>Product Name</p> <p>₹400</p>
-                        </div> */}
-                      </div>
+                    <div class="serach-top">
+                      <select
+                        name="category"
+                        onChange={(e) =>
+                          setCategoryID(
+                            e.target.value === "" ? "" : e.target.value
+                          )
+                        }
+                        id="category"
+                      >
+                        <option value="" selected>
+                          Select Category
+                        </option>
+                        {category?.map((category, index) => (
+                          <option value={category?._id} key={index}>
+                            {category?.name}
+                          </option>
+                        ))}
+                      </select>
+                      <i class="fa fa-search"></i>
+                      <input
+                        type="search"
+                        onChange={(e) => setSearch(e.target.value)}
+                        placeholder="Search by product name or type"
+                      />
+                      <button type="button" onClick={handleSearch}>
+                        {loading ? (
+                          <div
+                            className="spinner-border text-light"
+                            role="status"
+                            style={{ height: "25px", width: "25px" }}
+                          >
+                            <span className="sr-only">Loading...</span>
+                          </div>
+                        ) : (
+                          "Search"
+                        )}
+                      </button>
                     </div>
+
+                    {/* <div className="searched-items">
+                      <div className="search-item">
+                        <p>Product Name</p> <p>₹400</p>
+                      </div>
+                      <div className="search-item">
+                        <p>Product Name</p> <p>₹400</p>
+                      </div>
+                    </div> */}
 
                     <div class="signup">
                       <Link href="/auth/signin">
@@ -342,11 +420,43 @@ const Navbar = () => {
               </div>
               <div class="top-nav-right-container">
                 <div class="serach-top">
+                  <select
+                    name="category"
+                    onChange={(e) =>
+                      setCategoryID(
+                        e.target.value === "" ? "" : e.target.value
+                      )
+                    }
+                    id="category"
+                  >
+                    <option value="" selected>
+                      Select Category
+                    </option>
+                    {category?.map((category, index) => (
+                      <option value={category?._id} key={index}>
+                        {category?.name}
+                      </option>
+                    ))}
+                  </select>
                   <i class="fa fa-search"></i>
                   <input
                     type="search"
+                    onChange={(e) => setSearch(e.target.value)}
                     placeholder="Search by product name or type"
                   />
+                  <button type="button" onClick={handleSearch}>
+                    {loading ? (
+                      <div
+                        className="spinner-border text-light"
+                        role="status"
+                        style={{ height: "25px", width: "25px" }}
+                      >
+                        <span className="sr-only">Loading...</span>
+                      </div>
+                    ) : (
+                      "Search"
+                    )}
+                  </button>
                 </div>
 
                 <div class="signup">
