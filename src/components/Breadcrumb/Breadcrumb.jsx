@@ -9,14 +9,14 @@ const Breadcrumb = ({ product }) => {
       <div aria-label="breadcrumb">
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
-            <Link href="/">Home</Link>
+            <Link href="/" >Home</Link>
           </li>
           <li className="breadcrumb-item">
             <a href="#" onClick={() => router.back()}>
               {product?.SubCategoryName}
             </a>
           </li>
-          <li className="breadcrumb-item " aria-current="page">
+          <li className="breadcrumb-item text-light" aria-current="page">
            {product?.productName}
           </li>
         </ol>
