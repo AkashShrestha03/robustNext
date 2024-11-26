@@ -6,8 +6,8 @@ const Breadcrumb = ({ product }) => {
   const router = useRouter();
   return (
     <>
-      <div aria-label="breadcrumb">
-        <ol className="breadcrumb">
+      <div aria-label="breadcrumb" >
+        <ol className="breadcrumb" style={{margin: "10px 11px"}}>
           <li className="breadcrumb-item">
             <Link href="/" >Home</Link>
           </li>
