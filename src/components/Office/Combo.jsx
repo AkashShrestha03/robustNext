@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { productDetails, removeProduct } from "@/store/productSlice";
 import FilterOffice from "./FilterOffice";
+import API from "@/Config";
 
 const Combo = () => {
   const [products, setProducts] = useState([]);
@@ -16,7 +17,7 @@ const Combo = () => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          `https://spice-19.onrender.com/api/product/Sub/Category/Product/List?SubCategoryID=67333e213b82e9644d16364e`
+          `${API}/api/product/Sub/Category/Product/List?SubCategoryID=67333e213b82e9644d16364e`
         );
         setProducts(res?.data?.data);
       } catch (error) {
@@ -30,7 +31,7 @@ const Combo = () => {
   const fetchSortedProducts = async (order) => {
     try {
       const res = await axios.get(
-        `https://spice-19.onrender.com/api/product/Sort/Product?price=${order}&SubCategoryID=67333e213b82e9644d16364e`
+        `${API}/api/product/Sort/Product?price=${order}&SubCategoryID=67333e213b82e9644d16364e`
       );
       setProducts(res?.data?.data);
     } catch (error) {

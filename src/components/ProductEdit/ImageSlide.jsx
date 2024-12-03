@@ -62,8 +62,11 @@ const ImageSlide = ({ images }) => {
             <span className="visually-hidden">Next</span>
           </button>
         </div>
-        <div className="text-center mt-2">
-          <span>{`${activeIndex + 1} of ${images.length}`}</span>
+        <div className="text-center d-flex gap-2 mt-2">
+          {/* <span>{`${activeIndex + 1} of ${images.length}`}</span> */}
+          {images?.map((image, index) => (
+            <img src={image} key={index} style={{height: "80px", width: "80px", border: "1px solid grey"}} alt="img" />
+          ))}
         </div>
       </div>
     </>

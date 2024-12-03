@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { productDetails, removeProduct } from "@/store/productSlice";
 import FilterOffice from "./FilterOffice";
+import { ApiError } from "next/dist/server/api-utils";
+import API from "@/Config";
 
 const Pens = () => {
   const [products, setProducts] = useState([]);
@@ -16,7 +18,7 @@ const Pens = () => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          `https://spice-19.onrender.com/api/product/Sub/Category/Product/List?SubCategoryID=66e94ffbe4a0682d9adf697d`
+          `${API}/api/product/Sub/Category/Product/List?SubCategoryID=66e94ffbe4a0682d9adf697d`
         );
         setProducts(res?.data?.data); // Axios automatically parses JSON
         console.log(res?.data?.data); // Logs the fetched product data
@@ -31,7 +33,7 @@ const Pens = () => {
   const fetchSortedProducts = async (order) => {
     try {
       const res = await axios.get(
-        `https://spice-19.onrender.com/api/product/Sort/Product?price=${order}&SubCategoryID=66e94ffbe4a0682d9adf697d`
+        `${API}/api/product/Sort/Product?price=${order}&SubCategoryID=66e94ffbe4a0682d9adf697d`
       );
       setProducts(res?.data?.data);
     } catch (error) {

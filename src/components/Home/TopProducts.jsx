@@ -193,12 +193,16 @@ const TopProducts = () => {
               className="item-name-hex"
               style={{ backgroundColor: "#9844ff" }}
             >
-              <p>Category 9</p>
+              <p>Personalized Products</p>
               <div className="button-hover">
                 <button className="text-dark">
-                  <Link href={"/products/ecofriendly"}>Shop Now</Link>
+                  <Link href={"#"}>Shop Now</Link>
                 </button>
-                <span className="product-count">{formatProductCount(0)}</span>
+                <span className="product-count">
+                  {formatProductCount(
+                    productCounts["Personalized Products"] || 0
+                  )}
+                </span>
               </div>
             </div>
           </div>

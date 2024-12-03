@@ -25,9 +25,9 @@ const ProductEdit = () => {
         <div className="col-md-6 ">
           <ProductEditor product={product} />
         </div>
-        {/* <div className="col-12">
-          <ProductsGrid />
-        </div> */}
+        <div className="col-12">
+          <ProductsGrid product={product} />
+        </div>
       </div>
     </>
   );

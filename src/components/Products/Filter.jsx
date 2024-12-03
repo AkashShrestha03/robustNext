@@ -1,29 +1,42 @@
+import API from "@/Config";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const Filter = ({ onProductsFetched }) => {
   const [category, setCategory] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-  const getCategory = async () => {
-    const res = await fetch(
-      `https://spice-19.onrender.com/api/product/category/List`
+const getCategory = async () => {
+  try {
+    const res = await axios.get(
+      `${API}/api/product/category/List`
     );
-    const data = await res.json();
-    setCategory(data?.data);
-  };
+    setCategory(res.data?.data);
+  } catch (error) {
+    console.error("Error fetching categories:", error);
+    // Optional: Handle error state for categories
+  }
+};
 
-  const getProductsByCategory = async (categoryId) => {
-    const res = await fetch(
-      `https://spice-19.onrender.com/api/product/Category/Product/List?CategoryID=${categoryId}`
+const getProductsByCategory = async (categoryId) => {
+  try {
+    const res = await axios.get(
+      `${API}/api/product/Category/Product/List`,
+      {
+        params: { CategoryID: categoryId },
+      }
     );
-    const data = await res.json();
-    onProductsFetched(
-      data?.data,
-      categoryId
-        ? category.find((cat) => cat._id === categoryId)?.name
-        : "All Products"
-    ); // Send the products and category name to the parent
-  };
+    const products = res.data?.data;
+    const categoryName = categoryId
+      ? category.find((cat) => cat._id === categoryId)?.name
+      : "All Products";
+
+    onProductsFetched(products, categoryName); // Send the products and category name to the parent
+  } catch (error) {
+    console.error("Error fetching products by category:", error);
+    // Optional: Handle error state for products
+  }
+};
 
   const handleCheckboxChange = (catId) => {
     setSelectedCategory(catId);

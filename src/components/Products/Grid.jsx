@@ -5,6 +5,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import LeafIcon from "./LeafIcon";
+import API from "@/Config";
 
 const Grid = ({ filtered }) => {
   const [products, setProducts] = useState([]);
@@ -17,7 +18,7 @@ const Grid = ({ filtered }) => {
       try {
         setLoading(true);
         const res = await axios.get(
-          `https://spice-19.onrender.com/api/product/All`
+          `${API}/api/product/All`
         );
         setProducts(res?.data?.data);
         setLoading(false);

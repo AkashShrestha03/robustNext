@@ -1,3 +1,3 @@
-const API = `https://spice-19.onrender.com`;
+const API = "https://spice-13.onrender.com";
 
 export default API;

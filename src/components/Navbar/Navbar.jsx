@@ -113,6 +113,15 @@ const menuItems = [
       { label: "Pen Stand", link: "/products/desktop/penstand" },
     ],
   },
+  {
+    label: "Personalized Products",
+    link: "#",
+    subItems: [
+      // { label: "All Desktop Organizers", link: "/products/desktop/desktop" },
+      // { label: "Combo Set", link: "/products/desktop/comboset" },
+      // { label: "Pen Stand", link: "/products/desktop/penstand" },
+    ],
+  },
 ];
 
 const Navbar = () => {
@@ -123,13 +132,13 @@ const Navbar = () => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
-  const [categoryID, setCategoryID] = useState(null);
+  const [categoryID, setCategoryID] = useState("");
   const { brochure } = useSelector((state) => state.product);
 
   const getCategory = async () => {
     try {
       const response = await axios.get(
-        "https://spice-19.onrender.com/api/product/category/List"
+        "https://spice-13.onrender.com/api/product/category/List"
       );
       setCategory(response?.data?.data);
     } catch (error) {
@@ -145,7 +154,7 @@ const Navbar = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `https://spice-19.onrender.com/api/product/Sort?&productName=${search}&categoryID=${categoryID}`
+        `https://spice-13.onrender.com/api/product/Sort?&productName=${search}&categoryID=${categoryID}`
       );
       if (response.data.status === 1) {
         setLoading(false);
@@ -264,12 +273,12 @@ const Navbar = () => {
                       </div>
                     </div> */}
 
-                    <div class="signup">
+                    {/* <div class="signup">
                       <Link href="/auth/signin">
                         <p>Signup</p>
                         <p>Login</p>
                       </Link>
-                    </div>
+                    </div> */}
 
                     <div class="brochure">
                       <button
@@ -459,12 +468,12 @@ const Navbar = () => {
                   </button>
                 </div>
 
-                <div class="signup">
+                {/* <div class="signup">
                   <Link href="/auth/signin">
                     <p>Signup</p>
                     <p>Login</p>
                   </Link>
-                </div>
+                </div> */}
 
                 <div class="brochure">
                   <button

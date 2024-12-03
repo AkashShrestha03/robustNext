@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { productDetails, removeProduct } from "@/store/productSlice";
 import CategoryFilter from "../Products/CategoryFilter";
+import API from "@/Config";
 
 const AllTech = () => {
   const [products, setProducts] = useState([]);
@@ -16,7 +17,7 @@ const AllTech = () => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          `https://spice-19.onrender.com/api/product/Category/Product/List?CategoryID=66e95284e4a0682d9adf69de`
+          `${API}/api/product/Category/Product/List?CategoryID=66e95284e4a0682d9adf69de`
         );
         setProducts(res?.data?.data); // Axios automatically parses JSON
         console.log(res?.data?.data); // Logs the fetched product data
@@ -32,7 +33,7 @@ const AllTech = () => {
   const fetchSortedProducts = async (order) => {
     try {
       const res = await axios.get(
-        `https://spice-19.onrender.com/api/product/Sort/Product?price=${order}&CategoryID=66e95284e4a0682d9adf69de`
+        `${API}/api/product/Sort/Product?price=${order}&CategoryID=66e95284e4a0682d9adf69de`
       );
       setProducts(res?.data?.data);
     } catch (error) {

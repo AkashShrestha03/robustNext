@@ -1,3 +1,4 @@
+import API from "@/Config";
 import { productDetails } from "@/store/productSlice";
 import axios from "axios";
 import Link from "next/link";
@@ -16,7 +17,7 @@ const SearchedProducts = () => {
   const fetchSortedProducts = async (sortOrder) => {
     try {
       const response = await axios.get(
-        `https://spice-19.onrender.com/api/product/Sort?price=${sortOrder}`
+        `${API}/api/product/Sort?price=${sortOrder}`
       );
       if (response.data.status === 1) {
         setProducts(response.data.data); // Update products with sorted data

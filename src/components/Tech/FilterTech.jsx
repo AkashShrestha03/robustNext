@@ -1,3 +1,4 @@
+import API from "@/Config";
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
@@ -12,7 +13,7 @@ const FilterTech = ({ filteredProducts }) => {
   const getSubCategories = async () => {
     try {
       const res = await axios.get(
-        `https://spice-19.onrender.com/api/product/Sub/Category/List?categoryID=66e95284e4a0682d9adf69de`
+        `${API}/api/product/Sub/Category/List?categoryID=66e95284e4a0682d9adf69de`
       );
       setSubCategories(res?.data?.data);
     } catch (error) {
@@ -24,7 +25,7 @@ const FilterTech = ({ filteredProducts }) => {
   const getProductsBySubCategory = async (subCategoryId, subCategoryName) => {
     try {
       const res = await axios.get(
-        `https://spice-19.onrender.com/api/product/Sub/Category/Product/List`,
+        `${API}/api/product/Sub/Category/Product/List`,
         {
           params: {
             SubCategoryID: subCategoryId,
