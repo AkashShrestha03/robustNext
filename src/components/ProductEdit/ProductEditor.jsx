@@ -12,7 +12,7 @@ const ProductEditor = ({ product }) => {
   const [enquiryData, setEnquiryData] = useState({
     email: "",
     name: "",
-    productId: product?._id,
+    productID: product?._id,
   });
   const [loading, setLoading] = useState(false);
   const router = useRouter();
