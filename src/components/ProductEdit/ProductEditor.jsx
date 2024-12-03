@@ -48,7 +48,7 @@ const ProductEditor = ({ product }) => {
 
   return (
     <div className="Product-editor p-3">
-      <Toaster position="top-right" reverseOrder={false} />
+      {/* <Toaster position="top-right" reverseOrder={false} /> */}
 
       <div className="edit-container-info-section d-flex justify-content-between align-items-center flex-wrap">
         <div className="m-4" style={{ width: "80%" }}>
