@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Filter from "./Filter";
 import Grid from "./Grid";
 import axios from "axios";
-import API from "@/Config";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -12,7 +11,7 @@ const Products = () => {
   const fetchSortedProducts = async (sortOrder) => {
     try {
       const response = await axios.get(
-        `${API}/api/product/Sort?price=${sortOrder}`
+        `https://spice-13.onrender.com/api/product/Sort?price=${sortOrder}`
       );
       if (response.data.status === 1) {
         setProducts(response.data.data); // Update products with sorted data
@@ -54,7 +53,6 @@ const Products = () => {
           <Grid filtered={products} />
         </div>
       </div>
-   
     </div>
   );
 };

@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { productDetails, removeProduct } from "@/store/productSlice";
 import FilterWellness from "./FilterWellness";
-import API from "@/Config";
 
 const SelfCare = () => {
   const [products, setProducts] = useState([]);
@@ -17,7 +16,7 @@ const SelfCare = () => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          `${API}/api/product/Sub/Category/Product/List?SubCategoryID=66e95381e4a0682d9adf6a0e`
+          `https://spice-13.onrender.com/api/product/Sub/Category/Product/List?SubCategoryID=66e95381e4a0682d9adf6a0e`
         );
         setProducts(res?.data?.data); // Axios automatically parses JSON
         console.log(res?.data?.data); // Logs the fetched product data
@@ -32,7 +31,7 @@ const SelfCare = () => {
   const fetchSortedProducts = async (order) => {
     try {
       const res = await axios.get(
-        `${API}/api/product/Sort/Product?price=${order}&SubCategoryID=66e95381e4a0682d9adf6a0e`
+        `https://spice-13.onrender.com/api/product/Sort/Product?price=${order}&SubCategoryID=66e95381e4a0682d9adf6a0e`
       );
       setProducts(res?.data?.data);
     } catch (error) {
@@ -60,7 +59,7 @@ const SelfCare = () => {
         <div className="row">
           <div className="col-md-3 filter-container">
             <div className="filter">
-              <div className="breadcrumb-container"  aria-label="breadcrumb">
+              <div className="breadcrumb-container" aria-label="breadcrumb">
                 <ol className="breadcrumb">
                   <li className="breadcrumb-item">
                     <Link href="/">Home</Link>

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import API from "@/Config";
+
 
 const TopProducts = () => {
   const [productCounts, setProductCounts] = useState({});
@@ -11,7 +11,7 @@ const TopProducts = () => {
     const fetchProductCounts = async () => {
       try {
         const response = await axios.get(
-          `${API}/api/product/Count/Product/Category`
+          `https://spice-13.onrender.com/api/product/Count/Product/Category`
         );
         if (response.data.status === 1) {
           setProductCounts(response.data.data);

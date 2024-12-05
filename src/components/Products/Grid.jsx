@@ -5,7 +5,6 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import LeafIcon from "./LeafIcon";
-import API from "@/Config";
 
 const Grid = ({ filtered }) => {
   const [products, setProducts] = useState([]);
@@ -18,7 +17,7 @@ const Grid = ({ filtered }) => {
       try {
         setLoading(true);
         const res = await axios.get(
-          `${API}/api/product/All`
+          `https://spice-13.onrender.com/api/product/All`
         );
         setProducts(res?.data?.data);
         setLoading(false);
@@ -80,7 +79,7 @@ const Grid = ({ filtered }) => {
             </figure>
           ))}
       </div>
-      {count >= products?.length || count >= filtered?.length  ? null :(
+      {count >= products?.length || count >= filtered?.length ? null : (
         <div
           className="d-flex justify-content-center text-primary cursor"
           onClick={() => setCount(count + 9)}

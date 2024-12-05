@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
-import API from "@/Config";
+
 
 const ProductEditor = ({ product }) => {
   const [isShortlisted, setIsShortlisted] = useState(false);
@@ -32,7 +32,10 @@ const ProductEditor = ({ product }) => {
     e.preventDefault();
     try {
       setLoading(true);
-      const response = await axios.post(`${API}/api/Enquiry/Send`, enquiryData);
+      const response = await axios.post(
+        `https://spice-13.onrender.com/api/Enquiry/Send`,
+        enquiryData
+      );
       toast.success("Enquiry sent successfully!");
       setLoading(false);
       setShowModal(false);

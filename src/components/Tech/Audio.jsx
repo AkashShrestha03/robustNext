@@ -6,7 +6,6 @@ import { productDetails, removeProduct } from "@/store/productSlice";
 import { useDispatch } from "react-redux";
 
 import FilterTech from "./FilterTech";
-import API from "@/Config";
 
 const Audio = () => {
   const [products, setProducts] = useState([]);
@@ -19,7 +18,7 @@ const Audio = () => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          `${API}/api/product/Sub/Category/Product/List?SubCategoryID=66e9533ae4a0682d9adf69fd`
+          `https://spice-13.onrender.com/api/product/Sub/Category/Product/List?SubCategoryID=66e9533ae4a0682d9adf69fd`
         );
         setProducts(res?.data?.data); // Axios automatically parses JSON
         console.log(res?.data?.data); // Logs the fetched product data
@@ -34,7 +33,7 @@ const Audio = () => {
   const fetchSortedProducts = async (order) => {
     try {
       const res = await axios.get(
-        `${API}/api/product/Sort/Product?price=${order}&SubCategoryID=66e9533ae4a0682d9adf69fd`
+        `https://spice-13.onrender.com/api/product/Sort/Product?price=${order}&SubCategoryID=66e9533ae4a0682d9adf69fd`
       );
       setProducts(res?.data?.data);
     } catch (error) {

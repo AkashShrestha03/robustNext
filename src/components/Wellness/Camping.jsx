@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { productDetails, removeProduct } from "@/store/productSlice";
 import FilterWellness from "./FilterWellness";
-import API from "@/Config";
 
 const Camping = () => {
   const [products, setProducts] = useState([]);
@@ -17,7 +16,7 @@ const Camping = () => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          `${API}/api/product/Sub/Category/Product/List?SubCategoryID=66e95446e4a0682d9adf6a2a`
+          `https://spice-13.onrender.com/api/product/Sub/Category/Product/List?SubCategoryID=66e95446e4a0682d9adf6a2a`
         );
         setProducts(res?.data?.data); // Axios automatically parses JSON
         console.log(res?.data?.data); // Logs the fetched product data
@@ -32,7 +31,7 @@ const Camping = () => {
   const fetchSortedProducts = async (order) => {
     try {
       const res = await axios.get(
-        `${API}/api/product/Sort/Product?price=${order}&SubCategoryID=66e95446e4a0682d9adf6a2a`
+        `https://spice-13.onrender.com/api/product/Sort/Product?price=${order}&SubCategoryID=66e95446e4a0682d9adf6a2a`
       );
       setProducts(res?.data?.data);
     } catch (error) {

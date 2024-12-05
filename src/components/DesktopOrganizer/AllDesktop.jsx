@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { productDetails, removeProduct } from "@/store/productSlice";
 import CategoryFilter from "../Products/CategoryFilter";
-import API from "@/Config";
+
 
 const AllDesktop = () => {
   const [products, setProducts] = useState([]);
@@ -17,7 +17,7 @@ const AllDesktop = () => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          `${API}/api/product/Category/Product/List?CategoryID=673f1aeb432f3bd04f531570`
+          `https://spice-13.onrender.com/api/product/Category/Product/List?CategoryID=673f1aeb432f3bd04f531570`
         );
         setProducts(res?.data?.data); // Axios automatically parses JSON
         console.log(res?.data?.data); // Logs the fetched product data
@@ -33,7 +33,7 @@ const AllDesktop = () => {
   const fetchSortedProducts = async (order) => {
     try {
       const res = await axios.get(
-        `${API}/api/product/Sort/Product?price=${order}&CategoryID=673f1aeb432f3bd04f531570`
+        `https://spice-13.onrender.com/api/product/Sort/Product?price=${order}&CategoryID=673f1aeb432f3bd04f531570`
       );
       setProducts(res?.data?.data);
     } catch (error) {

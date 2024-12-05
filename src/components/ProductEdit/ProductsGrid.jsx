@@ -1,4 +1,3 @@
-import API from "@/Config";
 import { productDetails } from "@/store/productSlice";
 import axios from "axios";
 import Link from "next/link";
@@ -15,7 +14,7 @@ const ProductsGrid = () => {
       try {
         setLoading(true);
         const res = await axios.get(
-          `${API}/api/product/Category/Product/List?CategoryID=66e947dfe4a0682d9adf6826`
+          `https://spice-13.onrender.com/api/product/Category/Product/List?CategoryID=66e947dfe4a0682d9adf6826`
         );
         setProducts(res?.data?.data);
         setLoading(false);

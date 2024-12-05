@@ -1,4 +1,3 @@
-import API from "@/Config";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
@@ -6,35 +5,35 @@ const CategoryFilter = ({ onProductsFetched }) => {
   const [category, setCategory] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-const getCategory = async () => {
-  try {
-    const res = await axios.get(
-      `${API}/api/product/category/List`
-    );
-    setCategory(res.data?.data); // Assuming res.data.data holds the category list
-  } catch (error) {
-    console.error("Error fetching categories:", error.message || error);
-  }
-};
+  const getCategory = async () => {
+    try {
+      const res = await axios.get(`${API}/api/product/category/List`);
+      setCategory(res.data?.data); // Assuming res.data.data holds the category list
+    } catch (error) {
+      console.error("Error fetching categories:", error.message || error);
+    }
+  };
 
-const getProductsByCategory = async (categoryId) => {
-  try {
-    const res = await axios.get(
-      `${API}/api/product/Category/Product/List`,
-      { params: { CategoryID: categoryId } }
-    );
-    const categoryName = categoryId
-      ? category.find((cat) => cat._id === categoryId)?.name
-      : "All Products";
+  const getProductsByCategory = async (categoryId) => {
+    try {
+      const res = await axios.get(
+        `https://spice-13.onrender.com/api/product/Category/Product/List`,
+        {
+          params: { CategoryID: categoryId },
+        }
+      );
+      const categoryName = categoryId
+        ? category.find((cat) => cat._id === categoryId)?.name
+        : "All Products";
 
-    onProductsFetched(res.data?.data, categoryName); // Pass products and category name to parent
-  } catch (error) {
-    console.error(
-      "Error fetching products by category:",
-      error.message || error
-    );
-  }
-};
+      onProductsFetched(res.data?.data, categoryName); // Pass products and category name to parent
+    } catch (error) {
+      console.error(
+        "Error fetching products by category:",
+        error.message || error
+      );
+    }
+  };
 
   const handleCheckboxChange = (catId) => {
     setSelectedCategory(catId);

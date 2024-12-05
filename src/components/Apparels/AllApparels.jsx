@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { productDetails, removeProduct } from "@/store/productSlice";
 import CategoryFilter from "../Products/CategoryFilter";
-import API from "@/Config";
 
 const AllApparels = () => {
   const [products, setProducts] = useState([]);
@@ -20,14 +19,14 @@ const AllApparels = () => {
       try {
         setLoading(true);
         const res = await axios.get(
-          `${API}/api/product/Category/Product/List?CategoryID=66e947dfe4a0682d9adf6826`
+          `https://spice-13.onrender.com/api/product/Category/Product/List?CategoryID=66e947dfe4a0682d9adf6826`
         );
         setProducts(res?.data?.data);
-          setLoading(false);
+        setLoading(false);
         console.log(res?.data?.data);
       } catch (error) {
         console.error("Error fetching products:", error);
-          setLoading(false);
+        setLoading(false);
       }
     };
 
@@ -38,7 +37,7 @@ const AllApparels = () => {
   const fetchSortedProducts = async (order) => {
     try {
       const res = await axios.get(
-        `${API}/api/product/Sort/Product?price=${order}&CategoryID=66e947dfe4a0682d9adf6826`
+        `https://spice-13.onrender.com/api/product/Sort/Product?price=${order}&CategoryID=66e947dfe4a0682d9adf6826`
       );
       setProducts(res?.data?.data);
     } catch (error) {

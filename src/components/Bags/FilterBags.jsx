@@ -1,4 +1,4 @@
-import API from "@/Config";
+
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
@@ -14,7 +14,7 @@ const FilterBags = ({ filteredProducts }) => {
   const getSubCategories = async () => {
     try {
       const res = await axios.get(
-        `${API}/api/product/Sub/Category/List?categoryID=66e951a9e4a0682d9adf69bd`
+        `https://spice-13.onrender.com/api/product/Sub/Category/List?categoryID=66e951a9e4a0682d9adf69bd`
       );
       setSubCategories(res?.data?.data);
     } catch (error) {
@@ -27,7 +27,7 @@ const FilterBags = ({ filteredProducts }) => {
     setName(subCategoryName);
     try {
       const res = await axios.get(
-        `${API}/api/product/Sub/Category/Product/List`,
+        `https://spice-13.onrender.com/api/product/Sub/Category/Product/List`,
         {
           params: {
             SubCategoryID: subCategoryId,
@@ -43,14 +43,14 @@ const FilterBags = ({ filteredProducts }) => {
   };
 
   // Handle radio button change
-const handleRadioChange = (subCategoryId, subCategoryName) => {
-  if (subCategoryId === null) {
-    setSelectedSubCategory("all");
-  } else {
-    setSelectedSubCategory(subCategoryId);
-  }
-  getProductsBySubCategory(subCategoryId, subCategoryName);
-};
+  const handleRadioChange = (subCategoryId, subCategoryName) => {
+    if (subCategoryId === null) {
+      setSelectedSubCategory("all");
+    } else {
+      setSelectedSubCategory(subCategoryId);
+    }
+    getProductsBySubCategory(subCategoryId, subCategoryName);
+  };
 
   useEffect(() => {
     getSubCategories(); // Fetch subcategories on component mount

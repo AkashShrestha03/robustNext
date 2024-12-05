@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { productDetails, removeProduct } from "@/store/productSlice";
 import { useDispatch } from "react-redux";
 import DesktopFilter from "./DesktopFilter";
-import API from "@/Config";
+
 
 const PenStand = () => {
   const [products, setProducts] = useState([]);
@@ -18,7 +18,7 @@ const PenStand = () => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          `${API}/api/product/Sub/Category/Product/List?SubCategoryID=673f1bbc432f3bd04f531579`
+          `https://spice-13.onrender.com/api/product/Sub/Category/Product/List?SubCategoryID=673f1bbc432f3bd04f531579`
         );
         setProducts(res?.data?.data); // Axios automatically parses JSON
         console.log(res?.data?.data); // Logs the fetched product data
@@ -33,7 +33,7 @@ const PenStand = () => {
   const fetchSortedProducts = async (order) => {
     try {
       const res = await axios.get(
-        `${API}/api/product/Sort/Product?price=${order}&SubCategoryID=673f1bbc432f3bd04f531579`
+        `https://spice-13.onrender.com/api/product/Sort/Product?price=${order}&SubCategoryID=673f1bbc432f3bd04f531579`
       );
       setProducts(res?.data?.data);
     } catch (error) {

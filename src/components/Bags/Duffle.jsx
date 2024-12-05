@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { productDetails, removeProduct } from "@/store/productSlice";
 import { useDispatch } from "react-redux";
 import FilterBags from "./FilterBags";
-import API from "@/Config";
+
 
 const Duffle = () => {
   const [products, setProducts] = useState([]);
@@ -17,7 +17,7 @@ const Duffle = () => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          `${API}/api/product/Sub/Category/Product/List?SubCategoryID=673efb645a3f15fd938660e0`
+          `https://spice-13.onrender.com/api/product/Sub/Category/Product/List?SubCategoryID=673efb645a3f15fd938660e0`
         );
         setProducts(res?.data?.data); // Axios automatically parses JSON
         console.log(res?.data?.data); // Logs the fetched product data
@@ -32,7 +32,7 @@ const Duffle = () => {
   const fetchSortedProducts = async (order) => {
     try {
       const res = await axios.get(
-        `${API}/api/product/Sort/Product?price=${order}&SubCategoryID=673efb645a3f15fd938660e0`
+        `https://spice-13.onrender.com/api/product/Sort/Product?price=${order}&SubCategoryID=673efb645a3f15fd938660e0`
       );
       setProducts(res?.data?.data);
     } catch (error) {

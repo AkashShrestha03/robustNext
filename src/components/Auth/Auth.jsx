@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import cookie from "cookie-js";
 import { Toaster, toast } from "react-hot-toast";
-import API from "@/Config";
+
 
 const Auth = () => {
   const [registerData, setRegisterData] = useState({
@@ -33,7 +33,7 @@ const Auth = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${API}/api/Register/User`,
+        `https://spice-13.onrender.com/api/Register/User`,
         registerData
       );
       toast.success("Registration successful!");
@@ -48,7 +48,10 @@ const Auth = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${API}/api/Login/User`, loginData);
+      const response = await axios.post(
+        `https://spice-13.onrender.com/api/Login/User`,
+        loginData
+      );
 
       // Save accessToken in cookies
       const { accessToken } = response.data.data;

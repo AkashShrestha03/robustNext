@@ -1,4 +1,3 @@
-import API from "@/Config";
 import { productDetails } from "@/store/productSlice";
 import axios from "axios";
 import Link from "next/link";
@@ -17,7 +16,7 @@ const SearchedProducts = () => {
   const fetchSortedProducts = async (sortOrder) => {
     try {
       const response = await axios.get(
-        `${API}/api/product/Sort?price=${sortOrder}`
+        `https://spice-13.onrender.com/api/product/Sort?price=${sortOrder}`
       );
       if (response.data.status === 1) {
         setProducts(response.data.data); // Update products with sorted data
@@ -94,7 +93,8 @@ const SearchedProducts = () => {
                 </figure>
               ))}
           </div>
-          {count >= products?.length || count >= searchedProducts?.length ? null : (
+          {count >= products?.length ||
+          count >= searchedProducts?.length ? null : (
             <div
               className="d-flex justify-content-center text-primary cursor"
               onClick={() => setCount(count + 9)}

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { productDetails, removeProduct } from "@/store/productSlice";
 import FilterOffice from "./FilterOffice";
-import API from "@/Config";
+
 
 const ThreeSet = () => {
   const [products, setProducts] = useState([]);
@@ -17,7 +17,7 @@ const ThreeSet = () => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          `${API}/api/product/Sub/Category/Product/List?SubCategoryID=673475348c27f9ea164b8333`
+          `https://spice-13.onrender.com/api/product/Sub/Category/Product/List?SubCategoryID=673475348c27f9ea164b8333`
         );
         setProducts(res?.data?.data);
       } catch (error) {
@@ -31,7 +31,7 @@ const ThreeSet = () => {
   const fetchSortedProducts = async (order) => {
     try {
       const res = await axios.get(
-        `${API}/api/product/Sort/Product?price=${order}&SubCategoryID=673475348c27f9ea164b8333`
+        `https://spice-13.onrender.com/api/product/Sort/Product?price=${order}&SubCategoryID=673475348c27f9ea164b8333`
       );
       setProducts(res?.data?.data);
     } catch (error) {
