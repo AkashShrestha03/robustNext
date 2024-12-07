@@ -1,72 +1,44 @@
 import Link from "next/link";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import styles from "./offcanvas.module.css";
-import { useState } from "react";
-
-const categories = [
-  {
-    name: "Apparel",
-    links: [
-      { label: "All Apparels", href: "/products/apparels/allapparels" },
-      { label: "T Shirts", href: "/products/apparels/tshirts" },
-      { label: "Hats", href: "/products/apparels/hats" },
-      { label: "Footwear", href: "/products/apparels/footwears" },
-      { label: "Sweatshirts", href: "/products/apparels/sweatshirts" },
-      { label: "Outerwear", href: "/products/apparels/outerwear" },
-    ],
-  },
-  {
-    name: "Office",
-    links: [
-      { label: "All Office Accessories", href: "/products/office/alloffice" },
-      { label: "Desk Accessories", href: "/products/office/desk_accessories" },
-      { label: "Notebooks", href: "/products/office/notebooks" },
-      { label: "Pens", href: "/products/office/pens" },
-    ],
-  },
-  {
-    name: "Drinkware",
-    links: [
-      { label: "All Drinkware", href: "/products/drinkware/alldrinkware" },
-      { label: "Water bottles", href: "/products/drinkware/waterbottles" },
-      { label: "Mugs", href: "/products/drinkware/mugs" },
-      { label: "Tumblers", href: "/products/drinkware/tumblers" },
-    ],
-  },
-  {
-    name: "Bags",
-    links: [
-      { label: "All Bags", href: "/products/bags/allbags" },
-      { label: "Totes", href: "/products/bags/totes" },
-      { label: "Backpacks", href: "/products/bags/backpacks" },
-      { label: "Pouches", href: "/products/bags/pouches" },
-    ],
-  },
-  {
-    name: "Tech",
-    links: [
-      { label: "All Tech Accessories", href: "/products/tech/alltech" },
-      { label: "Tech Accessories", href: "/products/tech/tech_accessories" },
-      { label: "Chargers", href: "/products/tech/chargers" },
-      { label: "Audio", href: "/products/tech/audio" },
-    ],
-  },
-  {
-    name: "Wellness",
-    links: [
-      { label: "All Wellness", href: "/products/wellness/allwellness" },
-      { label: "Self Care", href: "/products/wellness/self_care" },
-      { label: "Fitness & Recreation", href: "/products/wellness/fitness" },
-      { label: "Camping & Outdoors", href: "/products/wellness/outdoors" },
-    ],
-  },
-];
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/router";
 
 const OffcanvasNav = ({ show, onClose }) => {
   const [openCategory, setOpenCategory] = useState(null);
+  const [nav, setNav] = useState([]);
+  const router = useRouter();
 
   const toggleDropdown = (category) => {
     setOpenCategory(openCategory === category ? null : category);
+  };
+
+  useEffect(() => {
+    const fetchNavbar = async () => {
+      try {
+        const res = await axios.get(
+          "https://spice-13.onrender.com/api/product/Nav/List"
+        );
+        setNav(res.data.data);
+        console.log(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchNavbar();
+  }, []);
+
+  const handleSubCategoryClick = (
+    subCategoryId,
+    categoryId,
+    SubCategoryName
+  ) => {
+    router.push({
+      pathname: "/productsubcategory",
+      query: { subCategoryId, categoryId, SubCategoryName },
+    });
   };
 
   return (
@@ -96,55 +68,44 @@ const OffcanvasNav = ({ show, onClose }) => {
                 </li>
               </Link>
 
-              {categories.map((category, index) => (
+              {nav.map((item, index) => (
                 <li key={index}>
                   <div className={`dropdown ${styles.dropdown}`}>
-                    <p onClick={() => toggleDropdown(category.name)}>
-                      <h6>{category.name} </h6>
+                    <p onClick={() => toggleDropdown(item.name)}>
+                      <h6>{item.name} </h6>
                     </p>
                     <div
                       className={`${styles["dropdown-menu"]} ${
-                        openCategory === category.name && styles.show
+                        openCategory === item.name && styles.show
                       }`}
-                      style={
-                        {
-                          // maxHeight:
-                          //   openCategory === category.name ? "200px" : "0",
-                          // opacity: openCategory === category.name ? "1" : "0",
-                          // display:
-                          //   openCategory === category.name ? "block" : "none",
-                        }
-                      }
                     >
                       <div
                         className="d-flex flex-column"
                         style={{ fontSize: "13px" }}
                       >
-                        {category.links.map((link, linkIndex) => (
-                          <Link
-                            key={linkIndex}
+                        {item.SubItems.map((subItem, subIndex) => (
+                          <button
+                            key={subIndex}
                             style={{ textDecoration: "none" }}
                             className="dropdown-item"
-                            href={link.href}
-                            onClick={() => onClose(false)}
+                            href={""}
+                            onClick={() => {
+                              onClose(false);
+                              handleSubCategoryClick(
+                                subItem.SubCategoryID,
+                                item._id,
+                                subItem.SubCategoryName
+                              );
+                            }}
                           >
-                            {link.label}
-                          </Link>
+                            {subItem.SubCategoryName}
+                          </button>
                         ))}
                       </div>
                     </div>
                   </div>
                 </li>
               ))}
-              <Link href="/products/ecofriendly" onClick={() => onClose(false)}>
-                <li>
-                  <div className="dropdown">
-                    <p>
-                      <h6>Eco Friendly</h6>
-                    </p>
-                  </div>
-                </li>
-              </Link>
             </ul>
           </div>
         </Offcanvas.Body>

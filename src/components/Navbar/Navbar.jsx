@@ -299,7 +299,7 @@ const Navbar = () => {
         </div>
       )}
 
-      <OffcanvasNav show={show} onClose={(show) => setShow(show)} />
+      <OffcanvasNav  show={show} onClose={(show) => setShow(show)} />
       <Toaster />
     </>
   );
