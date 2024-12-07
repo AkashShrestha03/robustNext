@@ -52,7 +52,22 @@ const ProductEditor = ({ product }) => {
   return (
     <div className="Product-editor p-3">
       {/* <Toaster position="top-right" reverseOrder={false} /> */}
-
+      <div
+        className="product-id-display p-2 mb-3"
+        style={{
+          backgroundColor: "#f5f5f5",
+          borderRadius: "5px",
+          textAlign: "center",
+        }}
+      >
+        <h6 className="text-secondary">Product Code:</h6>
+        <p
+          className="text-primary"
+          style={{ fontSize: "1.2rem", fontWeight: "bold" }}
+        >
+          {product?.productCode || "N/A"}
+        </p>
+      </div>
       <div className="edit-container-info-section d-flex justify-content-between align-items-center flex-wrap">
         <div className="m-4" style={{ width: "80%" }}>
           <h2 className="cart-details-heading">
