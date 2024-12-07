@@ -5,19 +5,22 @@ import axios from "axios";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [sortOrder, setSortOrder] = useState(""); // To track the selected sort order
 
   // Function to fetch products sorted by price
   const fetchSortedProducts = async (sortOrder) => {
     try {
+      setLoading(true);
       const response = await axios.get(
         `https://spice-13.onrender.com/api/product/Sort?price=${sortOrder}`
       );
       if (response.data.status === 1) {
-        setProducts(response.data.data); // Update products with sorted data
+        setProducts(response.data.data);
+        setLoading(false);
       }
     } catch (error) {
-      console.error("Error fetching sorted products:", error);
+      setLoading(false);
     }
   };
 
@@ -50,7 +53,7 @@ const Products = () => {
           </div>
         </div>
         <div className="col-md-8">
-          <Grid filtered={products} />
+          <Grid load={loading} filtered={products} />
         </div>
       </div>
     </div>

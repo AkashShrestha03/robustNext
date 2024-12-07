@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import { searchedProducts } from "@/store/productSlice";
+import TopNav from "./TopNav";
+import NavLinks from "./NavLinks";
 
 const menuItems = [
   {
@@ -128,48 +130,6 @@ const Navbar = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
-  const [category, setCategory] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [products, setProducts] = useState([]);
-  const [search, setSearch] = useState("");
-  const [categoryID, setCategoryID] = useState("");
-  const { brochure } = useSelector((state) => state.product);
-
-  const getCategory = async () => {
-    try {
-      const response = await axios.get(
-        "https://spice-13.onrender.com/api/product/category/List"
-      );
-      setCategory(response?.data?.data);
-    } catch (error) {
-      console.error("Error fetching categories:", error);
-    }
-  };
-
-  useEffect(() => {
-    getCategory();
-  }, []);
-
-  const handleSearch = async () => {
-    try {
-      setLoading(true);
-      const response = await axios.get(
-        `https://spice-13.onrender.com/api/product/Sort?&productName=${search}&categoryID=${categoryID}`
-      );
-      if (response.data.status === 1) {
-        setLoading(false);
-        setProducts(response.data.data);
-        dispatch(searchedProducts(response.data.data));
-        router.push("/searchedexample");
-      }
-    } catch (error) {
-      setLoading(false);
-      if(error.status === 404){
-        toast.error(`No products found with name ${search}`)
-      }
-      console.error("Error fetching sorted products:", error);
-    }
-  };
 
   const handleShow = () => setShow(true);
   const isHomePage = router.pathname === "/";
@@ -223,79 +183,7 @@ const Navbar = () => {
                       </div>
                     </div>
                   </div>
-                  <div class="top-nav-right-container">
-                    <div class="serach-top">
-                      <select
-                        name="category"
-                        onChange={(e) =>
-                          setCategoryID(
-                            e.target.value === "" ? "" : e.target.value
-                          )
-                        }
-                        id="category"
-                      >
-                        <option value="" selected>
-                          Select Category
-                        </option>
-                        {category?.map((category, index) => (
-                          <option value={category?._id} key={index}>
-                            {category?.name}
-                          </option>
-                        ))}
-                      </select>
-                      <i class="fa fa-search"></i>
-                      <input
-                        type="search"
-                        onChange={(e) => setSearch(e.target.value)}
-                        placeholder="Search by product name or type"
-                      />
-                      <button type="button" onClick={handleSearch}>
-                        {loading ? (
-                          <div
-                            className="spinner-border text-light"
-                            role="status"
-                            style={{ height: "25px", width: "25px" }}
-                          >
-                            <span className="sr-only">Loading...</span>
-                          </div>
-                        ) : (
-                          "Search"
-                        )}
-                      </button>
-                    </div>
-
-                    {/* <div className="searched-items">
-                      <div className="search-item">
-                        <p>Product Name</p> <p>₹400</p>
-                      </div>
-                      <div className="search-item">
-                        <p>Product Name</p> <p>₹400</p>
-                      </div>
-                    </div> */}
-
-                    {/* <div class="signup">
-                      <Link href="/auth/signin">
-                        <p>Signup</p>
-                        <p>Login</p>
-                      </Link>
-                    </div> */}
-
-                    <div class="brochure">
-                      <button
-                        type="button"
-                        onClick={() =>
-                          brochure?.length === 0
-                            ? toast.error("Please add products first!")
-                            : router.push("/brochure")
-                        }
-                        className="p-2 btn-light text-secondary shadow"
-                      >
-                        Brochure
-                      </button>
-
-                      <span className="bro-count">{brochure?.length}</span>
-                    </div>
-                  </div>
+                  <TopNav />
                 </div>
               </div>
               <div class="nav-main">
@@ -311,48 +199,7 @@ const Navbar = () => {
                     </span>
                   </div>
                   <div className="navbar links">
-                    <ul className="d-flex align-items-center f13 poppins-semibold">
-                      {menuItems.map((item, index) => (
-                        <li key={index}>
-                          {item.subItems.length > 0 ? (
-                            <div className="dropdown">
-                              <p
-                                className="dropdown-toggle mb-0"
-                                id={`dropdownMenuButton-${index}`}
-                                data-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                              >
-                                {item.label}
-                              </p>
-                              <div
-                                className="dropdown-menu"
-                                aria-labelledby={`dropdownMenuButton-${index}`}
-                              >
-                                <div
-                                  className="d-flex flex-wrap"
-                                  style={{ fontSize: "13px" }}
-                                >
-                                  {item.subItems.map((subItem, subIndex) => (
-                                    <Link
-                                      key={subIndex}
-                                      className="dropdown-item"
-                                      href={subItem.link}
-                                    >
-                                      {subItem.label}
-                                    </Link>
-                                  ))}
-                                </div>
-                              </div>
-                            </div>
-                          ) : (
-                            <Link href={item.link} className="text-dark">
-                              <p className="mb-0">{item.label}</p>
-                            </Link>
-                          )}
-                        </li>
-                      ))}
-                    </ul>
+                    <NavLinks></NavLinks>
                   </div>
                   <div></div>
                 </nav>
@@ -427,76 +274,7 @@ const Navbar = () => {
                   </div>
                 </div>
               </div>
-              <div class="top-nav-right-container">
-                <div class="serach-top">
-                  <select
-                    name="category"
-                    onChange={(e) =>
-                      setCategoryID(
-                        e.target.value === "" ? "" : e.target.value
-                      )
-                    }
-                    id="category"
-                  >
-                    <option value="" selected>
-                      Select Category
-                    </option>
-                    {category?.map((category, index) => (
-                      <option value={category?._id} key={index}>
-                        {category?.name}
-                      </option>
-                    ))}
-                  </select>
-                  <i class="fa fa-search"></i>
-                  <input
-                    type="search"
-                    onChange={(e) => setSearch(e.target.value)}
-                    placeholder="Search by product name or type"
-                  />
-                  <button type="button" onClick={handleSearch}>
-                    {loading ? (
-                      <div
-                        className="spinner-border text-light"
-                        role="status"
-                        style={{ height: "25px", width: "25px" }}
-                      >
-                        <span className="sr-only">Loading...</span>
-                      </div>
-                    ) : (
-                      "Search"
-                    )}
-                  </button>
-                </div>
-
-                {/* <div class="signup">
-                  <Link href="/auth/signin">
-                    <p>Signup</p>
-                    <p>Login</p>
-                  </Link>
-                </div> */}
-
-                <div class="brochure">
-                  <button
-                    type="button"
-                    onClick={() =>
-                      brochure?.length === 0
-                        ? toast.error("Please add products first!")
-                        : router.push("/brochure")
-                    }
-                    className="p-2 btn-light text-secondary shadow"
-                  >
-                    Brochure
-                  </button>
-
-                  <span className="bro-count">{brochure?.length}</span>
-                </div>
-
-                {/* <div class="cart f24">
-                  <Link style={{ color: "white" }} href="/cart">
-                    <i class="fa fa-shopping-cart"></i>
-                  </Link>
-                </div> */}
-              </div>
+              <TopNav />
             </div>
           </div>
           <div class="nav-main">
@@ -513,48 +291,7 @@ const Navbar = () => {
                 </span>
               </div>
               <div className="navbar links">
-                <ul className="d-flex align-items-center f13 poppins-semibold">
-                  {menuItems.map((item, index) => (
-                    <li key={index}>
-                      {item.subItems.length > 0 ? (
-                        <div className="dropdown">
-                          <p
-                            className="dropdown-toggle mb-0"
-                            id={`dropdownMenuButton-${index}`}
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                          >
-                            {item.label}
-                          </p>
-                          <div
-                            className="dropdown-menu"
-                            aria-labelledby={`dropdownMenuButton-${index}`}
-                          >
-                            <div
-                              className="d-flex flex-wrap"
-                              style={{ fontSize: "13px" }}
-                            >
-                              {item.subItems.map((subItem, subIndex) => (
-                                <Link
-                                  key={subIndex}
-                                  className="dropdown-item"
-                                  href={subItem.link}
-                                >
-                                  {subItem.label}
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      ) : (
-                        <Link href={item.link} className="text-dark">
-                          <p className="mb-0">{item.label}</p>
-                        </Link>
-                      )}
-                    </li>
-                  ))}
-                </ul>
+                <NavLinks />
               </div>
               <div></div>
             </nav>

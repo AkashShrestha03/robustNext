@@ -5,10 +5,11 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import LeafIcon from "./LeafIcon";
+import Loader from "../Loader/Loader";
 
-const Grid = ({ filtered }) => {
+const Grid = ({ filtered, load }) => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(load);
   const [count, setCount] = useState(18);
   const dispatch = useDispatch();
 
@@ -31,11 +32,7 @@ const Grid = ({ filtered }) => {
   }, [dispatch]);
 
   if (loading) {
-    return (
-      <div className="load d-flex justify-content-center align-items-center">
-        <h3>Loading...</h3>
-      </div>
-    );
+    return <Loader />;
   }
 
   return (
