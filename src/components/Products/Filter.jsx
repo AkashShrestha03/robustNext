@@ -40,6 +40,20 @@ const Filter = ({ onProductsFetched, loader }) => {
     }
   };
 
+  const getProduct = async () => {
+    try {
+      loader(true);
+      const res = await axios.get(
+        `https://api.robustpromo.com/api/product/All`
+      );
+      onProductsFetched(res?.data?.data);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    } finally {
+      loader(false);
+    }
+  };
+
   const handleCheckboxChange = (catId) => {
     setSelectedCategory(catId);
     getProductsByCategory(catId); // Fetch products when category is selected
@@ -75,7 +89,10 @@ const Filter = ({ onProductsFetched, loader }) => {
               <input
                 type="radio"
                 checked={selectedCategory === null}
-                onChange={() => handleCheckboxChange(null)}
+                onChange={() => {
+                  handleCheckboxChange(null);
+                  getProduct();
+                }}
               />
             </label>
             {category?.map((cat, index) => (

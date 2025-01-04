@@ -9,7 +9,6 @@ import Loader from "../Loader/Loader";
 
 const Grid = ({ filtered, load, loader }) => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(load);
   const [count, setCount] = useState(18);
   const dispatch = useDispatch();
 
