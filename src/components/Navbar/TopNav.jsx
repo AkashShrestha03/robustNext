@@ -1,6 +1,8 @@
+import { searchedProducts } from "@/store/productSlice";
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 
 const TopNav = () => {
