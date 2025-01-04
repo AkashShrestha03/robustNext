@@ -65,7 +65,7 @@ const OffcanvasNav = ({ show, onClose }) => {
         <Offcanvas.Body>
           <div className={`d-flex flex-column ${styles.nav}`}>
             <ul className="d-flex flex-column f13 poppins-semibold">
-              <li>
+              <li className={styles["mobile-option"]}>
                 <h6 className="brochure-mobile d-flex gap-1">
                   Brochure{" "}
                   <span className={styles["bro-count"]}>

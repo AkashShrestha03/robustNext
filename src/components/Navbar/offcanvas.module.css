@@ -54,3 +54,13 @@
   color: white;
   background-color: #00bfff;
 }
+
+.nav ul > :first-child {
+  display: none;
+}
+
+@media (max-width: 425px) {
+  .nav ul > :first-child {
+    display: flex;
+  }
+}
