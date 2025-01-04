@@ -147,7 +147,7 @@ a {
   flex-direction: column;
   /* background-color: #fff; */
   color: #000;
-  
+
   max-height: 400px;
   height: fit-content;
   align-items: flex-start;
@@ -193,13 +193,12 @@ a {
   color: #000;
 }
 
-.serach-top select{
+.serach-top select {
   border: none;
   outline: none;
-
 }
 
-.serach-top button{
+.serach-top button {
   height: 30px;
   border: 1px solid #8056bf;
   background-color: #8056bf;
@@ -221,6 +220,21 @@ a {
   background: none;
   width: 150px;
   height: 32px;
+}
+
+@media (max-width: 425px) {
+
+  .serach-top input {
+    border: none;
+    background-color: none;
+    background: none;
+    width: 150px;
+    height: 32px;
+  }
+
+  .brochure {
+    display: none;
+  }
 }
 .cart {
 }
@@ -252,13 +266,12 @@ a {
 .top-nav-right-container {
   display: flex;
   position: relative;
-  /* flex-wrap: wrap; */
   justify-content: center;
   align-items: center;
   gap: 50px;
-
   justify-content: space-between;
 }
+
 .div-main input[type="search"]:focus {
   outline: none;
 }
@@ -397,7 +410,7 @@ nav .links ul {
   font-size: 25px;
 }
 
-.brochure button {
+.brochure button, .brochure-mobile button {
   background-color: white !important;
 }
 
@@ -1117,11 +1130,11 @@ label.container {
   display: flex;
   justify-content: flex-start;
   padding: 0 11px;
-  
+
   background-color: #8056bf;
 }
 
-.breadcrumb a{
+.breadcrumb a {
   text-decoration: none;
   color: #fff;
   font-weight: 500;

@@ -1216,4 +1216,8 @@ img {
     margin-left: 0;
     padding: 50px;
   }
+
+  .mobile-top{
+    display: none !important;
+  }
 }

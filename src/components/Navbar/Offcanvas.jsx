@@ -4,9 +4,12 @@ import styles from "./offcanvas.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
+import toast from "react-hot-toast";
+import { useSelector } from "react-redux";
 
 const OffcanvasNav = ({ show, onClose }) => {
   const [openCategory, setOpenCategory] = useState(null);
+  const { brochure } = useSelector((state) => state.product);
   const [nav, setNav] = useState([]);
   const router = useRouter();
 
@@ -51,7 +54,7 @@ const OffcanvasNav = ({ show, onClose }) => {
       >
         <Offcanvas.Header className={styles.header}>
           <Offcanvas.Title>
-            <h3>Menu</h3>
+            <h3>Menu</h3>{" "}
           </Offcanvas.Title>
           <div className={styles["close-btn"]}>
             <button type="button" onClick={() => onClose(false)}>
@@ -62,6 +65,14 @@ const OffcanvasNav = ({ show, onClose }) => {
         <Offcanvas.Body>
           <div className={`d-flex flex-column ${styles.nav}`}>
             <ul className="d-flex flex-column f13 poppins-semibold">
+              <li>
+                <h6 className="brochure-mobile d-flex gap-1">
+                  Brochure{" "}
+                  <span className={styles["bro-count"]}>
+                    {brochure?.length}
+                  </span>
+                </h6>
+              </li>
               <Link href="/products" onClick={() => onClose(false)}>
                 <li>
                   <h6>All Robust</h6>
