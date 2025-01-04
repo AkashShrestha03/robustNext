@@ -35,7 +35,7 @@ const Grid = ({ filtered, load, loader }) => {
     return <Loader />;
   }
 
-  const product = filtered || products;
+  const product = filtered?.length > 0 ? filtered : products;
 
   return (
     <>
