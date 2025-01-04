@@ -21,6 +21,8 @@ const Products = () => {
       }
     } catch (error) {
       setLoading(false);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -49,11 +51,18 @@ const Products = () => {
                 <option value="DES">Highest Price First</option>
               </select>
             </div>
-            <Filter onProductsFetched={(products) => setProducts(products)} />
+            <Filter
+              loader={(data) => setLoading(data)}
+              onProductsFetched={(products) => setProducts(products)}
+            />
           </div>
         </div>
         <div className="col-md-8">
-          <Grid load={loading} filtered={products} />
+          <Grid
+            load={loading}
+            loader={(data) => setLoading(data)}
+            filtered={products}
+          />
         </div>
       </div>
     </div>

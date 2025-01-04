@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-const Filter = ({ onProductsFetched }) => {
+const Filter = ({ onProductsFetched, loader }) => {
   const [category, setCategory] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
@@ -19,6 +19,7 @@ const Filter = ({ onProductsFetched }) => {
 
   const getProductsByCategory = async (categoryId) => {
     try {
+      loader(true);
       const res = await axios.get(
         `https://api.robustpromo.com/api/product/Category/Product/List`,
         {
@@ -34,6 +35,8 @@ const Filter = ({ onProductsFetched }) => {
     } catch (error) {
       console.error("Error fetching products by category:", error);
       // Optional: Handle error state for products
+    } finally {
+      loader(false);
     }
   };
 
