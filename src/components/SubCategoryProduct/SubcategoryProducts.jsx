@@ -62,16 +62,17 @@ const SubcategoryProducts = () => {
 
   // Function to handle filtered products and update the heading
   const handleFilteredProducts = (filtered, subCategoryName) => {
-    setFiltered(filtered);
+    setProducts(filtered);
     setSubcategoryName(subCategoryName);
   };
 
-  const product = filtered || products;
+  const product = filtered?.length > 0 ? filtered : products;
+console.log("check",filtered);
 
   return (
     <>
       <div className="filter-main-product-cards-main">
-        <div className="row">
+        <div className="row gap-3">
           <div className="col-md-3 filter-container">
             <div className="filter">
               <div aria-label="breadcrumb">

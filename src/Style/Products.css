@@ -4,6 +4,7 @@
   max-width: 1130px;
   flex-wrap: wrap; */
   display: grid;
+  justify-content: center;
   grid-template-columns: repeat(auto-fit, 260px);
   gap: 10px;
 }

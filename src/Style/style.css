@@ -1153,3 +1153,10 @@ label.container {
   color: #fff;
   font-weight: 500;
 }
+
+.filter {
+  display: flex;
+flex-direction: column;
+
+width: 100%;
+}

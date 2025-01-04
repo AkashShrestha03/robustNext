@@ -37,7 +37,7 @@ const Products = () => {
 
   return (
     <div className="filter-main-product-cards-main">
-      <div className="row">
+      <div className="row gap-3">
         <div className="col-md-3 filter-container">
           <div className="filter">
             <div className="form-group mb-3">
