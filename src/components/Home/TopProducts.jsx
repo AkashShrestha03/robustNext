@@ -11,7 +11,7 @@ const TopProducts = () => {
     const fetchProductCounts = async () => {
       try {
         const response = await axios.get(
-          `https://spice-13.onrender.com/api/product/Count/Product/Category`
+          `https://api.robustpromo.com/api/product/Count/Product/Category`
         );
         if (response.data.status === 1) {
           setProductCounts(response.data.data);

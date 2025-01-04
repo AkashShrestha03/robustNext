@@ -16,7 +16,7 @@ const SearchedProducts = () => {
   const fetchSortedProducts = async (sortOrder) => {
     try {
       const response = await axios.get(
-        `https://spice-13.onrender.com/api/product/Sort?price=${sortOrder}`
+        `https://api.robustpromo.com/api/product/Sort?price=${sortOrder}`
       );
       if (response.data.status === 1) {
         setProducts(response.data.data); // Update products with sorted data

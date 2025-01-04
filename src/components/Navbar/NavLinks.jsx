@@ -12,7 +12,7 @@ const NavLinks = () => {
     const fetchNavbar = async () => {
       try {
         const res = await axios.get(
-          "https://spice-13.onrender.com/api/product/Nav/List"
+          "https://api.robustpromo.com/api/product/Nav/List"
         );
         setNav(res.data.data);
         console.log(res.data);
@@ -28,7 +28,7 @@ const NavLinks = () => {
     const fetchBrands = async () => {
       try {
         const res = await axios.get(
-          "https://spice-13.onrender.com/api/Brand/Get"
+          "https://api.robustpromo.com/api/Brand/Get"
         );
         setBrands(res.data.data);
       } catch (error) {

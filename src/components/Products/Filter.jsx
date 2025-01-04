@@ -8,7 +8,7 @@ const Filter = ({ onProductsFetched }) => {
   const getCategory = async () => {
     try {
       const res = await axios.get(
-        `https://spice-13.onrender.com/api/product/category/List`
+        `https://api.robustpromo.com/api/product/category/List`
       );
       setCategory(res.data?.data);
     } catch (error) {
@@ -20,7 +20,7 @@ const Filter = ({ onProductsFetched }) => {
   const getProductsByCategory = async (categoryId) => {
     try {
       const res = await axios.get(
-        `https://spice-13.onrender.com/api/product/Category/Product/List`,
+        `https://api.robustpromo.com/api/product/Category/Product/List`,
         {
           params: { CategoryID: categoryId },
         }

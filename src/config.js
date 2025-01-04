@@ -1,3 +1,3 @@
-const API = "https://spice-13.onrender.com";
+const API = "https://api.robustpromo.com";
 
 export default API;

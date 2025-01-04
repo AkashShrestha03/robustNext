@@ -13,7 +13,7 @@ const SubCategoryFilter = ({ filteredProducts, loader }) => {
     try {
       
       const res = await axios.get(
-        `https://spice-13.onrender.com/api/product/Sub/Category/List?categoryID=${categoryId}`
+        `https://api.robustpromo.com/api/product/Sub/Category/List?categoryID=${categoryId}`
       );
       setSubCategories(res?.data?.data);
     } catch (error) {
@@ -25,7 +25,7 @@ const SubCategoryFilter = ({ filteredProducts, loader }) => {
   const getProductsBySubCategory = async (subCategoryId, subCategoryName) => {
     try {
       const res = await axios.get(
-        `https://spice-13.onrender.com/api/product/Sub/Category/Product/List`,
+        `https://api.robustpromo.com/api/product/Sub/Category/Product/List`,
         {
           params: {
             SubCategoryID: subCategoryId,

@@ -33,7 +33,7 @@ const ProductEditor = ({ product }) => {
     try {
       setLoading(true);
       const response = await axios.post(
-        `https://spice-13.onrender.com/api/Enquiry/Send`,
+        `https://api.robustpromo.com/api/Enquiry/Send`,
         enquiryData
       );
       toast.success("Enquiry sent successfully!");

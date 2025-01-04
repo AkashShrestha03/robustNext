@@ -18,7 +18,7 @@ const Grid = ({ filtered, load }) => {
       try {
         setLoading(true);
         const res = await axios.get(
-          `https://spice-13.onrender.com/api/product/All`
+          `https://api.robustpromo.com/api/product/All`
         );
         setProducts(res?.data?.data);
         setLoading(false);
