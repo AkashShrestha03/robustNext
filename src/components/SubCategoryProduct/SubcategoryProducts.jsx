@@ -66,9 +66,7 @@ const SubcategoryProducts = () => {
     setSubcategoryName(subCategoryName);
   };
 
-  if (loading) {
-    return <Loader />;
-  }
+  const product = filtered || products;
 
   return (
     <>
@@ -110,45 +108,55 @@ const SubcategoryProducts = () => {
           </div>
           <div className="col-md-8">
             <h2 className="text-center">{subcategoryName}</h2>
-            <div className="products-card">
-              {(filtered?.length > 0 ? filtered : products)?.map(
-                (product, index) => (
-                  <figure className="snip1423" key={index}>
-                    <img
-                      src={product?.productPicture[0] || "/Assests/mokup1.png"}
-                      alt="sample57"
-                    />
-                    <figcaption className="d-flex flex-column align-items-center">
-                      <h3 className="card-heading">
-                        {product?.productName}
-                        {product?.madeInIndia && (
-                          <div className="made-in-india-flag">
-                            <img src="/image.png" alt="Made in India" />
+            {loading ? (
+              <Loader />
+            ) : product?.length === 0 ? (
+              <h5 className="text-center">
+                No products available in selected sub category.
+              </h5>
+            ) : (
+              <div className="products-card">
+                {(filtered?.length > 0 ? filtered : products)?.map(
+                  (product, index) => (
+                    <figure className="snip1423" key={index}>
+                      <img
+                        src={
+                          product?.productPicture[0] || "/Assests/mokup1.png"
+                        }
+                        alt="sample57"
+                      />
+                      <figcaption className="d-flex flex-column align-items-center">
+                        <h3 className="card-heading">
+                          {product?.productName}
+                          {product?.madeInIndia && (
+                            <div className="made-in-india-flag">
+                              <img src="/image.png" alt="Made in India" />
+                            </div>
+                          )}
+                        </h3>
+                        <p>
+                          {product?.ShortDescription || "Product Description"}
+                        </p>
+
+                        {product?.sustainable && (
+                          <div className="sustainable-icon">
+                            <i className="fa fa-leaf" aria-hidden="true"></i>
                           </div>
                         )}
-                      </h3>
-                      <p>
-                        {product?.ShortDescription || "Product Description"}
-                      </p>
 
-                      {product?.sustainable && (
-                        <div className="sustainable-icon">
-                          <i className="fa fa-leaf" aria-hidden="true"></i>
+                        <div className="price">
+                          <s>₹{product?.productMRP}</s>₹{product?.productPrice}
                         </div>
-                      )}
-
-                      <div className="price">
-                        <s>₹{product?.productMRP}</s>₹{product?.productPrice}
-                      </div>
-                    </figcaption>
-                    <Link
-                      href="/productedit"
-                      onClick={() => dispatch(productDetails(product))}
-                    ></Link>
-                  </figure>
-                )
-              )}
-            </div>
+                      </figcaption>
+                      <Link
+                        href="/productedit"
+                        onClick={() => dispatch(productDetails(product))}
+                      ></Link>
+                    </figure>
+                  )
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>

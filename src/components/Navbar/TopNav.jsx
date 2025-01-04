@@ -1,6 +1,8 @@
+import { searchedProducts } from "@/store/productSlice";
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 
 const TopNav = () => {
@@ -16,7 +18,7 @@ const TopNav = () => {
   const getCategory = async () => {
     try {
       const response = await axios.get(
-        "https://spice-13.onrender.com/api/product/category/List"
+        "https://api.robustpromo.com/api/product/category/List"
       );
       setCategory(response?.data?.data);
     } catch (error) {
@@ -32,7 +34,7 @@ const TopNav = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `https://spice-13.onrender.com/api/product/Sort?&productName=${search}&categoryID=${categoryID}`
+        `https://api.robustpromo.com/api/product/Sort?&productName=${search}&categoryID=${categoryID}`
       );
       if (response.data.status === 1) {
         setLoading(false);

@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 const SearchedProducts = () => {
   const dispatch = useDispatch();
   const { searchedProducts } = useSelector((state) => state.product);
-  const [loading, setLoading] = useState(false);
   const [count, setCount] = useState(20);
   const [products, setProducts] = useState([]);
   const [sortOrder, setSortOrder] = useState(""); // To track the selected sort order
@@ -35,24 +34,7 @@ const SearchedProducts = () => {
   return (
     <div className="filter-main-product-cards-main">
       <div className="row">
-        {/* <div className="col-md-3 filter-container">
-          <div className="filter">
-            <div className="form-group mb-3">
-              <select
-                name="sortPrice"
-                className="form-control"
-                id="sortPrice"
-                value={sortOrder}
-                onChange={handleSortChange}
-              >
-                <option value="">Sort By Price</option>
-                <option value="AES">Lowest Price First</option>
-                <option value="DES">Highest Price First</option>
-              </select>
-            </div>
-            <Filter onProductsFetched={(products) => setProducts(products)} />
-          </div>
-        </div> */}
+      
         <div className="col-md-12">
           <h2 className="text-center">Searched Results</h2>
           <div className="products-card">

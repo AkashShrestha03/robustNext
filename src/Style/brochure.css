@@ -122,7 +122,7 @@
   background: rgb(189, 102, 189);
 }
 
-.brochure {
+.brochure , .brochure-mobile{
   position: relative;
 }
 
@@ -132,9 +132,9 @@
   top: -5px;
   background-color: #e56997;
   border-radius: 50%;
-  /* border: 1px solid #512da8; */
   height: 20px;
   width: 20px;
   text-align: center;
-  /* padding: 5px; */
+  color: white;
+  font-size: 12px;
 }
