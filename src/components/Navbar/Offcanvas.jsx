@@ -18,7 +18,7 @@ const OffcanvasNav = ({ show, onClose }) => {
     const fetchNavbar = async () => {
       try {
         const res = await axios.get(
-          "https://spice-13.onrender.com/api/product/Nav/List"
+          "https://api.robustpromo.com/api/product/Nav/List"
         );
         setNav(res.data.data);
         console.log(res.data);
