@@ -45,12 +45,12 @@
   color: #00bfff;
 }
 
-.bro-count{
+.bro-count {
   border-radius: 50%;
   width: 20px;
   height: 20px;
   text-align: center;
- display: block;
- color: white;
+  display: block;
+  color: white;
   background-color: #00bfff;
 }
