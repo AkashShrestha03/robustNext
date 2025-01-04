@@ -1,10 +1,11 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import { useRouter } from "next/router";
 
 const TopProducts = () => {
   const [productCounts, setProductCounts] = useState({});
+  const router = useRouter();
 
   // Fetch product counts for each category on component mount
   useEffect(() => {
@@ -28,6 +29,13 @@ const TopProducts = () => {
     return `${count} ${count === 1 ? "item available" : "items available"}`;
   };
 
+  const CategoryClick = ({ category, id }) => {
+    router.push({
+      pathname: "/products",
+      query: { id, category },
+    });
+  };
+
   return (
     <>
       <div className="heading-section">
@@ -44,11 +52,16 @@ const TopProducts = () => {
             >
               <p>Office</p>
               <div className="button-hover">
-                <button className="text-dark">
-                  <Link href={"/products/office/alloffice"}>Shop Now</Link>
+                <button
+                  className="text-dark"
+                  onClick={() =>
+                    CategoryClick("Office", productCounts?.Office?.id)
+                  }
+                >
+                  Shop Now
                 </button>
                 <span className="product-count">
-                  {formatProductCount(productCounts.Office || 0)}
+                  {formatProductCount(productCounts.Office?.count || 0)}
                 </span>
               </div>
             </div>
@@ -63,11 +76,14 @@ const TopProducts = () => {
             >
               <p>Bags</p>
               <div className="button-hover">
-                <button className="text-dark">
-                  <Link href={"/products/bags/allbags"}>Shop Now</Link>
+                <button
+                  className="text-dark"
+                  onClick={() => CategoryClick("Bags", productCounts?.Bags?.id)}
+                >
+                  Shop Now
                 </button>
                 <span className="product-count">
-                  {formatProductCount(productCounts.Bags || 0)}
+                  {formatProductCount(productCounts.Bags?.count || 0)}
                 </span>
               </div>
             </div>
@@ -82,11 +98,14 @@ const TopProducts = () => {
             >
               <p>Tech</p>
               <div className="button-hover">
-                <button className="text-dark">
-                  <Link href={"/products/tech/alltech"}>Shop Now</Link>
+                <button
+                  className="text-dark"
+                  onClick={() => CategoryClick("Tech", productCounts?.Tech?.id)}
+                >
+                  Shop Now
                 </button>
                 <span className="product-count">
-                  {formatProductCount(productCounts.Tech || 0)}
+                  {formatProductCount(productCounts.Tech?.count || 0)}
                 </span>
               </div>
             </div>
@@ -101,11 +120,16 @@ const TopProducts = () => {
             >
               <p>Wellness</p>
               <div className="button-hover">
-                <button className="text-dark">
-                  <Link href={"/products/wellness/allwellness"}>Shop Now</Link>
+                <button
+                  className="text-dark"
+                  onClick={() =>
+                    CategoryClick("Wellness", productCounts?.Wellness?.id)
+                  }
+                >
+                  Shop Now
                 </button>
                 <span className="product-count">
-                  {formatProductCount(productCounts.Wellness || 0)}
+                  {formatProductCount(productCounts.Wellness?.count || 0)}
                 </span>
               </div>
             </div>
@@ -120,11 +144,16 @@ const TopProducts = () => {
             >
               <p>Apparel</p>
               <div className="button-hover">
-                <button className="text-dark">
-                  <Link href={"/products/apparels/allapparels"}>Shop Now</Link>
+                <button
+                  className="text-dark"
+                  onClick={() =>
+                    CategoryClick("Apparel", productCounts?.Apparel?.id)
+                  }
+                >
+                  Shop Now
                 </button>
                 <span className="product-count">
-                  {formatProductCount(productCounts.Apparel || 0)}
+                  {formatProductCount(productCounts.Apparel?.count || 0)}
                 </span>
               </div>
             </div>
@@ -139,13 +168,16 @@ const TopProducts = () => {
             >
               <p>Drinkware</p>
               <div className="button-hover">
-                <button className="text-dark">
-                  <Link href={"/products/drinkware/alldrinkware"}>
-                    Shop Now
-                  </Link>
+                <button
+                  className="text-dark"
+                  onClick={() =>
+                    CategoryClick("Drinkware", productCounts?.Drinkware?.id)
+                  }
+                >
+                  Shop Now
                 </button>
                 <span className="product-count">
-                  {formatProductCount(productCounts.Drinkware || 0)}
+                  {formatProductCount(productCounts.Drinkware?.count || 0)}
                 </span>
               </div>
             </div>
@@ -160,13 +192,21 @@ const TopProducts = () => {
             >
               <p>Eco-Friendly</p>
               <div className="button-hover">
-                <button className="text-dark">
-                  <Link href={"/products/eco-friendly/ecofriendly"}>
-                    Shop Now
-                  </Link>
+                <button
+                  className="text-dark"
+                  onClick={() =>
+                    CategoryClick(
+                      "Eco-Friendly",
+                      productCounts["Eco-Friendly"]?.id
+                    )
+                  }
+                >
+                  Shop Now
                 </button>
                 <span className="product-count">
-                  {formatProductCount(productCounts["Eco-Friendly"] || 0)}
+                  {formatProductCount(
+                    productCounts["Eco-Friendly"]?.count || 0
+                  )}
                 </span>
               </div>
             </div>
@@ -179,11 +219,21 @@ const TopProducts = () => {
             >
               <p>Desktop Organizer</p>
               <div className="button-hover">
-                <button className="text-dark">
-                  <Link href={"/products/desktop/desktop"}>Shop Now</Link>
+                <button
+                  className="text-dark"
+                  onClick={() =>
+                    CategoryClick(
+                      "Desktop Organizer",
+                      productCounts["Desktop Organizer"]?.id
+                    )
+                  }
+                >
+                  Shop Now
                 </button>
                 <span className="product-count">
-                  {formatProductCount(productCounts["Desktop Organizer"] || 0)}
+                  {formatProductCount(
+                    productCounts["Desktop Organizer"]?.count || 0
+                  )}
                 </span>
               </div>
             </div>
@@ -196,12 +246,20 @@ const TopProducts = () => {
             >
               <p>Personalized Products</p>
               <div className="button-hover">
-                <button className="text-dark">
-                  <Link href={"#"}>Shop Now</Link>
+                <button
+                  className="text-dark"
+                  onClick={() =>
+                    CategoryClick(
+                      "Personalized Products",
+                      productCounts["Personalized Products"]?.id
+                    )
+                  }
+                >
+                  Shop Now
                 </button>
                 <span className="product-count">
                   {formatProductCount(
-                    productCounts["Personalized Products"] || 0
+                    productCounts["Personalized Products"]?.count || 0
                   )}
                 </span>
               </div>
@@ -215,8 +273,16 @@ const TopProducts = () => {
             >
               <p>Category 10</p>
               <div className="button-hover">
-                <button className="text-dark">
-                  <Link href={"/products/ecofriendly"}>Shop Now</Link>
+                <button
+                  className="text-dark"
+                  onClick={() =>
+                    CategoryClick(
+                      "Personalized Products",
+                      productCounts["Personalized Products"]?.id
+                    )
+                  }
+                >
+                  Shop Now
                 </button>
                 <span className="product-count">{formatProductCount(0)}</span>
               </div>

@@ -26,23 +26,7 @@ const Products = () => {
     }
   };
 
-  useEffect(() => {
-    const getProduct = async () => {
-      try {
-        loader(true);
-        const res = await axios.get(
-          `https://api.robustpromo.com/api/product/All`
-        );
-        setProducts(res?.data?.data);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      } finally {
-        loader(false);
-      }
-    };
 
-    getProduct();
-  }, []);
 
   // Handle change of sort order
   const handleSortChange = (event) => {

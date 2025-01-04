@@ -6,11 +6,13 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import LeafIcon from "./LeafIcon";
 import Loader from "../Loader/Loader";
+import { useRouter } from "next/router";
 
 const Grid = ({ filtered, load, loader }) => {
   const [products, setProducts] = useState([]);
   const [count, setCount] = useState(18);
   const dispatch = useDispatch();
+  const router = useRouter();
 
   useEffect(() => {
     const getProduct = async () => {
@@ -38,9 +40,11 @@ const Grid = ({ filtered, load, loader }) => {
 
   return (
     <>
-      <h2 className="text-center">All Robust</h2>
+      <h2 className="text-center">{router.query?.category || "All Robust"}</h2>
       {product?.length === 0 ? (
-        <h5 className="text-center">No products available in selected category.</h5>
+        <h5 className="text-center">
+          No products available in selected category.
+        </h5>
       ) : (
         <div className="products-card">
           {(filtered?.length > 0 ? filtered : products)

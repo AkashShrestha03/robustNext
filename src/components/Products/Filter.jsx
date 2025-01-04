@@ -1,7 +1,9 @@
 import axios from "axios";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
 const Filter = ({ onProductsFetched, loader }) => {
+  const router = useRouter();
   const [category, setCategory] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
@@ -23,7 +25,7 @@ const Filter = ({ onProductsFetched, loader }) => {
       const res = await axios.get(
         `https://api.robustpromo.com/api/product/Category/Product/List`,
         {
-          params: { CategoryID: categoryId },
+          params: { CategoryID: categoryId || router.query?.id },
         }
       );
       const products = res.data?.data;
@@ -39,6 +41,9 @@ const Filter = ({ onProductsFetched, loader }) => {
       loader(false);
     }
   };
+  useEffect(() => {
+    getProductsByCategory();
+  }, []);
 
   const getProduct = async () => {
     try {
