@@ -25,9 +25,9 @@ const ProductEdit = () => {
         <div className="col-md-6 ">
           <ProductEditor product={product} />
         </div>
-        <div className="col-12">
+        <div className="col-12 mt-5">
           <h2>Related Products</h2>
-          <ProductsGrid product={product} />
+          <ProductsGrid id={product?.SubCategoryID} />
         </div>
       </div>
     </>

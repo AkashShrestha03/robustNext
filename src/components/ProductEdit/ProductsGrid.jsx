@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
-const ProductsGrid = () => {
+const ProductsGrid = ({ id }) => {
   const dispatch = useDispatch();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -14,7 +14,7 @@ const ProductsGrid = () => {
       try {
         setLoading(true);
         const res = await axios.get(
-          `https://api.robustpromo.com/api/product/Category/Product/List?CategoryID=66e947dfe4a0682d9adf6826`
+          `https://api.robustpromo.com/api/product/Sub/Category/Product/List?SubCategoryID=${id}`
         );
         setProducts(res?.data?.data);
         setLoading(false);
@@ -31,7 +31,7 @@ const ProductsGrid = () => {
   return (
     <>
       <div class="products-card mt-5">
-        {products?.map((product, index) => (
+        {products?.slice(0, 5)?.map((product, index) => (
           <figure class="snip1423" key={index}>
             <img
               src={product?.productPicture[0] || "/Assests/mokup1.png"}
