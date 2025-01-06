@@ -85,7 +85,7 @@ const Grid = ({ filtered, load, loader }) => {
             ))}
         </div>
       )}
-      {count >= products?.length || count >= filtered?.length ? null : (
+      {count >= product?.length ? null : (
         <div
           className="d-flex justify-content-center text-primary cursor"
           onClick={() => setCount(count + 9)}
