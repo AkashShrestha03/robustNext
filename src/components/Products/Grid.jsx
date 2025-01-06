@@ -19,7 +19,7 @@ const Grid = ({ filtered, load, loader }) => {
       try {
         loader(true);
         const res = await axios.get(
-          `https://api.robustpromo.com/api/product/All`
+          `https://robust.mmrsolutions.co.in/api/product/All`
         );
         setProducts(res?.data?.data);
       } catch (error) {

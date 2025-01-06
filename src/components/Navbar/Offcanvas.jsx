@@ -21,7 +21,7 @@ const OffcanvasNav = ({ show, onClose }) => {
     const fetchNavbar = async () => {
       try {
         const res = await axios.get(
-          "https://api.robustpromo.com/api/product/Nav/List"
+          "https://robust.mmrsolutions.co.in/api/product/Nav/List"
         );
         setNav(res.data.data);
         console.log(res.data);

@@ -23,7 +23,7 @@ const SubcategoryProducts = () => {
         setLoading(true);
 
         const res = await axios.get(
-          `https://api.robustpromo.com/api/product/Sub/Category/Product/List?SubCategoryID=${subCategoryId}`
+          `https://robust.mmrsolutions.co.in/api/product/Sub/Category/Product/List?SubCategoryID=${subCategoryId}`
         );
         setProducts(res?.data?.data);
         setLoading(false);
@@ -43,7 +43,7 @@ const SubcategoryProducts = () => {
     try {
       setLoading(true);
       const res = await axios.get(
-        `https://api.robustpromo.com/api/product/Sort/Product?price=${order}&SubCategoryID=${subCategoryId}`
+        `https://robust.mmrsolutions.co.in/api/product/Sort/Product?price=${order}&SubCategoryID=${subCategoryId}`
       );
       setProducts(res?.data?.data);
       setLoading(false);

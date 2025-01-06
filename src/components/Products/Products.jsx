@@ -13,7 +13,7 @@ const Products = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `https://api.robustpromo.com/api/product/Sort?price=${sortOrder}`
+        `https://robust.mmrsolutions.co.in/api/product/Sort?price=${sortOrder}`
       );
       if (response.data.status === 1) {
         setProducts(response.data.data);

@@ -10,7 +10,7 @@ const Filter = ({ onProductsFetched, loader }) => {
   const getCategory = async () => {
     try {
       const res = await axios.get(
-        `https://api.robustpromo.com/api/product/category/List`
+        `https://robust.mmrsolutions.co.in/api/product/category/List`
       );
       setCategory(res.data?.data);
     } catch (error) {
@@ -23,7 +23,7 @@ const Filter = ({ onProductsFetched, loader }) => {
     try {
       loader(true);
       const res = await axios.get(
-        `https://api.robustpromo.com/api/product/Category/Product/List`,
+        `https://robust.mmrsolutions.co.in/api/product/Category/Product/List`,
         {
           params: { CategoryID: categoryId || router.query?.id },
         }
@@ -49,7 +49,7 @@ const Filter = ({ onProductsFetched, loader }) => {
     try {
       loader(true);
       const res = await axios.get(
-        `https://api.robustpromo.com/api/product/All`
+        `https://robust.mmrsolutions.co.in/api/product/All`
       );
       onProductsFetched(res?.data?.data);
     } catch (error) {

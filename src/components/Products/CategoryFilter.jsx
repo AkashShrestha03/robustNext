@@ -17,7 +17,7 @@ const CategoryFilter = ({ onProductsFetched }) => {
   const getProductsByCategory = async (categoryId) => {
     try {
       const res = await axios.get(
-        `https://api.robustpromo.com/api/product/Category/Product/List`,
+        `https://robust.mmrsolutions.co.in/api/product/Category/Product/List`,
         {
           params: { CategoryID: categoryId },
         }

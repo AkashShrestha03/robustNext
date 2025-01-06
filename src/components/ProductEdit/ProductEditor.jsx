@@ -33,7 +33,7 @@ const ProductEditor = ({ product }) => {
     try {
       setLoading(true);
       const response = await axios.post(
-        `https://api.robustpromo.com/api/Enquiry/Send`,
+        `https://robust.mmrsolutions.co.in/api/Enquiry/Send`,
         enquiryData
       );
       toast.success("Enquiry sent successfully!");

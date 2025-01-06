@@ -14,7 +14,7 @@ const ProductsGrid = ({ id }) => {
       try {
         setLoading(true);
         const res = await axios.get(
-          `https://api.robustpromo.com/api/product/Sub/Category/Product/List?SubCategoryID=${id}`
+          `https://robust.mmrsolutions.co.in/api/product/Sub/Category/Product/List?SubCategoryID=${id}`
         );
         setProducts(res?.data?.data);
         setLoading(false);

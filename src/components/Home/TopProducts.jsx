@@ -12,7 +12,7 @@ const TopProducts = () => {
     const fetchProductCounts = async () => {
       try {
         const response = await axios.get(
-          `https://api.robustpromo.com/api/product/Count/Product/Category`
+          `https://robust.mmrsolutions.co.in/api/product/Count/Product/Category`
         );
         if (response.data.status === 1) {
           setProductCounts(response.data.data);

@@ -25,7 +25,7 @@ const ProductCategory = () => {
       try {
         setLoading(true);
         const res = await axios.get(
-          `https://spice-13.onrender.com/api/product/Category/Product/List?CategoryID=${categoryId}`
+          `https://robust.mmrsolutions.co.in/api/product/Category/Product/List?CategoryID=${categoryId}`
         );
         setProducts(res?.data?.data);
         setLoading(false);
