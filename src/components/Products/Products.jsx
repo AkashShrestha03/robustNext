@@ -6,7 +6,7 @@ import axios from "axios";
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [sortOrder, setSortOrder] = useState(""); // To track the selected sort order
+  const [sortOrder, setSortOrder] = useState("");
 
   // Function to fetch products sorted by price
   const fetchSortedProducts = async (sortOrder) => {

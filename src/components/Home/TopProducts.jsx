@@ -34,6 +34,8 @@ const TopProducts = () => {
       pathname: "/products",
       query: { id, category },
     });
+ 
+    
   };
 
   return (

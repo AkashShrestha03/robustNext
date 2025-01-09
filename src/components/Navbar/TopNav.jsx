@@ -31,6 +31,9 @@ const TopNav = () => {
   }, []);
 
   const handleSearch = async () => {
+    if (!categoryID && !search) {
+      return toast.error("Please select category or enter product name first!");
+    }
     try {
       setLoading(true);
       const response = await axios.get(

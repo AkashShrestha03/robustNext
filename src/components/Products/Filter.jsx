@@ -18,6 +18,8 @@ const Filter = ({ onProductsFetched, loader }) => {
       // Optional: Handle error state for categories
     }
   };
+  console.log("Id from router",router.query.id);
+  
 
   const getProductsByCategory = async (categoryId) => {
     try {
@@ -35,7 +37,7 @@ const Filter = ({ onProductsFetched, loader }) => {
 
       onProductsFetched(products, categoryName); // Send the products and category name to the parent
     } catch (error) {
-      console.error("Error fetching products by category:", error);
+      console.log("Error fetching products by category:", error);
       // Optional: Handle error state for products
     } finally {
       loader(false);
