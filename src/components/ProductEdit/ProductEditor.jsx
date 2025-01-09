@@ -130,7 +130,7 @@ const ProductEditor = ({ product }) => {
         <h5>
           &nbsp;
           <span className="product-caption">
-            <b>Descriptions</b>
+            <b>Description</b>
           </span>
         </h5>
         <div
