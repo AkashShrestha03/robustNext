@@ -29,7 +29,7 @@ const TopProducts = () => {
     return `${count} ${count === 1 ? "item available" : "items available"}`;
   };
 
-  const CategoryClick = ({ category, id }) => {
+  const CategoryClick = (category, id ) => {
     router.push({
       pathname: "/products",
       query: { id, category },
