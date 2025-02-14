@@ -42,7 +42,7 @@ const Filter = ({ onProductsFetched, loader }) => {
   };
   useEffect(() => {
     getProductsByCategory();
-  }, []);
+  }, [router.query?.id]);
 
   const getProduct = async () => {
     try {

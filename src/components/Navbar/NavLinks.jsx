@@ -56,6 +56,13 @@ const NavLinks = () => {
     });
   };
 
+  const CategoryClick = (category, id) => {
+    router.push({
+      pathname: "/products",
+      query: { id, category },
+    });
+  };
+
   return (
     <>
       <ul className="d-flex align-items-center f13 poppins-semibold">
@@ -107,6 +114,7 @@ const NavLinks = () => {
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
+                  onClick={() => CategoryClick(item?.name, item?._id)}
                 >
                   {item.name}
                 </p>
