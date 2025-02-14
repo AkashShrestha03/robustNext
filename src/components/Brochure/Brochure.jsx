@@ -86,7 +86,7 @@ const ProductBrochure = () => {
 
   return (
     <>
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center" style={{marginTop: "200px"}}>
         <button className="btn-download" onClick={downloadPDF}>
           Download Brochure
         </button>
@@ -143,11 +143,11 @@ const ProductBrochure = () => {
               <p>
                 For more information, visit{" "}
                 <a
-                  href={"https://robust-01.netlify.app"}
+                  href={"https://robustpromo.com"}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  demo-website.com
+                  robustpromo.com
                 </a>
               </p>
             </div>

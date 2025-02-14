@@ -18,7 +18,6 @@ const Navbar = () => {
     <>
       {isHomePage ? (
         <>
-          {" "}
           <header>
             <div class="div-main">
               <div class="top-nav-main-container">
@@ -122,7 +121,7 @@ const Navbar = () => {
             >
               <div class="d-flex align-items-center">
                 <i class="d-flex g5 fa fa-phone pe-3">
-                  <p class="poppins-medium">+91 9090909090</p>
+                  <p class="poppins-medium">+91 7778926169</p>
                 </i>
                 <div class="dropdown">
                   <span>
