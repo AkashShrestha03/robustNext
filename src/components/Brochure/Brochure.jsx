@@ -154,7 +154,7 @@ const ProductBrochure = () => {
           </div>
         </div>
       ))}
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center mb-3">
         <button className="btn-download" onClick={downloadPDF}>
           Download Brochure
         </button>
