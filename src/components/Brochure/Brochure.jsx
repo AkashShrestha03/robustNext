@@ -86,6 +86,11 @@ const ProductBrochure = () => {
 
   return (
     <>
+      <div className="d-flex justify-content-center">
+        <button className="btn-download" onClick={downloadPDF}>
+          Download Brochure
+        </button>
+      </div>
       {brochure?.map((product, index) => (
         <div
           className="brochure-container"

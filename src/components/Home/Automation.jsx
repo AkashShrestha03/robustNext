@@ -8,8 +8,10 @@ const Automation = () => {
         <h4 className="display-2">Robust Automation</h4>
         <p class="distribution-text">
           {" "}
-          Replace the “Robust Automation” with “The Robust Experience” and in
-          the text below, insert “Check out some of our work!”
+          Take the manual work out of sending gifts with our custom API that
+          automates robust distribution to your audience. Never miss another
+          birthday, lead follow-up or thank you gift again. Together we are
+          making robust smart.
         </p>
         <Link href="/automation">
           <button>Find Out More</button>
