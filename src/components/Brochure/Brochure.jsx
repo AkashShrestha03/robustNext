@@ -53,8 +53,7 @@ const ProductBrochure = () => {
 
     const pdf = new jsPDF("p", "mm", "a4");
     const imgWidth = 210; // A4 width in mm
-    const pageHeight = 295; // A4 page height in mm
-    const imgHeight = (pageHeight * 210) / imgWidth; // Calculate height to maintain aspect ratio
+    const pdfHeight = 297; // A4 height in mm
 
     for (let i = 0; i < brochure.length; i++) {
       const brochureElement = document.getElementById(`brochure-${i}`);
@@ -67,11 +66,13 @@ const ProductBrochure = () => {
         });
         const imgData = canvas.toDataURL("image/png");
 
-        // Debugging: Check if the image data is present
-        console.log(`Canvas to Data URL: ${imgData}`);
+        const imgHeight = (canvas.height * imgWidth) / canvas.width; // Maintain aspect ratio
 
-        pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
-
+        if (imgHeight > pdfHeight) {
+          pdf.addImage(imgData, "PNG", 0, 0, imgWidth, pdfHeight);
+        } else {
+          pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+        }
         if (i < brochure.length - 1) {
           pdf.addPage();
         }
