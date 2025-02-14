@@ -223,16 +223,15 @@ a {
 }
 
 @media (max-width: 425px) {
-
   .serach-top {
-  background: white;
-  color: rgb(95, 95, 95);
-  padding: 5px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
-}
+    background: white;
+    color: rgb(95, 95, 95);
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+  }
 
   .serach-top input {
     border: none;
@@ -297,7 +296,6 @@ button:focus {
 .top-nav-main-container {
   background: #8056bf;
 }
-
 
 .top-nav {
   width: 100%;
@@ -418,7 +416,8 @@ nav .links ul {
   font-size: 25px;
 }
 
-.brochure button, .brochure-mobile button {
+.brochure button,
+.brochure-mobile button {
   background-color: white !important;
 }
 
@@ -614,14 +613,15 @@ i.fa.fa-cart-plus {
   /* width: calc(100%* 20); */
   /* animation: slide 20s linear infinite; */
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
+  gap: 15px;
 }
 /* animation: slide 20s linear infinite; */
 
 .slider-inner .img-container {
   width: 190px;
   height: 80px;
-  object-fit: cover;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -631,7 +631,9 @@ i.fa.fa-cart-plus {
 
 .img-container img {
   width: 100%;
-  height: auto;
+  /* height: 90px; */
+  object-fit: contain;
+  aspect-ratio: 3 / 2;
 }
 
 /* Animation for sliding */
@@ -1156,7 +1158,7 @@ label.container {
 
 .filter {
   display: flex;
-flex-direction: column;
+  flex-direction: column;
 
-width: 100%;
+  width: 100%;
 }

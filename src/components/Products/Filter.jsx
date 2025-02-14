@@ -18,8 +18,7 @@ const Filter = ({ onProductsFetched, loader }) => {
       // Optional: Handle error state for categories
     }
   };
-  console.log("Id from router",router.query.id);
-  
+  console.log("Id from router", router.query.id);
 
   const getProductsByCategory = async (categoryId) => {
     try {
@@ -31,9 +30,7 @@ const Filter = ({ onProductsFetched, loader }) => {
         }
       );
       const products = res.data?.data;
-      const categoryName = categoryId
-        ? category.find((cat) => cat._id === categoryId)?.name
-        : "All Products";
+      const categoryName = category.find((cat) => cat._id === categoryId)?.name;
 
       onProductsFetched(products, categoryName); // Send the products and category name to the parent
     } catch (error) {

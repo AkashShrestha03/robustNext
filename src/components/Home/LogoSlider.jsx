@@ -7,113 +7,27 @@ const LogoSlider = () => {
       <div class="slider">
         <div class="slider-inner">
           <div class="img-container">
-            <img src="/Assests/brands/amazone.jpeg" />
+            <img src="./Logo/hdfc.png" alt="hdfc" />
           </div>
           <div class="img-container">
-            <img src="/Assests/brands/faught.webp" alt="" />
+            <img src="./Logo/sbi.png" alt="sbi" />
           </div>
           <div class="img-container">
-            <img src="/Assests/brands/flipkart.jpeg" alt="" />
+            <img src="./Logo/LIC.png" alt="LIC" />
           </div>
           <div class="img-container">
-            <img src="/Assests/brands/huwai.jpeg" alt="" />
+            <img src="./Logo/godrej.png" alt="godrej" />
           </div>
           <div class="img-container">
-            <img src="/Assests/brands/amazone.jpeg" />
+            <img src="./Logo/IndianOil.png" alt="Inidan Oil" />
           </div>
           <div class="img-container">
-            <img src="/Assests/brands/faught.webp" alt="" />
+            <img src="./Logo/banco.jpg" alt="Banco" />
           </div>
           <div class="img-container">
-            <img src="/Assests/brands/flipkart.jpeg" alt="" />
+            <img src="./Logo/prakash.jpg" alt="Prakash Chemicals" />
           </div>
-          <div class="img-container">
-            <img src="/Assests/brands/huwai.jpeg" alt="" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/amazone.jpeg" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/faught.webp" alt="" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/flipkart.jpeg" alt="" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/huwai.jpeg" alt="" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/amazone.jpeg" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/faught.webp" alt="" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/flipkart.jpeg" alt="" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/huwai.jpeg" alt="" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/amazone.jpeg" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/faught.webp" alt="" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/flipkart.jpeg" alt="" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/huwai.jpeg" alt="" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/amazone.jpeg" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/faught.webp" alt="" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/flipkart.jpeg" alt="" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/huwai.jpeg" alt="" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/amazone.jpeg" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/faught.webp" alt="" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/flipkart.jpeg" alt="" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/huwai.jpeg" alt="" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/amazone.jpeg" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/faught.webp" alt="" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/flipkart.jpeg" alt="" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/huwai.jpeg" alt="" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/amazone.jpeg" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/faught.webp" alt="" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/flipkart.jpeg" alt="" />
-          </div>
-          <div class="img-container">
-            <img src="/Assests/brands/huwai.jpeg" alt="" />
-          </div>
+        
         </div>
       </div>
     </div>

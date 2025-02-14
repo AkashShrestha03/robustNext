@@ -8,7 +8,7 @@ import LeafIcon from "./LeafIcon";
 import Loader from "../Loader/Loader";
 import { useRouter } from "next/router";
 
-const Grid = ({ filtered, load, loader }) => {
+const Grid = ({ filtered, load, loader, categoryName }) => {
   const [products, setProducts] = useState([]);
   const [count, setCount] = useState(18);
   const dispatch = useDispatch();
@@ -32,7 +32,7 @@ const Grid = ({ filtered, load, loader }) => {
     getProduct();
   }, [dispatch]);
 
-  if (load) {
+  if (load === true) {
     return <Loader />;
   }
 
@@ -40,7 +40,9 @@ const Grid = ({ filtered, load, loader }) => {
 
   return (
     <>
-      <h2 className="text-center">{router.query?.category || "All Robust"}</h2>
+      <h2 className="text-center">
+        {categoryName || router.query?.category || "All Robust"}
+      </h2>
       {product?.length === 0 ? (
         <h5 className="text-center">
           No products available in selected category.

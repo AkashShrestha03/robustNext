@@ -29,7 +29,9 @@ const Navbar = () => {
                 >
                   <div class="d-flex align-items-center mobile-top">
                     <i class="d-flex g5 fa fa-phone pe-3">
-                      <p class="poppins-medium">+91 9090909090</p>
+                      <a href="tel:+917778926169">
+                        <p class="poppins-medium">+91 7778926169</p>
+                      </a>
                     </i>
                     <div class="dropdown">
                       <span>

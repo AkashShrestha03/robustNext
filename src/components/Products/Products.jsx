@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import Filter from "./Filter";
 import Grid from "./Grid";
 import axios from "axios";
+import Loader from "../Loader/Loader";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+  const [categoryName, setCategoryName] = useState("");
   const [loading, setLoading] = useState(false);
   const [sortOrder, setSortOrder] = useState("");
 
@@ -26,7 +28,9 @@ const Products = () => {
     }
   };
 
-
+  useEffect(() => {
+    fetchSortedProducts();
+  }, []);
 
   // Handle change of sort order
   const handleSortChange = (event) => {
@@ -55,7 +59,10 @@ const Products = () => {
             </div>
             <Filter
               loader={(data) => setLoading(data)}
-              onProductsFetched={(products) => setProducts(products)}
+              onProductsFetched={(products, categoryName) => {
+                setProducts(products);
+                setCategoryName(categoryName);
+              }}
             />
           </div>
         </div>
@@ -64,6 +71,7 @@ const Products = () => {
             load={loading}
             loader={(data) => setLoading(data)}
             filtered={products}
+            categoryName={categoryName}
           />
         </div>
       </div>
