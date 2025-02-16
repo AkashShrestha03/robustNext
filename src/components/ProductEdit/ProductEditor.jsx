@@ -7,13 +7,13 @@ import { Toaster, toast } from "react-hot-toast";
 
 const ProductEditor = ({ product }) => {
   const [isShortlisted, setIsShortlisted] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [enquiryData, setEnquiryData] = useState({
-    email: "",
-    name: "",
-    productIDs: product?._id,
-  });
-  const [loading, setLoading] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
+  // const [enquiryData, setEnquiryData] = useState({
+  //   email: "",
+  //   name: "",
+  //   productIDs: product?._id,
+  // });
+  // const [loading, setLoading] = useState(false);
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -22,29 +22,29 @@ const ProductEditor = ({ product }) => {
     dispatch(shortlist(product));
   };
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setEnquiryData({ ...enquiryData, [name]: value });
-  };
+  // const handleInputChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setEnquiryData({ ...enquiryData, [name]: value });
+  // };
 
-  const handleEnquirySubmit = async (e) => {
-    e.preventDefault();
-    try {
-      setLoading(true);
-      const response = await axios.post(
-        `https://robust.mmrsolutions.co.in/api/Enquiry/Send`,
-        enquiryData
-      );
-      toast.success("Enquiry sent successfully!");
-      setLoading(false);
-      setShowModal(false);
-    } catch (error) {
-      const message =
-        error.response?.data?.message || "Failed to send enquiry.";
-      toast.error(message);
-      setLoading(false);
-    }
-  };
+  // const handleEnquirySubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     setLoading(true);
+  //     const response = await axios.post(
+  //       `https://robust.mmrsolutions.co.in/api/Enquiry/Send`,
+  //       enquiryData
+  //     );
+  //     toast.success("Enquiry sent successfully!");
+  //     setLoading(false);
+  //     setShowModal(false);
+  //   } catch (error) {
+  //     const message =
+  //       error.response?.data?.message || "Failed to send enquiry.";
+  //     toast.error(message);
+  //     setLoading(false);
+  //   }
+  // };
 
   const colors = product?.colour;
 
@@ -93,12 +93,12 @@ const ProductEditor = ({ product }) => {
           <button className="btn bg-pink" onClick={handleShortlist}>
             {isShortlisted ? "Added" : "Add to Brochure"}
           </button>
-          <button
+          {/* <button
             className="btn bg-primary text-white ml-2 mx-3"
             onClick={() => setShowModal(true)}
           >
             Enquire Now
-          </button>
+          </button> */}
         </div>
       </div>
 
@@ -140,7 +140,7 @@ const ProductEditor = ({ product }) => {
       </div>
 
       {/* Enquiry Modal */}
-      {showModal && (
+      {/* {showModal && (
         <div className="modal-overlay">
           <div className="modal-content">
             <h4>Enquire about this product</h4>
@@ -214,7 +214,7 @@ const ProductEditor = ({ product }) => {
             </form>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
