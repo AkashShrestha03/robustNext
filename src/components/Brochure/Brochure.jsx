@@ -2,10 +2,28 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const ProductBrochure = () => {
   const { brochure } = useSelector((state) => state.product);
   const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [enquiryData, setEnquiryData] = useState({
+    email: "",
+    name: "",
+    number: "",
+    productCodes: brochure.map((product) => product?.productCode),
+  });
+
+  // console.log(brochure);
+
+  const [loading, setLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setEnquiryData({ ...enquiryData, [name]: value });
+  };
 
   useEffect(() => {
     const loadImages = async () => {
@@ -44,6 +62,25 @@ const ProductBrochure = () => {
 
     loadImages();
   }, [brochure]);
+
+  const handleEnquirySubmit = async (e) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      const response = await axios.post(
+        `https://robust.mmrsolutions.co.in/api/Enquiry/Send`,
+        enquiryData
+      );
+      toast.success("Enquiry sent successfully!");
+      setLoading(false);
+      downloadPDF();
+    } catch (error) {
+      const message =
+        error.response?.data?.message || "Failed to send enquiry.";
+      toast.error(message);
+      setLoading(false);
+    }
+  };
 
   const downloadPDF = async () => {
     if (!imagesLoaded) {
@@ -86,8 +123,11 @@ const ProductBrochure = () => {
 
   return (
     <>
-      <div className="d-flex justify-content-center" style={{marginTop: "200px"}}>
-        <button className="btn-download" onClick={downloadPDF}>
+      <div
+        className="d-flex justify-content-center"
+        style={{ marginTop: "200px" }}
+      >
+        <button className="btn-download" onClick={() => setShowModal(true)}>
           Download Brochure
         </button>
       </div>
@@ -155,10 +195,86 @@ const ProductBrochure = () => {
         </div>
       ))}
       <div className="d-flex justify-content-center mb-3">
-        <button className="btn-download" onClick={downloadPDF}>
+        <button className="btn-download" onClick={() => setShowModal(true)}>
           Download Brochure
         </button>
       </div>
+
+      {showModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h4>Enquire about this product</h4>
+            <form
+              onSubmit={handleEnquirySubmit}
+              className="d-flex flex-column gap-3"
+            >
+              <div className="form-group">
+                <label htmlFor="name" className="fw-bold me-2">
+                  Name:{" "}
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  style={{ borderBottom: "1px solid black" }}
+                  value={enquiryData.name}
+                  onChange={handleInputChange}
+                  required
+                  placeholder="Enter your name"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="email" className="fw-bold me-2">
+                  Email:
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  style={{ borderBottom: "1px solid black" }}
+                  value={enquiryData.email}
+                  onChange={handleInputChange}
+                  required
+                  placeholder="Enter your email"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="number" className="fw-bold me-2">
+                  Contact No:
+                </label>
+                <input
+                  type="number"
+                  id="number"
+                  name="number"
+                  style={{ borderBottom: "1px solid black" }}
+                  value={enquiryData.number}
+                  onChange={handleInputChange}
+                  required
+                  placeholder="Enter your contact number"
+                />
+              </div>
+
+              <input
+                type="hidden"
+                name="productId"
+                value={enquiryData?.productIDs}
+              />
+              <div className="modal-actions">
+                <button type="submit" className="btn bg-success text-white">
+                  {loading ? "Loading..." : "Submit"}
+                </button>
+                <button
+                  type="button"
+                  className="btn bg-secondary text-white"
+                  onClick={() => setShowModal(false)}
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </>
   );
 };

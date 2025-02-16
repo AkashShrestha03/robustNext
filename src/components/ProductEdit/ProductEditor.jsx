@@ -5,14 +5,13 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
 
-
 const ProductEditor = ({ product }) => {
   const [isShortlisted, setIsShortlisted] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [enquiryData, setEnquiryData] = useState({
     email: "",
     name: "",
-    productID: product?._id,
+    productIDs: product?._id,
   });
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -179,11 +178,26 @@ const ProductEditor = ({ product }) => {
                   placeholder="Enter your email"
                 />
               </div>
+              <div className="form-group">
+                <label htmlFor="number" className="fw-bold me-2">
+                  Contact No:
+                </label>
+                <input
+                  type="number"
+                  id="number"
+                  name="number"
+                  style={{ borderBottom: "1px solid black" }}
+                  value={enquiryData.number}
+                  onChange={handleInputChange}
+                  required
+                  placeholder="Enter your contact number"
+                />
+              </div>
 
               <input
                 type="hidden"
                 name="productId"
-                value={enquiryData.productId}
+                value={enquiryData?.productIDs}
               />
               <div className="modal-actions">
                 <button type="submit" className="btn bg-success text-white">
