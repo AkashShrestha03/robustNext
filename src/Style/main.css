@@ -1,18 +1,14 @@
-
-
 a {
   text-decoration: none;
 }
 
-body{
+body {
   overflow-x: hidden;
 }
-
 
 section {
   max-width: 1440px;
   margin: auto;
- 
 }
 
 header {
@@ -182,7 +178,8 @@ button :focus {
   width: 80%;
 } */
 
-.we-do-endless h1, .we-do h1 {
+.we-do-endless h1,
+.we-do h1 {
   font-size: xxx-large;
   font-weight: 600;
 }
@@ -195,6 +192,8 @@ button :focus {
   position: absolute;
   max-width: 400px;
   height: fit-content;
+  max-height: 450px;
+  overflow-y: auto;
 }
 
 .dropdown:hover {
@@ -519,7 +518,7 @@ button :focus {
   color: white;
 }
 
-.we-do-grid{
+.we-do-grid {
   display: flex;
   justify-content: center;
 }
@@ -1148,7 +1147,7 @@ img {
   background-image: url(../../public/Assests/bg-c.png);
   background-repeat: no-repeat;
   background-size: cover;
-  background-size: 100% 100% ;
+  background-size: 100% 100%;
   display: flex;
   flex-direction: column;
   padding: 8.979167vw 0 11.9791666667vw;
@@ -1217,7 +1216,7 @@ img {
     padding: 50px;
   }
 
-  .mobile-top{
+  .mobile-top {
     display: none !important;
   }
 }
