@@ -6,14 +6,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-cards";
 
-import { EffectCards } from "swiper/modules";
+import { EffectCards, Autoplay } from "swiper/modules";
+
 const CardSwiper = () => {
   return (
     <Swiper
       effect={"cards"}
       grabCursor={true}
-      modules={[EffectCards]}
+      modules={[EffectCards, Autoplay]}
       className="mySwiper"
+      autoplay={{ delay: 3000, disableOnInteraction: false }}
     >
       <div class="">
         <div class="swiper-wrapper">
