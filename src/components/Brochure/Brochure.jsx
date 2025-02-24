@@ -167,7 +167,7 @@ const ProductBrochure = () => {
                 <img
                   src={picture}
                   key={index}
-                  className="col"
+                  className="col-md-4"
                   alt={`Product Image`}
                 />
               ))}
