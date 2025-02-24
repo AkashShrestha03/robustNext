@@ -2,7 +2,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
-const Filter = ({ onProductsFetched, loader }) => {
+const Filter = ({ onProductsFetched, loader, categoryID }) => {
   const router = useRouter();
   const [category, setCategory] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -61,6 +61,7 @@ const Filter = ({ onProductsFetched, loader }) => {
   const handleCheckboxChange = (catId) => {
     setSelectedCategory(catId);
     getProductsByCategory(catId); // Fetch products when category is selected
+    categoryID(catId);
   };
 
   useEffect(() => {

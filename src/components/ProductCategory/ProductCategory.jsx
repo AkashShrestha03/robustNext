@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import { productDetails, removeProduct } from "@/store/productSlice";
-import CategoryFilter from "../Products/CategoryFilter";
 import Loader from "../Loader/Loader";
+import SubCategoryFilter from "../SubCategoryProduct/SubCategoryFilter";
 
 const ProductCategory = () => {
   const [products, setProducts] = useState([]);
@@ -16,7 +16,7 @@ const ProductCategory = () => {
   const [sortOrder, setSortOrder] = useState(""); // Default empty to show "Sort By Price"
   const dispatch = useDispatch();
   const router = useRouter();
-  const { categoryId } = router.query; // Retrieve categoryId from query parameters
+  const { categoryId, category } = router.query; // Retrieve categoryId from query parameters
 
   useEffect(() => {
     if (!categoryId) return; // Wait until categoryId is available
@@ -81,7 +81,7 @@ const ProductCategory = () => {
                   <Link href="/">Home</Link>
                 </li>
                 <li className="breadcrumb-item " aria-current="page">
-                  {categoryName}
+                  {router.query.category || categoryName}
                 </li>
               </ol>
             </div>
@@ -96,8 +96,8 @@ const ProductCategory = () => {
                 <option value="DES">Highest Price First</option>
               </select>
             </div>
-            <CategoryFilter
-              onProductsFetched={(filteredProducts, subCategoryName) =>
+            <SubCategoryFilter
+              filteredProducts={(filteredProducts, subCategoryName) =>
                 handleFilteredProducts(filteredProducts, subCategoryName)
               }
             />

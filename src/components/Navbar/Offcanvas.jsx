@@ -54,7 +54,7 @@ const OffcanvasNav = ({ show, onClose }) => {
       >
         <Offcanvas.Header className={styles.header}>
           <Offcanvas.Title>
-            <h3>Menu</h3>{" "}
+            <h3>Menu</h3>
           </Offcanvas.Title>
           <div className={styles["close-btn"]}>
             <button type="button" onClick={() => onClose(false)}>

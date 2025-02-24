@@ -9,13 +9,14 @@ const Products = () => {
   const [categoryName, setCategoryName] = useState("");
   const [loading, setLoading] = useState(false);
   const [sortOrder, setSortOrder] = useState("");
+  const [categoryID, setCategoryID] = useState(null);
 
   // Function to fetch products sorted by price
   const fetchSortedProducts = async (sortOrder) => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `https://robust.mmrsolutions.co.in/api/product/Sort?price=${sortOrder}`
+        `https://robust.mmrsolutions.co.in/api/product/Sort?price=${sortOrder}&categoryID=${categoryID}`
       );
       if (response.data.status === 1) {
         setProducts(response.data.data);
@@ -30,7 +31,7 @@ const Products = () => {
 
   useEffect(() => {
     fetchSortedProducts();
-  }, []);
+  }, [categoryID]);
 
   // Handle change of sort order
   const handleSortChange = (event) => {
@@ -63,6 +64,7 @@ const Products = () => {
                 setProducts(products);
                 setCategoryName(categoryName);
               }}
+              categoryID={(data) => setCategoryID(data)}
             />
           </div>
         </div>

@@ -56,10 +56,10 @@ const NavLinks = () => {
     });
   };
 
-  const CategoryClick = (category, id) => {
+  const CategoryClick = (category, categoryId) => {
     router.push({
-      pathname: "/products",
-      query: { id, category },
+      pathname: "/category",
+      query: { categoryId, category },
     });
   };
 
