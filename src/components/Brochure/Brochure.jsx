@@ -203,7 +203,7 @@ const ProductBrochure = () => {
       {showModal && (
         <div className="modal-overlay">
           <div className="modal-content">
-            <h4>Enquire about this product</h4>
+            <h4>Download the catalogue by adding a few details</h4>
             <form
               onSubmit={handleEnquirySubmit}
               className="d-flex flex-column gap-3"
