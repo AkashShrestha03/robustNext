@@ -40,6 +40,10 @@ const ProductCategory = () => {
     dispatch(removeProduct());
   }, [categoryId, dispatch]); // Run effect whenever categoryId changes
 
+  useEffect(() => {
+    setCategoryName(router.query.category);
+  }, [router.query.category]);
+
   const fetchSortedProducts = async (order) => {
     if (!categoryId) return; // Ensure categoryId is available before making API call
 
