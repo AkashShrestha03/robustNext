@@ -126,21 +126,53 @@ const ProductCategory = () => {
               ?.map((product, index) => {
                 if (index === count - 1) {
                   return (
-                    <figure className="snip1423" key={index} ref={lastProductRef}>
+                    <figcaption className="d-flex flex-column align-items-center">
+                      <h3 className="card-heading">
+                        {product?.productName}{" "}
+                        {product?.madeInIndia && (
+                          <div className="made-in-india-flag">
+                            <img src="/image.png" alt="Made in India" />
+                          </div>
+                        )}
+                      </h3>
+                      <p>
+                        {product?.ShortDescription || "Product Description"}
+                      </p>
+                      {product?.sustainable && (
+                        <div className="sustainable-icon">
+                          <i className="fa fa-leaf" aria-hidden="true"></i>
+                        </div>
+                      )}
+                      <div className="price">
+                        <s>₹{product?.productMRP}</s>₹{product?.productPrice}
+                      </div>
+                    </figcaption>
+                  );
+                } else {
+                  return (
+                    <figure
+                      className="snip1423"
+                      key={index}
+                      ref={lastProductRef}
+                    >
                       <img
-                        src={product?.productPicture[0] || "/Assests/mokup1.png"}
+                        src={
+                          product?.productPicture[0] || "/Assests/mokup1.png"
+                        }
                         alt="sample57"
                       />
                       <figcaption className="d-flex flex-column align-items-center">
                         <h3 className="card-heading">
-                          {product?.productName}
+                          {product?.productName}{" "}
                           {product?.madeInIndia && (
                             <div className="made-in-india-flag">
                               <img src="/image.png" alt="Made in India" />
                             </div>
                           )}
                         </h3>
-                        <p>{product?.ShortDescription || "Product Description"}</p>
+                        <p>
+                          {product?.ShortDescription || "Product Description"}
+                        </p>
                         {product?.sustainable && (
                           <div className="sustainable-icon">
                             <i className="fa fa-leaf" aria-hidden="true"></i>
@@ -154,19 +186,6 @@ const ProductCategory = () => {
                         href="/productedit"
                         onClick={() => dispatch(productDetails(product))}
                       ></Link>
-                    </figure>
-                  );
-                } else {
-                  return (
-                    <figure className="snip1423" key={index}>
-                      <img
-                        src={product?.productPicture[0] || "/Assests/mokup1.png"}
-                        alt="sample57"
-                      />
-                      <figcaption className="d-flex flex-column align-items-center">
-                        <h3 className="card-heading">{product?.productName}</h3>
-                        <p>{product?.ShortDescription || "Product Description"}</p>
-                      </figcaption>
                     </figure>
                   );
                 }
