@@ -121,9 +121,11 @@ const Navbar = () => {
             >
               <div class="d-flex align-items-center">
                 <i class="d-flex g5 fa fa-phone pe-3">
-                  <p class="poppins-medium">+91 7778926169</p>
+                  <p class="poppins-medium">
+                    +91 7778926169, +91 9015254103, +919023143952
+                  </p>
                 </i>
-                <div class="dropdown">
+                {/* <div class="dropdown">
                   <span>
                     What We Offer <i class="fa fa-chevron-down"></i>
                   </span>
@@ -152,7 +154,7 @@ const Navbar = () => {
                       selection of the highest quality swag.
                     </p>
                   </div>
-                </div>
+                </div> */}
               </div>
               <TopNav />
             </div>
