@@ -70,7 +70,7 @@ const Navbar = () => {
                 <nav>
                   <div class="logo">
                     <Link href="/">
-                      <img src="/Assests/logo2.png" alt="" />
+                      <img src="/robust-R.png" alt="robust-logo" />
                     </Link>
                   </div>
                   <div className="navbar-toggle">
@@ -161,7 +161,7 @@ const Navbar = () => {
             <nav>
               <div class="logo">
                 <Link href="/">
-                  <img src="/Assests/logo2.png" alt="" />
+                  <img src="/robust-R.png" alt="robust-logo" />
                 </Link>
               </div>
 

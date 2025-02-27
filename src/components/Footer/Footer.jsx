@@ -8,7 +8,11 @@ const Footer = () => {
     <footer class="mt-0 " style={{ borderTop: "60px solid white" }}>
       <div className="footer-container">
         <div class="footer-content">
-          <h3>Robust</h3>
+          {/* <h3>Robust</h3> */}
+          <div className="footer-logo">
+            {" "}
+            <img src="/footer-logo.png" alt="robust promotions & advertising" />
+          </div>
           <p>
             At Robust, we bring your brand to life with tailored corporate
             gifts, inventive advertising items, and memorable promotional
