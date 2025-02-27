@@ -126,7 +126,7 @@ const ProductCategory = () => {
               ?.map((product, index) => {
                 if (index === count - 1) {
                   return (
-                    <figcaption className="d-flex flex-column align-items-center">
+                    <figcaption className="d-flex flex-column align-items-center" key={index}>
                       <h3 className="card-heading">
                         {product?.productName}{" "}
                         {product?.madeInIndia && (
