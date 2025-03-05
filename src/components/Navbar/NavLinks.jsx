@@ -45,6 +45,13 @@ const NavLinks = () => {
     });
   };
 
+  const handleBrandClick = (brandId, brandName) => {
+    router.push({
+      pathname: "/brandproducts",
+      query: { brandId, brandName },
+    });
+  };
+
   const handleSubCategoryClick = (
     subCategoryId,
     categoryId,
@@ -91,6 +98,7 @@ const NavLinks = () => {
                   <span
                     key={index}
                     className="dropdown-item d-flex justify-content-center"
+                    onClick={() => handleBrandClick(brand?._id, brand?.BrandName)}
                   >
                     <img
                       src={brand?.BrandPicture}
