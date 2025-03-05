@@ -10,8 +10,13 @@ import { useSelector } from "react-redux";
 const OffcanvasNav = ({ show, onClose }) => {
   const [openCategory, setOpenCategory] = useState(null);
   const { brochure } = useSelector((state) => state.product);
+   const [brands, setBrands] = useState([]);
+  const [openBrand, setOpenBrand] = useState(false);
   const [nav, setNav] = useState([]);
   const router = useRouter();
+  const toggleBrandDropdown = () => {
+    setOpenBrand(!openBrand);
+  };
 
   const toggleDropdown = (category) => {
     setOpenCategory(openCategory === category ? null : category);
@@ -31,6 +36,18 @@ const OffcanvasNav = ({ show, onClose }) => {
     };
 
     fetchNavbar();
+
+    const fetchBrands = async () => {
+      try {
+        const res = await axios.get(
+          "https://robust.mmrsolutions.co.in/api/Brand/Get"
+        );
+        setBrands(res.data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchBrands();
   }, []);
 
   const handleSubCategoryClick = (
@@ -78,6 +95,38 @@ const OffcanvasNav = ({ show, onClose }) => {
                   <h6>All Robust</h6>
                 </li>
               </Link>
+
+              <li>
+                <div className={`dropdown ${styles.dropdown}`}>
+                  <p onClick={() => toggleBrandDropdown()}>
+                    <h6>Brands</h6>
+                  </p>
+                  <div
+                    className={`${styles["dropdown-menu"]} ${
+                      openBrand && styles.show
+                    }`}
+                  >
+                    <div
+                      className="d-flex flex-column"
+                      style={{ fontSize: "13px" }}
+                    >
+                      {brands.map((brand, index) => (
+                        <span key={index} className="py-1 dropdown-item">
+                          <img
+                            src={brand?.BrandPicture}
+                            style={{
+                              height: "40px",
+                              width: "60px",
+                              objectFit: "contain",
+                            }}
+                            alt={`${brand?.BrandName}`}
+                          />
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </li>
 
               {nav.map((item, index) => (
                 <li key={index}>

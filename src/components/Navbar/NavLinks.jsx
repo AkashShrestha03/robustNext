@@ -71,7 +71,7 @@ const NavLinks = () => {
             All Robust
           </Link>
         </li>
-        {/* <li>
+        <li>
           <div className="dropdown">
             <p
               className="dropdown-toggle mb-0"
@@ -88,7 +88,10 @@ const NavLinks = () => {
             >
               <div className="d-flex flex-column align-items-center gap-2">
                 {brands?.map((brand, index) => (
-                  <span key={index}>
+                  <span
+                    key={index}
+                    className="dropdown-item d-flex justify-content-center"
+                  >
                     <img
                       src={brand?.BrandPicture}
                       style={{
@@ -96,14 +99,14 @@ const NavLinks = () => {
                         width: "60px",
                         objectFit: "contain",
                       }}
-                      alt=""
+                      alt={`${brand?.BrandName}`}
                     />
                   </span>
                 ))}
               </div>
             </div>
           </div>
-        </li> */}
+        </li>
         {nav.map((item, index) => (
           <li key={index}>
             {item.SubItems.length > 0 ? (
