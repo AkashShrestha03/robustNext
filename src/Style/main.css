@@ -12,13 +12,12 @@ section {
 }
 
 header {
-  background-image: url("../../public/Assests/bg-main.jpeg");
+  background-image: url("../../public/banner/robustBanner.png");
   width: 100%;
   height: 750px;
   position: relative;
   background-size: cover;
   box-shadow: inset 0 0 0 2000px rgb(0 0 0 / 24%);
-
   /* background-color: #ce5939; */
 }
 
