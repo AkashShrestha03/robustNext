@@ -93,7 +93,7 @@ const NavLinks = () => {
               className="dropdown-menu"
               aria-labelledby={`dropdownMenuButton`}
             >
-              <div className="d-flex flex-column align-items-center gap-2">
+              <div className="d-flex align-items-center gap-2">
                 {brands?.map((brand, index) => (
                   <span
                     key={index}
