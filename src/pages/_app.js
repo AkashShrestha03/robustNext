@@ -34,18 +34,19 @@ export default function App({ Component, pageProps }) {
 
       <Script
         strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-MDMP5BQ87X"
+        src={`https://www.googletagmanager.com/gtag/js?id=G-MDMP5BQ87X`}
       />
       <Script
         id="google-analytics"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
-             window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-MDMP5BQ87X');
-
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-MDMP5BQ87X', {
+              page_path: window.location.pathname,
+            });
           `,
         }}
       />
